@@ -1,0 +1,3957 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087b45">
+
+<title>Aliyu Abubakar Shinge | Bauchi Central</title>
+
+<style>
+:root {
+    --green: #087b45;
+    --green-dark: #064b2c;
+    --red: #d92736;
+    --white: #ffffff;
+    --gold: #f5c451;
+    --dark: #17251d;
+    --muted: #68766d;
+    --light: #f3f8f4;
+    --card: #ffffff;
+    --shadow: 0 12px 35px rgba(0,0,0,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+/* TOP BAR */
+
+.topbar {
+    background: var(--green-dark);
+    color: white;
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.language-select {
+    background: white;
+    color: var(--green-dark);
+    border: none;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* HEADER */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand img {
+    width: 57px;
+    height: 57px;
+    object-fit: contain;
+}
+
+.brand-text h2 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--green-dark);
+}
+
+.brand-text p {
+    color: var(--red);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.nav-join {
+    background: var(--green);
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+
+.menu-toggle {
+    display: none;
+    background: var(--green);
+    color: white;
+    border: 0;
+    padding: 9px 13px;
+    border-radius: 6px;
+    font-size: 21px;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(245,196,81,.25), transparent 30%),
+        linear-gradient(125deg, var(--green-dark), var(--green) 65%, #12965a);
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    right: -150px;
+    top: -170px;
+}
+
+.hero-grid {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 35px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content .eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #e5f3e9;
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 7px;
+    padding: 13px 20px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #28210f;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.7);
+    color: white;
+    background: transparent;
+}
+
+.hero-note {
+    margin-top: 25px;
+    color: #d4e9db;
+    font-size: 12px;
+}
+
+.hero-image-wrap {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 420px);
+}
+
+.hero-image-frame {
+    position: relative;
+    height: 450px;
+    border-radius: 190px 190px 22px 22px;
+    overflow: hidden;
+    border: 6px solid rgba(255,255,255,.18);
+    background: linear-gradient(150deg, #d7eadc, #b4d3be);
+}
+
+.hero-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.image-placeholder {
+    display: none;
+    height: 100%;
+    color: var(--green-dark);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    font-weight: bold;
+}
+
+.hero-image-frame.no-photo img {
+    display: none;
+}
+
+.hero-image-frame.no-photo .image-placeholder {
+    display: flex;
+}
+
+.photo-label {
+    position: absolute;
+    left: -15px;
+    bottom: 28px;
+    background: white;
+    color: var(--green-dark);
+    padding: 14px 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 230px;
+}
+
+.photo-label strong {
+    display: block;
+    font-size: 15px;
+}
+
+.photo-label small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* SLOGAN STRIP */
+
+.slogan-strip {
+    background: white;
+    border-bottom: 1px solid #e4ece5;
+}
+
+.slogan-inner {
+    padding: 23px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.slogan-mark {
+    width: 6px;
+    height: 38px;
+    border-radius: 5px;
+    background: linear-gradient(var(--green) 50%, var(--red) 50%);
+}
+
+.slogan-inner h2 {
+    color: var(--green-dark);
+    font-size: clamp(17px, 3vw, 24px);
+}
+
+.slogan-inner p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 78px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 42px;
+}
+
+.section-label {
+    color: var(--red);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    color: var(--green-dark);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.25;
+    margin: 10px 0 14px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-visual {
+    min-height: 340px;
+    border-radius: 20px;
+    padding: 35px;
+    background:
+        radial-gradient(circle at top right, #d8f0df, transparent 50%),
+        #e4f1e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-left: 7px solid var(--green);
+}
+
+.about-visual .big-letter {
+    font-size: 100px;
+    line-height: 1;
+    color: var(--green);
+    font-weight: 900;
+}
+
+.about-visual p {
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.about-content h2 {
+    color: var(--green-dark);
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.about-content > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.about-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.about-point {
+    background: white;
+    padding: 15px;
+    border-radius: 9px;
+    border: 1px solid #e5eee7;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.about-point span {
+    display: block;
+    color: var(--green);
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+/* PRIORITIES */
+
+.priorities {
+    background: white;
+}
+
+.priority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.priority-card {
+    padding: 28px;
+    background: var(--light);
+    border: 1px solid #e8f0e9;
+    border-radius: 13px;
+    transition: .25s;
+}
+
+.priority-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: #a7d5b5;
+}
+
+.priority-icon {
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    background: #dcefe1;
+    color: var(--green-dark);
+    border-radius: 12px;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.priority-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--green-dark);
+}
+
+.priority-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* INFORMATION BANNER */
+
+.info-banner {
+    background: linear-gradient(115deg, var(--green-dark), var(--green));
+    color: white;
+    padding: 48px 0;
+}
+
+.info-banner-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.info-banner h2 {
+    font-size: clamp(24px, 4vw, 34px);
+    margin-bottom: 8px;
+}
+
+.info-banner p {
+    color: #d7ebde;
+    font-size: 14px;
+}
+
+/* NEWS */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.04);
+    border: 1px solid #e8eee9;
+}
+
+.news-image {
+    height: 190px;
+    background: linear-gradient(135deg, #d9ecdf, #a6cfb2);
+    display: grid;
+    place-items: center;
+    color: var(--green-dark);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-body {
+    padding: 23px;
+}
+
+.news-tag {
+    display: inline-block;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.news-body h3 {
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--green-dark);
+}
+
+.news-body p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* CONTACT */
+
+.contact-section {
+    background: white;
+}
+
+.contact-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    background: var(--light);
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.contact-info h2 {
+    font-size: 29px;
+    color: var(--green-dark);
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.contact-detail {
+    padding: 13px 0;
+    border-bottom: 1px solid #dfe9e1;
+    font-size: 14px;
+}
+
+.contact-detail strong {
+    color: var(--green-dark);
+}
+
+.contact-form {
+    display: grid;
+    gap: 13px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    border: 1px solid #dce5dd;
+    border-radius: 7px;
+    outline: none;
+    color: var(--dark);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--green);
+}
+
+.contact-form textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.form-message {
+    font-size: 13px;
+    color: var(--green-dark);
+}
+
+/* FOOTER */
+
+footer {
+    background: #102c1c;
+    color: white;
+    padding: 45px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 35px;
+    padding-bottom: 30px;
+}
+
+.footer-brand {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.footer-grid p,
+.footer-grid a {
+    font-size: 12px;
+    color: #c5d8cb;
+}
+
+.footer-grid h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.footer-links {
+    display: grid;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.13);
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: #c5d8cb;
+}
+
+/* FLOATING TOP BUTTON */
+
+.back-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--red);
+    color: white;
+    font-size: 20px;
+    box-shadow: var(--shadow);
+    z-index: 500;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .brand-text h2 {
+        font-size: 14px;
+    }
+
+    .hero-grid {
+        min-height: 530px;
+    }
+
+    .hero-image-frame {
+        height: 390px;
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar-inner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .brand img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-text h2 {
+        font-size: 13px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: white;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 5%;
+        box-shadow: 0 12px 18px rgba(0,0,0,.1);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        font-size: 14px;
+        border-bottom: 1px solid #edf1ed;
+    }
+
+    .nav-join {
+        margin-top: 8px;
+        text-align: center;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-wrap {
+        width: min(85%, 340px);
+    }
+
+    .hero-image-frame {
+        height: 350px;
+    }
+
+    .photo-label {
+        left: -12px;
+    }
+
+    section {
+        padding: 58px 0;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-visual {
+        min-height: 240px;
+    }
+
+    .priority-grid,
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-box {
+        grid-template-columns: 1fr;
+        padding: 23px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .priority-grid,
+    .news-grid,
+    .about-points,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .priority-card {
+        padding: 23px;
+    }
+
+    .info-banner-inner {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .slogan-inner {
+        gap: 10px;
+    }
+
+    .contact-box {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span data-i18n="topText">Aliyu Abubakar Shinge | Bauchi Central Senatorial District</span>
+
+        <div class="topbar-right">
+            <span data-i18n="languageLabel">Harshe / Language</span>
+            <select class="language-select" id="languageSelect" aria-label="Select language">
+                <option value="ha">Hausa</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="brand">
+            <img src="images/pdp-logo.png" alt="PDP Logo"
+                 onerror="this.style.display='none'">
+
+            <div class="brand-text">
+                <h2>SHINGE 2027</h2>
+                <p data-i18n="brandSubtitle">BAUCHI CENTRAL</p>
+            </div>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">☰</button>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-i18n="navHome">Gida</a></li>
+                <li><a href="#about" data-i18n="navAbout">Game da Shi</a></li>
+                <li><a href="#priorities" data-i18n="navPriorities">Manufofi</a></li>
+                <li><a href="#news" data-i18n="navNews">Labarai</a></li>
+                <li><a href="#contact" data-i18n="navContact">Tuntuɓa</a></li>
+                <li><a href="#contact" class="nav-join" data-i18n="navJoin">Shiga Shafin</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <span class="eyebrow" data-i18n="heroEyebrow">
+                BAUCHI CENTRAL SENATORIAL DISTRICT
+            </span>
+
+            <h1>
+                <span data-i18n="heroLine1">Aliyu Abubakar</span><br>
+                <span data-i18n="heroLine2">Shinge</span>
+            </h1>
+
+            <p class="hero-description" data-i18n="heroDescription">
+                Barka da zuwa shafin bayanai na Aliyu Abubakar Shinge,
+                Bauchi Central Senatorial District.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-gold" data-i18n="heroButton1">
+                    Ƙarin Bayani →
+                </a>
+
+                <a href="#priorities" class="btn btn-outline" data-i18n="heroButton2">
+                    Duba Manufofi
+                </a>
+            </div>
+
+            <p class="hero-note" data-i18n="heroNote">
+                Ingantaccen Wakilci, Ci Gaba Mai Dorewa
+            </p>
+
+        </div>
+
+        <div class="hero-image-wrap">
+            <div class="hero-image-frame" id="candidateFrame">
+                <img src="images/candidate.jpg"
+                     alt="Candidate photograph"
+                     id="candidatePhoto">
+
+                <div class="image-placeholder">
+                    <span data-i18n="photoPlaceholder">
+                        Saka hoton Aliyu Abubakar Shinge a images/candidate.jpg
+                    </span>
+                </div>
+            </div>
+
+            <div class="photo-label">
+                <strong>Aliyu Abubakar Shinge</strong>
+                <small data-i18n="photoCaption">Bauchi Central Senatorial District</small>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SLOGAN -->
+<div class="slogan-strip">
+    <div class="container slogan-inner">
+        <div class="slogan-mark"></div>
+        <div>
+            <h2 data-i18n="slogan">Ingantaccen Wakilci, Ci Gaba Mai Dorewa</h2>
+            <p data-i18n="sloganEnglish">Quality Representation, Sustainable Development</p>
+        </div>
+        <div class="slogan-mark"></div>
+    </div>
+</div>
+
+
+
+<!-- =========================================
+     CANDIDATE PROFILE SECTION
+========================================= -->
+
+<section class="candidate-profile" id="candidate-profile">
+  <div class="profile-container">
+
+    <div class="profile-heading">
+      <span class="profile-label">MEET THE CANDIDATE</span>
+
+      <h2>Hon. Bello Aliyu Abubakar Shinge</h2>
+
+      <p>
+        A profile of his educational background, professional experience,
+        traditional titles and political journey.
+      </p>
+    </div>
+
+    <!-- CANDIDATE PHOTO AND INTRODUCTION -->
+    <div class="profile-hero">
+      <div class="profile-photo">
+        <img
+          src="images/candidate.jpg"
+          alt="Hon. Bello Aliyu Abubakar Shinge"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+
+        <div class="profile-photo-placeholder">
+          <div>
+            <span>📷</span>
+            <p>Candidate photograph</p>
+            <small>Place the photo at images/candidate.jpg</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-introduction">
+        <span class="profile-eyebrow">BAUCHI CENTRAL SENATORIAL DISTRICT</span>
+
+        <h3>Hon. Bello Aliyu Abubakar Shinge</h3>
+
+        <p>
+          This profile presents the educational background, professional
+          experience, traditional titles and political history supplied
+          for the candidate.
+        </p>
+
+        <div class="profile-tags">
+          <span>🎓 Education</span>
+          <span>💼 Professional Experience</span>
+          <span>🏛️ Public Service</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="profile-card">
+      <h3>🎓 Educational Background</h3>
+
+      <ul>
+        <li>Darul Islam Primary School, Yola</li>
+        <li>Iqra Academy, Yola</li>
+        <li>
+          B.Sc. in Economics, Federal University of Technology, Yola
+        </li>
+      </ul>
+    </div>
+
+    <!-- CAREER -->
+    <div class="profile-card">
+      <h3>💼 Career and Professional Experience</h3>
+
+      <ul>
+        <li>
+          <strong>RICO GADO Nigeria Limited</strong>
+          <p>Procurement Assistant to the Chief Procurement Consultant.</p>
+        </li>
+
+        <li>
+          <strong>KADANE Marine Limited</strong>
+          <p>Business Promotion Manager.</p>
+        </li>
+
+        <li>
+          <strong>SHELTA FOX MAB / FEMAB</strong>
+          <p>
+            Director of Business Promotion and Investment, Head of Foreign
+            Directorate, and Head of Procurement and Investment.
+          </p>
+        </li>
+
+        <li>
+          <strong>Square Builders Nigeria Limited</strong>
+          <p>Vice Chairman.</p>
+        </li>
+
+        <li>
+          <strong>West Africa Strategic and Business Promotion Planning</strong>
+          <p>
+            Vice Chairman; the supplied biography states that the
+            headquarters is in Beirut, Lebanon.
+          </p>
+        </li>
+
+        <li>
+          <strong>SHINGE BAT Limited</strong>
+          <p>
+            Chief Executive Officer (CEO). The supplied biography describes
+            the firm as a consulting business focused on global economic
+            analysis and economic advancement.
+          </p>
+        </li>
+
+        <li>
+          <strong>MANSON Inch Limited</strong>
+          <p>
+            Chief Executive Officer (CEO), in the import and export of
+            petroleum products.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TRADITIONAL TITLES -->
+    <div class="profile-card">
+      <h3>👑 Traditional Titles</h3>
+
+      <ul>
+        <li>Adon Ganin Akko</li>
+        <li>Jagoran Kasar Bula</li>
+        <li>Mai Nasaran Miya</li>
+        <li>Dangaladiman Shinge</li>
+      </ul>
+    </div>
+
+    <!-- POLITICAL CAREER -->
+    <div class="profile-card">
+      <h3>🏛️ Political Career</h3>
+
+      <div class="political-timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-year">2019</span>
+
+          <div>
+            <h4>House of Representatives Contest</h4>
+            <p>
+              Contested under the All Progressives Congress (APC),
+              according to the supplied biography.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2023</span>
+
+          <div>
+            <h4>House of Representatives Contest</h4>
+            <p>
+              Contested under the New Nigeria Peoples Party (NNPP),
+              according to the supplied biography.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2026</span>
+
+          <div>
+            <h4>Bauchi Central Senatorial District</h4>
+            <p>
+              The supplied biography describes him as a nominated
+              senatorial candidate under the Peoples Democratic Party (PDP).
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="profile-disclaimer">
+      Note: Biographical, professional and political details should be
+      verified by the campaign office before publication.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- =========================================
+     SHINGE CAMPAIGN GALLERY
+========================================= -->
+
+<section class="campaign-gallery" id="campaign-gallery">
+
+    <div class="gallery-container">
+
+        <div class="gallery-heading">
+            <span class="gallery-eyebrow">HOTUNAN KAMFEN • CAMPAIGN PHOTOS</span>
+
+            <h2>Gallery — Hotunan Ayyukan Kamfen</h2>
+
+            <p>
+                Duba hotunan taruka, ziyarce-ziyarcen al'umma,
+                ganawa da magoya baya da sauran ayyukan kamfen.
+            </p>
+        </div>
+
+        <div class="gallery-filters">
+            <button class="gallery-filter active" data-filter="all">
+                Duka / All
+            </button>
+
+            <button class="gallery-filter" data-filter="rallies">
+                Taruka / Rallies
+            </button>
+
+            <button class="gallery-filter" data-filter="visits">
+                Ziyara / Visits
+            </button>
+
+            <button class="gallery-filter" data-filter="meetings">
+                Ganawa / Meetings
+            </button>
+        </div>
+
+        <div class="gallery-grid">
+
+            <article class="gallery-item" data-category="rallies">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton taron kamfen">
+                    <img src="images/gallery/rally-1.jpg"
+                         alt="Taron kamfen"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Taron Kamfen</h3>
+                    <p>Campaign Rally</p>
+                </div>
+            </article>
+
+            <article class="gallery-item" data-category="visits">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton ziyarar al'umma">
+                    <img src="images/gallery/visit-1.jpg"
+                         alt="Ziyarar al'umma"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Ziyarar Al'umma</h3>
+                    <p>Community Visit</p>
+                </div>
+            </article>
+
+            <article class="gallery-item" data-category="meetings">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton ganawar kamfen">
+                    <img src="images/gallery/meeting-1.jpg"
+                         alt="Ganawar kamfen"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Ganawa da Masu Ruwa da Tsaki</h3>
+                    <p>Stakeholders Meeting</p>
+                </div>
+            </article>
+
+            <article class="gallery-item" data-category="rallies">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton taron magoya baya">
+                    <img src="images/gallery/rally-2.jpg"
+                         alt="Magoya bayan kamfen"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Magoya Bayan Kamfen</h3>
+                    <p>Campaign Supporters</p>
+                </div>
+            </article>
+
+            <article class="gallery-item" data-category="visits">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton ziyarar al'umma ta biyu">
+                    <img src="images/gallery/visit-2.jpg"
+                         alt="Ziyarar al'umma"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Haɗuwa da Al'umma</h3>
+                    <p>Community Engagement</p>
+                </div>
+            </article>
+
+            <article class="gallery-item" data-category="meetings">
+                <button class="gallery-image-button" type="button"
+                        aria-label="Buɗe hoton ganawa ta biyu">
+                    <img src="images/gallery/meeting-2.jpg"
+                         alt="Ganawar shugabannin kamfen"
+                         loading="lazy">
+                    <span class="gallery-zoom"><i class="fas fa-search-plus"></i></span>
+                </button>
+                <div class="gallery-caption">
+                    <h3>Ganawar Shugabanni</h3>
+                    <p>Leadership Meeting</p>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="gallery-note">
+            Lura: A saka hotunan kamfen na gaske a cikin babban fayil ɗin images/gallery.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SHINGE NEWS AND UPDATES
+========================================= -->
+
+<section class="campaign-news" id="campaign-news">
+
+    <div class="news-container">
+
+        <div class="news-heading">
+            <span class="news-eyebrow">LABARAN KAMFEN • CAMPAIGN NEWS</span>
+
+            <h2>News & Updates</h2>
+
+            <p>
+                Sabbin sanarwa, labaran ayyukan kamfen da muhimman bayanai.
+                Latest campaign news, announcements and updates.
+            </p>
+        </div>
+
+        <!-- NEWS FILTERS -->
+        <div class="news-filters">
+
+            <button type="button" class="news-filter active"
+                    data-news-filter="all">
+                Duka / All
+            </button>
+
+            <button type="button" class="news-filter"
+                    data-news-filter="announcements">
+                Sanarwa / Announcements
+            </button>
+
+            <button type="button" class="news-filter"
+                    data-news-filter="events">
+                Ayyuka / Events
+            </button>
+
+            <button type="button" class="news-filter"
+                    data-news-filter="updates">
+                Sabuntawa / Updates
+            </button>
+
+        </div>
+
+        <!-- NEWS CARDS -->
+        <div class="news-grid">
+
+            <article class="news-card" data-news-category="announcements">
+
+                <div class="news-card-top">
+                    <span class="news-category">Sanarwa</span>
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+
+                <div class="news-card-content">
+
+                    <p class="news-date">Sanarwar Kamfen</p>
+
+                    <h3>Sanarwa ta Hukuma</h3>
+
+                    <p class="news-summary">
+                        A nan za a saka sanarwar hukuma da shugabannin
+                        kamfen suka amince a wallafa.
+                    </p>
+
+                    <details class="news-details">
+                        <summary>Karanta ƙarin bayani / Read More</summary>
+
+                        <p>
+                            Saka cikakken bayanin sanarwar a nan.
+                            A tabbatar da sahihancin bayanin da kuma
+                            amincewar wanda ke da ikon wallafa shi.
+                        </p>
+                    </details>
+
+                </div>
+
+            </article>
+
+            <article class="news-card" data-news-category="events">
+
+                <div class="news-card-top">
+                    <span class="news-category">Ayyukan Kamfen</span>
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+
+                <div class="news-card-content">
+
+                    <p class="news-date">Labarin Aiki</p>
+
+                    <h3>Ayyuka da Taro</h3>
+
+                    <p class="news-summary">
+                        A nan za a wallafa bayanai game da tarukan kamfen,
+                        ziyarce-ziyarcen al'umma da sauran ayyuka.
+                    </p>
+
+                    <details class="news-details">
+                        <summary>Karanta ƙarin bayani / Read More</summary>
+
+                        <p>
+                            Saka ranar taro, wurin da aka gudanar da shi,
+                            muhimman bayanai da hotunan da aka amince
+                            a wallafa.
+                        </p>
+                    </details>
+
+                </div>
+
+            </article>
+
+            <article class="news-card" data-news-category="updates">
+
+                <div class="news-card-top">
+                    <span class="news-category">Sabuntawa</span>
+                    <i class="fas fa-newspaper"></i>
+                </div>
+
+                <div class="news-card-content">
+
+                    <p class="news-date">Sabon Bayani</p>
+
+                    <h3>Sabbin Bayanai na Kamfen</h3>
+
+                    <p class="news-summary">
+                        A nan za a saka sabbin bayanai da suka shafi
+                        shirye-shirye da ayyukan kamfen.
+                    </p>
+
+                    <details class="news-details">
+                        <summary>Karanta ƙarin bayani / Read More</summary>
+
+                        <p>
+                            Saka cikakken bayani, ranar wallafawa,
+                            da tushen bayanin idan ya dace.
+                        </p>
+                    </details>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <p class="news-notice">
+            Waɗannan katunan misalai ne. A maye gurbin bayanansu da
+            sahihan labarai da sanarwar da aka amince a wallafa.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     SUPHI CAMPAIGN WEBSITE
+     CONTACT & SOCIAL MEDIA
+========================================== -->
+
+<section class="campaign-contact" id="campaign-contact">
+    <div class="contact-container">
+
+        <div class="contact-heading">
+            <span class="contact-label">GET IN TOUCH</span>
+            <h2>Contact Our Campaign</h2>
+            <p>
+                Connect with the campaign team for enquiries,
+                participation and official updates.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>Replace with the campaign's verified email</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">☎</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>Replace with the official campaign phone number</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Campaign Office</h4>
+                        <p>Add the verified campaign office address</p>
+                    </div>
+                </div>
+
+                <div class="contact-socials">
+                    <h4>Follow Our Campaign</h4>
+
+                    <!-- Replace # with the verified official profile URLs -->
+                    <a href="#" class="social-link" target="_blank"
+                       rel="noopener noreferrer">Facebook</a>
+
+                    <a href="#" class="social-link" target="_blank"
+                       rel="noopener noreferrer">Instagram</a>
+
+                    <a href="#" class="social-link" target="_blank"
+                       rel="noopener noreferrer">X</a>
+
+                    <a href="#" class="social-link" target="_blank"
+                       rel="noopener noreferrer">YouTube</a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-box">
+                <h3>Send Us a Message</h3>
+                <p>Complete the form below to prepare your message.</p>
+
+                <form id="campaignContactForm">
+
+                    <div class="contact-form-group">
+                        <label for="contactName">Full Name</label>
+                        <input
+                            type="text"
+                            id="contactName"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label for="contactSubject">Subject</label>
+                        <select id="contactSubject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="General Enquiry">General Enquiry</option>
+                            <option value="Campaign Participation">Campaign Participation</option>
+                            <option value="Volunteer Support">Volunteer Support</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="contact-form-group">
+                        <label for="contactMessage">Your Message</label>
+                        <textarea
+                            id="contactMessage"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your message here..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-submit-btn">
+                        Prepare Email Message
+                    </button>
+
+                    <p class="contact-form-note" id="contactFormStatus"
+                       aria-live="polite"></p>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY LIGHTBOX -->
+<div class="gallery-lightbox" id="galleryLightbox"
+     role="dialog" aria-modal="true" aria-label="Babban hoton kamfen"
+     hidden>
+
+    <button class="gallery-close" id="galleryClose"
+            type="button" aria-label="Rufe hoton">
+        &times;
+    </button>
+
+    <button class="gallery-prev" id="galleryPrev"
+            type="button" aria-label="Hoton baya">
+        &#10094;
+    </button>
+
+    <img id="galleryLightboxImage" src="" alt="Babban hoton kamfen">
+
+    <button class="gallery-next" id="galleryNext"
+            type="button" aria-label="Hoto na gaba">
+        &#10095;
+    </button>
+
+    <p id="galleryLightboxCaption"></p>
+</div>
+
+<style>
+
+/* =========================================
+   CANDIDATE PROFILE STYLES
+========================================= */
+
+.candidate-profile {
+  padding: 70px 20px;
+  background: #f5f7f5;
+  color: #24312a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.profile-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.profile-label {
+  display: inline-block;
+  color: #b69235;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.profile-heading h2 {
+  color: #075b35;
+  font-size: clamp(27px, 4vw, 40px);
+  line-height: 1.25;
+  margin: 0 0 15px;
+}
+
+.profile-heading p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #5d675f;
+}
+
+/* PHOTO AND INTRODUCTION */
+
+.profile-hero {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: 35px;
+  padding: 28px;
+  margin: 25px 0 35px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  border-top: 4px solid #087443;
+}
+
+.profile-photo {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  height: 370px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #dcefe1, #b7d9c1);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile-photo-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: #075b35;
+}
+
+.profile-photo-placeholder span {
+  font-size: 42px;
+}
+
+.profile-photo-placeholder p {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.profile-photo-placeholder small {
+  overflow-wrap: anywhere;
+}
+
+.profile-introduction h3 {
+  margin: 12px 0;
+  color: #075b35;
+  font-size: clamp(23px, 3vw, 32px);
+  line-height: 1.35;
+}
+
+.profile-introduction > p {
+  color: #59635c;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.profile-eyebrow {
+  display: inline-block;
+  color: #b69235;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.profile-tags span {
+  display: inline-block;
+  padding: 8px 11px;
+  background: #edf6ef;
+  color: #075b35;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* PROFILE INFORMATION CARDS */
+
+.profile-card {
+  background: #fff;
+  padding: 28px;
+  margin: 22px 0;
+  border-radius: 12px;
+  border-left: 5px solid #087443;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card h3 {
+  color: #075b35;
+  font-size: 22px;
+  line-height: 1.4;
+  margin: 0 0 20px;
+}
+
+.profile-card ul {
+  padding-left: 22px;
+  margin: 0;
+}
+
+.profile-card li {
+  padding: 7px 0;
+  line-height: 1.7;
+}
+
+.profile-card li strong {
+  color: #24312a;
+}
+
+.profile-card li p {
+  margin: 4px 0 8px;
+  color: #59635c;
+  line-height: 1.8;
+}
+
+/* POLITICAL TIMELINE */
+
+.political-timeline {
+  display: grid;
+  gap: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e6ece7;
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline-year {
+  flex: 0 0 65px;
+  background: #075b35;
+  color: #fff;
+  text-align: center;
+  padding: 9px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.timeline-item h4 {
+  margin: 5px 0 8px;
+  color: #24312a;
+  line-height: 1.5;
+}
+
+.timeline-item p {
+  margin: 0;
+  line-height: 1.8;
+  color: #59635c;
+}
+
+.profile-disclaimer {
+  margin-top: 25px;
+  color: #68766d;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* TABLET AND MOBILE */
+
+@media (max-width: 700px) {
+  .candidate-profile {
+    padding: 45px 15px;
+  }
+
+  .profile-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .profile-photo {
+    max-width: 300px;
+    height: 340px;
+  }
+
+  .profile-introduction {
+    text-align: center;
+  }
+
+  .profile-tags {
+    justify-content: center;
+  }
+
+  .profile-card {
+    padding: 22px 18px;
+  }
+
+  .profile-card h3 {
+    font-size: 19px;
+  }
+
+  .timeline-item {
+    gap: 12px;
+  }
+
+  .timeline-year {
+    flex-basis: 55px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .profile-photo {
+    height: 290px;
+  }
+
+  .profile-hero {
+    padding: 15px;
+  }
+
+  .profile-card {
+    padding: 18px 14px;
+  }
+
+  .profile-card ul {
+    padding-left: 19px;
+  }
+}
+
+/* ==========================================
+   CONTACT & SOCIAL MEDIA
+========================================== */
+
+.campaign-contact {
+    padding: 75px 20px;
+    background: #f4f7f5;
+    color: #24332b;
+}
+
+.contact-container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.contact-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.contact-label {
+    display: inline-block;
+    color: #16834a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.contact-heading h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 0 0 15px;
+}
+
+.contact-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #65736a;
+    line-height: 1.8;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.contact-info,
+.contact-form-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.contact-info h3,
+.contact-form-box h3 {
+    margin: 0 0 12px;
+    font-size: 23px;
+}
+
+.contact-form-box > p {
+    color: #68756d;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 28px 0;
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6f5eb;
+    color: #16834a;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.contact-item h4 {
+    margin: 0 0 6px;
+}
+
+.contact-item p {
+    margin: 0;
+    color: #68756d;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.contact-socials {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #e7ece8;
+}
+
+.contact-socials h4 {
+    margin: 0 0 15px;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 0 7px 8px 0;
+    padding: 9px 13px;
+    background: #e6f5eb;
+    color: #146d3d;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.social-link:hover {
+    background: #16834a;
+    color: #ffffff;
+}
+
+.contact-form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #d8e1da;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #24332b;
+    font: inherit;
+    font-size: 15px;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus {
+    outline: 2px solid #16834a;
+    outline-offset: 1px;
+    border-color: #16834a;
+}
+
+.contact-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-submit-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #16834a;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.contact-submit-btn:hover {
+    background: #106638;
+}
+
+.contact-form-note {
+    margin-top: 15px;
+    line-height: 1.6;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    .campaign-contact {
+        padding: 50px 15px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-info,
+    .contact-form-box {
+        padding: 22px;
+    }
+
+    .contact-heading {
+        margin-bottom: 30px;
+    }
+
+    .contact-item {
+        margin: 22px 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .contact-info,
+    .contact-form-box {
+        padding: 17px;
+    }
+
+    .social-link {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
+</style>
+
+
+<style>
+  .candidate-profile {
+    padding: 70px 20px;
+    background: #f5f7f5;
+    color: #24312a;
+    font-family: Arial, sans-serif;
+  }
+
+  .profile-container {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .profile-heading {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .profile-label {
+    display: inline-block;
+    color: #b69235;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .profile-heading h2 {
+    color: #075b35;
+    font-size: clamp(27px, 4vw, 40px);
+    margin: 0 0 15px;
+  }
+
+  .profile-heading p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    color: #5d675f;
+  }
+
+  .profile-card {
+    background: #fff;
+    padding: 28px;
+    margin: 22px 0;
+    border-radius: 12px;
+    border-left: 5px solid #087443;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .profile-card h3 {
+    color: #075b35;
+    font-size: 22px;
+    margin: 0 0 20px;
+  }
+
+  .profile-card ul {
+    padding-left: 22px;
+    margin: 0;
+  }
+
+  .profile-card li {
+    padding: 7px 0;
+    line-height: 1.7;
+  }
+
+  .profile-card li p {
+    margin: 4px 0 8px;
+    color: #59635c;
+    line-height: 1.8;
+  }
+
+  .political-timeline {
+    display: grid;
+    gap: 20px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6ece7;
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .timeline-year {
+    background: #075b35;
+    color: #fff;
+    min-width: 65px;
+    text-align: center;
+    padding: 9px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+
+  .timeline-item h4 {
+    margin: 5px 0 8px;
+    color: #24312a;
+  }
+
+  .timeline-item p {
+    margin: 0;
+    line-height: 1.7;
+    color: #59635c;
+  }
+
+  @media (max-width: 600px) {
+    .candidate-profile {
+      padding: 45px 15px;
+    }
+
+    .profile-card {
+      padding: 20px 17px;
+    }
+
+    .profile-card h3 {
+      font-size: 19px;
+    }
+
+    .timeline-item {
+      gap: 12px;
+    }
+
+    .timeline-year {
+      min-width: 55px;
+      font-size: 14px;
+    }
+  }
+  
+/* =========================================
+   SHINGE CAMPAIGN GALLERY
+========================================= */
+
+.campaign-gallery {
+    padding: 75px 20px;
+    background: #f5f7fa;
+    color: #172033;
+}
+
+.gallery-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-heading {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.gallery-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #b58a20;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.gallery-heading h2 {
+    margin: 0 0 15px;
+    font-size: clamp(26px, 4vw, 40px);
+    line-height: 1.3;
+}
+
+.gallery-heading p {
+    margin: 0;
+    color: #5e6878;
+    line-height: 1.8;
+}
+
+.gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.gallery-filter {
+    padding: 11px 18px;
+    border: 1px solid #d5dbe5;
+    border-radius: 25px;
+    background: #fff;
+    color: #172033;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.gallery-filter:hover,
+.gallery-filter.active {
+    background: #087443;
+    border-color: #087443;
+    color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.gallery-item {
+    min-width: 0;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item[hidden] {
+    display: none !important;
+}
+
+.gallery-image-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: #e7ebef;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
+.gallery-image-button img {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover .gallery-image-button img {
+    transform: scale(1.05);
+}
+
+.gallery-zoom {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.gallery-item:hover .gallery-zoom,
+.gallery-image-button:focus-visible .gallery-zoom {
+    opacity: 1;
+}
+
+.gallery-caption {
+    padding: 18px;
+}
+
+.gallery-caption h3 {
+    margin: 0 0 7px;
+    font-size: 17px;
+}
+
+.gallery-caption p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.gallery-note {
+    margin-top: 28px;
+    text-align: center;
+    color: #687385;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FULL-SIZE IMAGE VIEW */
+
+.gallery-lightbox[hidden] {
+    display: none !important;
+}
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 65px;
+    background: rgba(0, 0, 0, 0.94);
+}
+
+.gallery-lightbox img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.gallery-lightbox button {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+.gallery-close {
+    top: 12px;
+    right: 22px;
+}
+
+.gallery-prev {
+    left: 12px;
+}
+
+.gallery-next {
+    right: 12px;
+}
+
+#galleryLightboxCaption {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    right: 15px;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+body.gallery-modal-open {
+    overflow: hidden;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .gallery-image-button img {
+        height: 220px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 560px) {
+    .campaign-gallery {
+        padding: 50px 14px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-image-button img {
+        height: 240px;
+    }
+
+    .gallery-filters {
+        gap: 8px;
+    }
+
+    .gallery-filter {
+        padding: 9px 13px;
+        font-size: 13px;
+    }
+
+    .gallery-lightbox {
+        padding: 55px 42px;
+    }
+
+    .gallery-lightbox button {
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================
+   SUPHI NEWS AND UPDATES
+========================================= */
+
+.campaign-news {
+    padding: 75px 20px;
+    background: #ffffff;
+    color: #172033;
+}
+
+.news-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-heading {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.news-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #b58a20;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.news-heading h2 {
+    margin: 0 0 15px;
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.news-heading p {
+    margin: 0;
+    color: #5e6878;
+    line-height: 1.8;
+}
+
+.news-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.news-filter {
+    padding: 10px 17px;
+    border: 1px solid #d5dbe5;
+    border-radius: 24px;
+    background: #f7f8fa;
+    color: #172033;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.news-filter:hover,
+.news-filter.active {
+    background: #087443;
+    border-color: #087443;
+    color: #ffffff;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.news-card {
+    overflow: hidden;
+    border: 1px solid #e5e9ef;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.news-card[hidden] {
+    display: none !important;
+}
+
+.news-card-top {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 22px;
+    background: #075b39;
+    color: #ffffff;
+}
+
+.news-card-top > i {
+    font-size: 30px;
+    opacity: 0.9;
+}
+
+.news-category {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.news-card-content {
+    padding: 22px;
+}
+
+.news-date {
+    margin: 0 0 10px;
+    color: #9a7519;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.news-card-content h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    line-height: 1.45;
+}
+
+.news-summary {
+    color: #5e6878;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.news-details {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #e5e9ef;
+}
+
+.news-details summary {
+    color: #087443;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.news-details p {
+    color: #5e6878;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.news-notice {
+    margin-top: 30px;
+    color: #687385;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 560px) {
+    .campaign-news {
+        padding: 50px 14px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-filters {
+        gap: 8px;
+    }
+
+    .news-filter {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .news-card-top {
+        min-height: 85px;
+    }
+}
+
+/* ==========================================
+   SUPHI CAMPAIGN WEBSITE
+   MOBILE VIEW IMPROVEMENTS
+========================================== */
+
+/* Prevent horizontal scrolling */
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+/* Make common content fit the screen */
+section {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.container,
+.wrapper,
+.content,
+.section-container {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Tablet and mobile */
+@media screen and (max-width: 768px) {
+
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    h1 {
+        font-size: clamp(27px, 7vw, 38px);
+        line-height: 1.25;
+        overflow-wrap: break-word;
+    }
+
+    h2 {
+        font-size: clamp(23px, 5.5vw, 32px);
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: clamp(18px, 4.5vw, 24px);
+        line-height: 1.4;
+    }
+
+    p {
+        overflow-wrap: break-word;
+    }
+
+    /* Navigation */
+    nav,
+    .navbar,
+    .nav-container {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav a,
+    .navbar a {
+        overflow-wrap: anywhere;
+    }
+
+    /* Responsive grids */
+    .news-grid,
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .news-card,
+    .contact-info,
+    .contact-form-box {
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* Candidate profile */
+    .candidate-profile img,
+    .candidate-image img,
+    .profile-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Gallery */
+    .gallery-grid,
+    .gallery-container,
+    .campaign-gallery-grid {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .gallery-grid img,
+    .campaign-gallery img {
+        max-width: 100%;
+    }
+
+    /* Forms and buttons */
+    input,
+    select,
+    textarea,
+    button {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    /* Tables */
+    table {
+        max-width: 100%;
+    }
+
+    /* Prevent long links from stretching the page */
+    a {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 480px) {
+
+    section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .contact-info,
+    .contact-form-box {
+        padding: 17px;
+    }
+
+    .social-link {
+        margin-right: 4px;
+        margin-bottom: 8px;
+    }
+
+    .contact-submit-btn,
+    button {
+        min-height: 44px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+</style>
+
+
+<!-- PRIORITIES -->
+<section class="priorities" id="priorities">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="section-label" data-i18n="prioritiesLabel">Muhimman Batutuwa</span>
+            <h2 data-i18n="prioritiesTitle">Manufofi da Manyan Batutuwa</h2>
+            <p data-i18n="prioritiesDescription">
+                Wannan sashe zai ƙunshi bayanai kan batutuwan ci gaba
+                da za a fayyace a cikin shirin kamfen.
+            </p>
+        </div>
+
+        <div class="priority-grid">
+
+            <article class="priority-card">
+                <div class="priority-icon">🎓</div>
+                <h3 data-i18n="priority1Title">Ilimi</h3>
+                <p data-i18n="priority1Text">
+                    Bayani kan shawarwari da shirye-shiryen da suka shafi ilimi.
+                </p>
+            </article>
+
+            <article class="priority-card">
+                <div class="priority-icon">🏥</div>
+                <h3 data-i18n="priority2Title">Lafiya</h3>
+                <p data-i18n="priority2Text">
+                    Bayani kan inganta ayyukan lafiya da jin daɗin al'umma.
+                </p>
+            </article>
+
+            <article class="priority-card">
+                <div class="priority-icon">🌾</div>
+                <h3 data-i18n="priority3Title">Noma</h3>
+                <p data-i18n="priority3Text">
+                    Batutuwan noma, manoma da bunƙasa tattalin arziki.
+                </p>
+            </article>
+
+            <article class="priority-card">
+                <div class="priority-icon">💼</div>
+                <h3 data-i18n="priority4Title">Matasa da Sana'o'i</h3>
+                <p data-i18n="priority4Text">
+                    Bayani kan ƙwarewa, sana'o'i da damar tattalin arziki.
+                </p>
+            </article>
+
+            <article class="priority-card">
+                <div class="priority-icon">🚰</div>
+                <h3 data-i18n="priority5Title">Ruwa da Ababen More Rayuwa</h3>
+                <p data-i18n="priority5Text">
+                    Muhimman batutuwan ruwa, hanyoyi da sauran abubuwan more rayuwa.
+                </p>
+            </article>
+
+            <article class="priority-card">
+                <div class="priority-icon">🤝</div>
+                <h3 data-i18n="priority6Title">Riƙon Amana</h3>
+                <p data-i18n="priority6Text">
+                    Bayanan gaskiya, riƙon amana da wakilci bisa doka.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- INFORMATION BANNER -->
+<div class="info-banner">
+    <div class="container info-banner-inner">
+        <div>
+            <h2 data-i18n="bannerTitle">Bayanai a Wuri Ɗaya</h2>
+            <p data-i18n="bannerText">
+                Karanta bayanai, manufofi da sabbin sanarwa a wannan shafi.
+            </p>
+        </div>
+
+        <a href="#contact" class="btn btn-gold" data-i18n="bannerButton">
+            Tuntuɓi Ofishi →
+        </a>
+    </div>
+</div>
+
+<!-- NEWS -->
+<section id="news">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="section-label" data-i18n="newsLabel">Sabbin Bayanai</span>
+            <h2 data-i18n="newsTitle">Labarai da Sanarwa</h2>
+            <p data-i18n="newsDescription">
+                Za a wallafa sahihan labarai da sanarwa a wannan sashe.
+            </p>
+        </div>
+
+        <div class="news-grid">
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span data-i18n="newsPlaceholder1">Hoton Labari na 1</span>
+                </div>
+                <div class="news-body">
+                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
+                    <h3 data-i18n="news1Title">Sabon Bayani Zai Bayyana a Nan</h3>
+                    <p data-i18n="news1Text">
+                        Saka sahihin labari ko sanarwa a nan bayan an tabbatar da shi.
+                    </p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span data-i18n="newsPlaceholder2">Hoton Labari na 2</span>
+                </div>
+                <div class="news-body">
+                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
+                    <h3 data-i18n="news2Title">Bayanan Ayyuka da Tarurruka</h3>
+                    <p data-i18n="news2Text">
+                        Za a sanya sahihan bayanai game da tarurruka da ayyuka.
+                    </p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span data-i18n="newsPlaceholder3">Hoton Labari na 3</span>
+                </div>
+                <div class="news-body">
+                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
+                    <h3 data-i18n="news3Title">Bayanan Kamfen</h3>
+                    <p data-i18n="news3Text">
+                        Ƙara sabbin bayanan kamfen da takardu da aka amince da su.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="section-label" data-i18n="contactLabel">Tuntuɓa</span>
+            <h2 data-i18n="contactTitle">Tuntuɓi Ofishin Kamfen</h2>
+            <p data-i18n="contactDescription">
+                Za ka iya shirya saƙonka a nan. Za a haɗa form ɗin da tsarin karɓar saƙonni daga baya.
+            </p>
+        </div>
+
+        <div class="contact-box">
+
+            <div class="contact-info">
+                <h2 data-i18n="contactInfoTitle">Bayanan Ofishi</h2>
+
+                <p data-i18n="contactInfoText">
+                    Ana iya ƙara bayanan tuntuɓa na hukuma a nan bayan an tabbatar da su.
+                </p>
+
+                <div class="contact-detail">
+                    <strong data-i18n="districtLabel">Yanki:</strong>
+                    <span data-i18n="districtValue">Bauchi Central Senatorial District</span>
+                </div>
+
+                <div class="contact-detail">
+                    <strong data-i18n="phoneLabel">Waya:</strong>
+                    <span data-i18n="phoneValue">A saka lambar hukuma</span>
+                </div>
+
+                <div class="contact-detail">
+                    <strong data-i18n="emailLabel">Imel:</strong>
+                    <span data-i18n="emailValue">A saka imel na hukuma</span>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="visitorName"
+                       data-i18n-placeholder="namePlaceholder"
+                       placeholder="Cikakken suna" required>
+
+                <input type="email" id="visitorEmail"
+                       data-i18n-placeholder="emailPlaceholder"
+                       placeholder="Adireshin imel" required>
+
+                <textarea id="visitorMessage"
+                          data-i18n-placeholder="messagePlaceholder"
+                          placeholder="Rubuta saƙonka..." required></textarea>
+
+                <button type="submit" class="btn btn-gold"
+                        data-i18n="sendButton">
+                    Shirya Saƙo
+                </button>
+
+                <p class="form-message" id="formMessage" aria-live="polite"></p>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <div class="footer-brand">SHINGE 2027</div>
+                <p data-i18n="footerDescription">
+                    Shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.
+                </p>
+            </div>
+
+            <div>
+                <h3 data-i18n="footerLinksTitle">Hanyoyin Shafi</h3>
+                <div class="footer-links">
+                    <a href="#home" data-i18n="navHome">Gida</a>
+                    <a href="#about" data-i18n="navAbout">Game da Shi</a>
+                    <a href="#priorities" data-i18n="navPriorities">Manufofi</a>
+                    <a href="#news" data-i18n="navNews">Labarai</a>
+                </div>
+            </div>
+
+            <div>
+                <h3 data-i18n="footerContactTitle">Tuntuɓa</h3>
+                <div class="footer-links">
+                    <a href="#contact" data-i18n="footerContactLink">Bayanan Ofishi</a>
+                    <a href="#contact" data-i18n="footerMessageLink">Aika Saƙo</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="currentYear"></span> Aliyu Abubakar Shinge.</span>
+            <span data-i18n="footerRights">An tanadi haƙƙoƙi.</span>
+        </div>
+
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<script>
+"use strict";
+
+/* =====================================
+   HAUSA / ENGLISH TRANSLATOR
+===================================== */
+
+const translations = {
+    ha: {
+        topText: "Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
+        languageLabel: "Harshe / Language",
+        brandSubtitle: "BAUCHI CENTRAL",
+
+        navHome: "Gida",
+        navAbout: "Game da Shi",
+        navPriorities: "Manufofi",
+        navNews: "Labarai",
+        navContact: "Tuntuɓa",
+        navJoin: "Shiga Shafin",
+
+        heroEyebrow: "YANKIN SANATA NA BAUCHI CENTRAL",
+        heroLine1: "Aliyu Abubakar",
+        heroLine2: "Shinge",
+        heroDescription: "Barka da zuwa shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        heroButton1: "Ƙarin Bayani →",
+        heroButton2: "Duba Manufofi",
+        heroNote: "Ingantaccen Wakilci, Ci Gaba Mai Dorewa",
+        photoPlaceholder: "Saka hoton Aliyu Abubakar Shinge a images/candidate.jpg",
+        photoCaption: "Bauchi Central Senatorial District",
+
+        slogan: "Ingantaccen Wakilci, Ci Gaba Mai Dorewa",
+        sloganEnglish: "Quality Representation, Sustainable Development",
+
+        aboutVisual: "Bauchi Central • Sanata • Wakilci",
+        aboutLabel: "Game da Ɗan Takara",
+        aboutTitle: "Sanin Ɗan Takara da Ayyukansa",
+        aboutP1: "Wannan shafi an tsara shi ne domin gabatar da bayanan Aliyu Abubakar Shinge, tarihin rayuwarsa, da abubuwan da suka shafi takararsa a Bauchi Central.",
+        aboutP2: "Za a iya sabunta wannan sashe da sahihin tarihin rayuwa, ilimi, gogewa, ayyuka da sauran bayanan da aka tabbatar.",
+        aboutPoint1: "Tarihin Rayuwa",
+        aboutPoint2: "Ilimi da Gogewa",
+        aboutPoint3: "Manufofi",
+        aboutPoint4: "Bayanan Tuntuɓa",
+
+        prioritiesLabel: "Muhimman Batutuwa",
+        prioritiesTitle: "Manufofi da Manyan Batutuwa",
+        prioritiesDescription: "Wannan sashe zai ƙunshi bayanai kan batutuwan ci gaba da za a fayyace a cikin shirin kamfen.",
+
+        priority1Title: "Ilimi",
+        priority1Text: "Bayani kan shawarwari da shirye-shiryen da suka shafi ilimi.",
+        priority2Title: "Lafiya",
+        priority2Text: "Bayani kan inganta ayyukan lafiya da jin daɗin al'umma.",
+        priority3Title: "Noma",
+        priority3Text: "Batutuwan noma, manoma da bunƙasa tattalin arziki.",
+        priority4Title: "Matasa da Sana'o'i",
+        priority4Text: "Bayani kan ƙwarewa, sana'o'i da damar tattalin arziki.",
+        priority5Title: "Ruwa da Ababen More Rayuwa",
+        priority5Text: "Muhimman batutuwan ruwa, hanyoyi da sauran abubuwan more rayuwa.",
+        priority6Title: "Riƙon Amana",
+        priority6Text: "Bayanan gaskiya, riƙon amana da wakilci bisa doka.",
+
+        bannerTitle: "Bayanai a Wuri Ɗaya",
+        bannerText: "Karanta bayanai, manufofi da sabbin sanarwa a wannan shafi.",
+        bannerButton: "Tuntuɓi Ofishi →",
+
+        newsLabel: "Sabbin Bayanai",
+        newsTitle: "Labarai da Sanarwa",
+        newsDescription: "Za a wallafa sahihan labarai da sanarwa a wannan sashe.",
+        newsPlaceholder1: "Hoton Labari na 1",
+        newsPlaceholder2: "Hoton Labari na 2",
+        newsPlaceholder3: "Hoton Labari na 3",
+        newsTag: "Sanarwa",
+        news1Title: "Sabon Bayani Zai Bayyana a Nan",
+        news1Text: "Saka sahihin labari ko sanarwa a nan bayan an tabbatar da shi.",
+        news2Title: "Bayanan Ayyuka da Tarurruka",
+        news2Text: "Za a sanya sahihan bayanai game da tarurruka da ayyuka.",
+        news3Title: "Bayanan Kamfen",
+        news3Text: "Ƙara sabbin bayanan kamfen da takardu da aka amince da su.",
+
+        contactLabel: "Tuntuɓa",
+        contactTitle: "Tuntuɓi Ofishin Kamfen",
+        contactDescription: "Za ka iya shirya saƙonka a nan. Za a haɗa form ɗin da tsarin karɓar saƙonni daga baya.",
+        contactInfoTitle: "Bayanan Ofishi",
+        contactInfoText: "Ana iya ƙara bayanan tuntuɓa na hukuma a nan bayan an tabbatar da su.",
+        districtLabel: "Yanki:",
+        districtValue: "Bauchi Central Senatorial District",
+        phoneLabel: "Waya:",
+        phoneValue: "A saka lambar hukuma",
+        emailLabel: "Imel:",
+        emailValue: "A saka imel na hukuma",
+
+        namePlaceholder: "Cikakken suna",
+        emailPlaceholder: "Adireshin imel",
+        messagePlaceholder: "Rubuta saƙonka...",
+        sendButton: "Shirya Saƙo",
+        messageReady: "An shirya saƙonka. Wannan demo ne; ba a aika saƙon zuwa server ba.",
+
+        footerDescription: "Shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        footerLinksTitle: "Hanyoyin Shafi",
+        footerContactTitle: "Tuntuɓa",
+        footerContactLink: "Bayanan Ofishi",
+        footerMessageLink: "Aika Saƙo",
+        footerRights: "An tanadi haƙƙoƙi."
+    },
+
+    en: {
+        topText: "Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
+        languageLabel: "Language / Harshe",
+        brandSubtitle: "BAUCHI CENTRAL",
+
+        navHome: "Home",
+        navAbout: "About",
+        navPriorities: "Priorities",
+        navNews: "News",
+        navContact: "Contact",
+        navJoin: "Explore",
+
+        heroEyebrow: "BAUCHI CENTRAL SENATORIAL DISTRICT",
+        heroLine1: "Aliyu Abubakar",
+        heroLine2: "Shinge",
+        heroDescription: "Welcome to the information portal for Aliyu Abubakar Shinge and Bauchi Central Senatorial District.",
+        heroButton1: "Learn More →",
+        heroButton2: "View Priorities",
+        heroNote: "Quality Representation, Sustainable Development",
+        photoPlaceholder: "Place Aliyu Abubakar Shinge's photo at images/candidate.jpg",
+        photoCaption: "Bauchi Central Senatorial District",
+
+        slogan: "Ingantaccen Wakilci, Ci Gaba Mai Dorewa",
+        sloganEnglish: "Quality Representation, Sustainable Development",
+
+        aboutVisual: "Bauchi Central • Senate • Representation",
+        aboutLabel: "About the Candidate",
+        aboutTitle: "Learn About the Candidate",
+        aboutP1: "This section introduces Aliyu Abubakar Shinge, his biography and information relating to his candidacy in Bauchi Central.",
+        aboutP2: "Replace this text with verified biographical information, education, experience, achievements and other confirmed details.",
+        aboutPoint1: "Biography",
+        aboutPoint2: "Education & Experience",
+        aboutPoint3: "Priorities",
+        aboutPoint4: "Contact Information",
+
+        prioritiesLabel: "Key Issues",
+        prioritiesTitle: "Priorities and Key Issues",
+        prioritiesDescription: "This section presents development issues to be clarified in the campaign programme.",
+
+        priority1Title: "Education",
+        priority1Text: "Information about education-related proposals and programmes.",
+        priority2Title: "Healthcare",
+        priority2Text: "Information about healthcare services and community wellbeing.",
+        priority3Title: "Agriculture",
+        priority3Text: "Agriculture, farmers and economic development issues.",
+        priority4Title: "Youth & Skills",
+        priority4Text: "Information about skills, livelihoods and economic opportunities.",
+        priority5Title: "Water & Infrastructure",
+        priority5Text: "Key issues relating to water, roads and public infrastructure.",
+        priority6Title: "Accountability",
+        priority6Text: "Verified information, accountability and lawful representation.",
+
+        bannerTitle: "Information in One Place",
+        bannerText: "Explore information, priorities and announcements on this portal.",
+        bannerButton: "Contact Office →",
+
+        newsLabel: "Latest Information",
+        newsTitle: "News & Announcements",
+        newsDescription: "Verified news and announcements will be published in this section.",
+        newsPlaceholder1: "News Image 1",
+        newsPlaceholder2: "News Image 2",
+        newsPlaceholder3: "News Image 3",
+        newsTag: "Announcement",
+        news1Title: "New Information Will Appear Here",
+        news1Text: "Add a verified news item or announcement here.",
+        news2Title: "Activities and Meetings",
+        news2Text: "Verified information about meetings and activities can be published here.",
+        news3Title: "Campaign Information",
+        news3Text: "Add approved campaign information and documents here.",
+
+        contactLabel: "Contact",
+        contactTitle: "Contact the Campaign Office",
+        contactDescription: "Prepare your message here. A message-delivery system can be connected later.",
+        contactInfoTitle: "Office Information",
+        contactInfoText: "Official contact details can be added here once confirmed.",
+        districtLabel: "District:",
+        districtValue: "Bauchi Central Senatorial District",
+        phoneLabel: "Phone:",
+        phoneValue: "Add official phone number",
+        emailLabel: "Email:",
+        emailValue: "Add official email address",
+
+        namePlaceholder: "Full name",
+        emailPlaceholder: "Email address",
+        messagePlaceholder: "Write your message...",
+        sendButton: "Prepare Message",
+        messageReady: "Your message is prepared. This is a demo; the message has not been sent to a server.",
+
+        footerDescription: "Information portal for Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        footerLinksTitle: "Quick Links",
+        footerContactTitle: "Contact",
+        footerContactLink: "Office Information",
+        footerMessageLink: "Send a Message",
+        footerRights: "All rights reserved."
+    }
+};
+
+const languageSelect = document.getElementById("languageSelect");
+
+function setLanguage(language) {
+    const dictionary = translations[language] || translations.ha;
+
+    document.documentElement.lang = language;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+
+        if (dictionary[key] !== undefined) {
+            element.textContent = dictionary[key];
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+        const key = element.dataset.i18nPlaceholder;
+
+        if (dictionary[key] !== undefined) {
+            element.placeholder = dictionary[key];
+        }
+    });
+
+    languageSelect.value = language;
+
+    try {
+        localStorage.setItem("shingeLanguage", language);
+    } catch (error) {
+        // The site still works if local storage is unavailable.
+    }
+
+    document.getElementById("formMessage").textContent = "";
+}
+
+languageSelect.addEventListener("change", function () {
+    setLanguage(this.value);
+});
+
+/* =====================================
+   MOBILE MENU
+===================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+    });
+});
+
+/* =====================================
+   CANDIDATE PHOTO FALLBACK
+===================================== */
+
+const candidatePhoto = document.getElementById("candidatePhoto");
+const candidateFrame = document.getElementById("candidateFrame");
+
+function checkCandidatePhoto() {
+    if (!candidatePhoto.complete || candidatePhoto.naturalWidth === 0) {
+        candidateFrame.classList.add("no-photo");
+    } else {
+        candidateFrame.classList.remove("no-photo");
+    }
+}
+
+candidatePhoto.addEventListener("load", checkCandidatePhoto);
+candidatePhoto.addEventListener("error", checkCandidatePhoto);
+checkCandidatePhoto();
+
+/* =====================================
+   CONTACT FORM DEMO
+===================================== */
+
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const language = languageSelect.value;
+    const dictionary = translations[language];
+
+    const name = document.getElementById("visitorName").value.trim();
+    const email = document.getElementById("visitorEmail").value.trim();
+    const message = document.getElementById("visitorMessage").value.trim();
+
+    if (!name || !email || !message) {
+        return;
+    }
+
+    document.getElementById("formMessage").textContent = dictionary.messageReady;
+
+    this.reset();
+});
+
+/* =====================================
+   BACK TO TOP
+===================================== */
+
+document.getElementById("backTop").addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+/* =====================================
+   INITIAL SETTINGS
+===================================== */
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+let savedLanguage = "ha";
+
+try {
+    const storedLanguage = localStorage.getItem("shingeLanguage");
+
+    if (storedLanguage === "ha" || storedLanguage === "en") {
+        savedLanguage = storedLanguage;
+    }
+} catch (error) {
+    // Default to Hausa.
+}
+
+setLanguage(savedLanguage);
+</script>
+
+
+<script>
+"use strict";
+
+(function () {
+    const candidateTranslations = {
+        en: {
+            label: "MEET THE CANDIDATE",
+            name: "Hon. Bello Aliyu Abubakar Shinge",
+            intro: "Educational background, professional experience, traditional titles and political career.",
+            education: "Educational Background",
+            schools: [
+                "Darul Islam Primary School, Yola",
+                "Iqra Academy, Yola",
+                "B.Sc. in Economics, Federal University of Technology, Yola"
+            ],
+            career: "Career and Professional Experience",
+            jobs: [
+                ["RICO GADO Nigeria Limited", "Procurement Assistant to the Chief Procurement Consultant."],
+                ["KADANE Marine Limited", "Business Promotion Manager."],
+                ["SHELTA FOX MAB / FEMAB", "Director of Business Promotion and Investment, Head of Foreign Directorate, and Head of Procurement and Investment."],
+                ["Square Builders Nigeria Limited", "Vice Chairman."],
+                ["West Africa Strategic and Business Promotion Planning", "Vice Chairman; headquarters stated to be in Beirut, Lebanon."],
+                ["SHINGE BAT Limited", "Chief Executive Officer (CEO), described as a consulting firm focused on global economic analysis and advancement."],
+                ["MANSON Inch Limited", "Chief Executive Officer (CEO), involved in petroleum products import and export."]
+            ],
+            titles: "Traditional Titles",
+            traditional: [
+                "Adon Ganin Akko",
+                "Jagoran Kasar Bula",
+                "Mai Nasaran Miya",
+                "Dangaladiman Shinge"
+            ],
+            politics: "Political Career",
+            political: [
+                ["2019", "House of Representatives Contest", "Contested under the All Progressives Congress (APC)."],
+                ["2023", "House of Representatives Contest", "Contested under the New Nigeria Peoples Party (NNPP)."],
+                ["2026", "Bauchi Central Senatorial District", "The supplied biography describes him as a nominated PDP senatorial candidate."]
+            ]
+        },
+
+        ha: {
+            label: "SANIN ƊAN TAKARA",
+            name: "Hon. Bello Aliyu Abubakar Shinge",
+            intro: "Tarihin karatu, ƙwarewar aiki, sarautun gargajiya da tarihin siyasa.",
+            education: "Tarihin Karatu",
+            schools: [
+                "Makarantar Firamare ta Darul Islam, Yola",
+                "Iqra Academy, Yola",
+                "Digiri na B.Sc. a fannin Tattalin Arziki, Federal University of Technology, Yola"
+            ],
+            career: "Tarihin Aiki da Sana'o'i",
+            jobs: [
+                ["RICO GADO Nigeria Limited", "Mataimakin Sashen Sayayya ga Babban Mashawarcin Sayayya."],
+                ["KADANE Marine Limited", "Manajan Bunƙasa Kasuwanci."],
+                ["SHELTA FOX MAB / FEMAB", "Darektan Bunƙasa Kasuwanci da Zuba Jari, Shugaban Sashen Hulɗar Ƙasashen Waje, da Shugaban Sayayya da Zuba Jari."],
+                ["Square Builders Nigeria Limited", "Mataimakin Shugaba."],
+                ["West Africa Strategic and Business Promotion Planning", "Mataimakin Shugaba; an bayyana hedikwatar kamfanin a Beirut, Lebanon."],
+                ["SHINGE BAT Limited", "Babban Darakta (CEO); an bayyana kamfanin a matsayin mai ba da shawarwari kan nazarin tattalin arzikin duniya."],
+                ["MANSON Inch Limited", "Babban Darakta (CEO), a harkar shigo da fitar da kayayyakin man fetur."]
+            ],
+            titles: "Sarautun Gargajiya",
+            traditional: [
+                "Adon Ganin Akko",
+                "Jagoran Ƙasar Bula",
+                "Mai Nasaran Miya",
+                "Dangaladiman Shinge"
+            ],
+            politics: "Tarihin Siyasa",
+            political: [
+                ["2019", "Takarar Majalisar Wakilai", "Ya yi takara ƙarƙashin jam'iyyar APC."],
+                ["2023", "Takarar Majalisar Wakilai", "Ya yi takara ƙarƙashin jam'iyyar NNPP."],
+                ["2026", "Gundumar Sanatan Bauchi ta Tsakiya", "Bayanan da aka bayar sun bayyana shi a matsayin ɗan takarar sanata ƙarƙashin PDP."]
+            ]
+        }
+    };
+
+    function setCandidateLanguage(language) {
+        const lang = language === "ha" ? "ha" : "en";
+        const t = candidateTranslations[lang];
+
+        const label = document.querySelector(".profile-label");
+        const heading = document.querySelector(".profile-heading h2");
+        const intro = document.querySelector(".profile-heading p");
+        const cards = document.querySelectorAll(".candidate-profile .profile-card");
+
+        if (label) label.textContent = t.label;
+        if (heading) heading.textContent = t.name;
+        if (intro) intro.textContent = t.intro;
+
+        if (cards.length < 4) return;
+
+        const educationHeading = cards[0].querySelector("h3");
+        const careerHeading = cards[1].querySelector("h3");
+        const titlesHeading = cards[2].querySelector("h3");
+        const politicsHeading = cards[3].querySelector("h3");
+
+        if (educationHeading) educationHeading.textContent = "🎓 " + t.education;
+        if (careerHeading) careerHeading.textContent = "💼 " + t.career;
+        if (titlesHeading) titlesHeading.textContent = "👑 " + t.titles;
+        if (politicsHeading) politicsHeading.textContent = "🏛️ " + t.politics;
+
+        const educationList = cards[0].querySelector("ul");
+        const careerList = cards[1].querySelector("ul");
+        const titlesList = cards[2].querySelector("ul");
+        const politicalTimeline = cards[3].querySelector(".political-timeline");
+
+        if (educationList) {
+            educationList.innerHTML = t.schools
+                .map(item => `<li>${item}</li>`)
+                .join("");
+        }
+
+        if (careerList) {
+            careerList.innerHTML = t.jobs
+                .map(job => `<li><strong>${job[0]}</strong><p>${job[1]}</p></li>`)
+                .join("");
+        }
+
+        if (titlesList) {
+            titlesList.innerHTML = t.traditional
+                .map(item => `<li>${item}</li>`)
+                .join("");
+        }
+
+        if (politicalTimeline) {
+            politicalTimeline.innerHTML = t.political
+                .map(item => `
+                    <div class="timeline-item">
+                        <span class="timeline-year">${item[0]}</span>
+                        <div>
+                            <h4>${item[1]}</h4>
+                            <p>${item[2]}</p>
+                        </div>
+                    </div>
+                `)
+                .join("");
+        }
+    }
+
+    const languageSelect = document.getElementById("languageSelect");
+
+    if (languageSelect) {
+        languageSelect.addEventListener("change", function () {
+            setCandidateLanguage(this.value);
+        });
+
+        setCandidateLanguage(languageSelect.value || "ha");
+    }
+})();
+
+
+/* =========================================
+   SHINGEB GALLERY FILTER AND LIGHTBOX
+========================================= */
+
+(() => {
+    const gallery = document.querySelector(".campaign-gallery");
+    const lightbox = document.getElementById("galleryLightbox");
+
+    if (!gallery || !lightbox) return;
+
+    const items = Array.from(gallery.querySelectorAll(".gallery-item"));
+    const filters = gallery.querySelectorAll(".gallery-filter");
+    const lightboxImage = document.getElementById("galleryLightboxImage");
+    const lightboxCaption = document.getElementById("galleryLightboxCaption");
+
+    const closeButton = document.getElementById("galleryClose");
+    const previousButton = document.getElementById("galleryPrev");
+    const nextButton = document.getElementById("galleryNext");
+
+    let visibleItems = [];
+    let currentIndex = 0;
+    let lastFocusedElement = null;
+
+    function updateVisibleItems() {
+        visibleItems = items.filter(item => !item.hidden);
+    }
+
+    filters.forEach(button => {
+        button.addEventListener("click", () => {
+            const category = button.dataset.filter;
+
+            filters.forEach(filter => {
+                filter.classList.toggle("active", filter === button);
+            });
+
+            items.forEach(item => {
+                item.hidden =
+                    category !== "all" &&
+                    item.dataset.category !== category;
+            });
+
+            updateVisibleItems();
+        });
+    });
+
+    function openImage(index) {
+        updateVisibleItems();
+
+        if (!visibleItems.length) return;
+
+        currentIndex =
+            (index + visibleItems.length) % visibleItems.length;
+
+        const item = visibleItems[currentIndex];
+        const image = item.querySelector("img");
+        const heading = item.querySelector(".gallery-caption h3");
+        const description = item.querySelector(".gallery-caption p");
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+
+        lightboxCaption.textContent =
+            `${heading.textContent} — ${description.textContent}`;
+
+        lastFocusedElement = document.activeElement;
+
+        lightbox.hidden = false;
+        document.body.classList.add("gallery-modal-open");
+        closeButton.focus();
+    }
+
+    function closeImage() {
+        lightbox.hidden = true;
+        lightboxImage.src = "";
+        document.body.classList.remove("gallery-modal-open");
+
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+    }
+
+    items.forEach(item => {
+        const button = item.querySelector(".gallery-image-button");
+
+        button.addEventListener("click", () => {
+            updateVisibleItems();
+            openImage(visibleItems.indexOf(item));
+        });
+    });
+
+    closeButton.addEventListener("click", closeImage);
+
+    previousButton.addEventListener("click", () => {
+        openImage(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        openImage(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) {
+            closeImage();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (lightbox.hidden) return;
+
+        if (event.key === "Escape") {
+            closeImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            openImage(currentIndex - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+            openImage(currentIndex + 1);
+        }
+    });
+
+    updateVisibleItems();
+
+    // Hide image files that have not been added yet.
+    items.forEach(item => {
+        const image = item.querySelector("img");
+
+        image.addEventListener("error", () => {
+            item.hidden = true;
+            updateVisibleItems();
+        });
+
+        if (image.complete && image.naturalWidth === 0) {
+            item.hidden = true;
+            updateVisibleItems();
+        }
+    });
+})();
+
+
+/* =========================================
+   SUPHI NEWS FILTER
+========================================= */
+
+(() => {
+    const newsSection = document.querySelector(".campaign-news");
+
+    if (!newsSection) return;
+
+    const filterButtons = newsSection.querySelectorAll(".news-filter");
+    const newsCards = newsSection.querySelectorAll(".news-card");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const selectedCategory = button.dataset.newsFilter;
+
+            filterButtons.forEach(filter => {
+                filter.classList.toggle("active", filter === button);
+            });
+
+            newsCards.forEach(card => {
+                const cardCategory = card.dataset.newsCategory;
+
+                card.hidden =
+                    selectedCategory !== "all" &&
+                    cardCategory !== selectedCategory;
+            });
+        });
+    });
+})();
+
+/* ==========================================
+   SUPHI CONTACT FORM
+========================================== */
+
+(function () {
+    "use strict";
+
+    const form = document.getElementById("campaignContactForm");
+    const status = document.getElementById("contactFormStatus");
+
+    if (!form || !status) return;
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("contactName").value.trim();
+        const email = document.getElementById("contactEmail").value.trim();
+        const subject = document.getElementById("contactSubject").value;
+        const message = document.getElementById("contactMessage").value.trim();
+
+        if (!name || !email || !subject || !message) {
+            status.textContent = "Please complete all fields.";
+            return;
+        }
+
+        /*
+          IMPORTANT:
+          Replace the address below with the campaign's
+          verified official email before using this form.
+        */
+        const campaignEmail = "REPLACE_WITH_OFFICIAL_EMAIL";
+
+        if (
+            !campaignEmail ||
+            campaignEmail === "REPLACE_WITH_OFFICIAL_EMAIL"
+        ) {
+            status.textContent =
+                "The form is ready, but the campaign's official email must be configured first.";
+            return;
+        }
+
+        const emailSubject = encodeURIComponent(
+            "Campaign Enquiry: " + subject
+        );
+
+        const emailBody = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\nSubject: " + subject +
+            "\n\nMessage:\n" + message
+        );
+
+        const mailtoLink =
+            "mailto:" + campaignEmail +
+            "?subject=" + emailSubject +
+            "&body=" + emailBody;
+
+        status.textContent =
+            "Opening your email application. Please review and send the message there.";
+
+        window.location.href = mailtoLink;
+    });
+})();
+
+</script>
+
+</body>
+</html>
