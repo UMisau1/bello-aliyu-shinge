@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#087b45">
 
-<title>Aliyu Abubakar Shinge | Bauchi Central</title>
+<title>Bello Aliyu Abubakar Shinge | Bauchi Central</title>
 
 <style>
 :root {
@@ -921,7 +921,7 @@ footer {
 <!-- TOP BAR -->
 <div class="topbar">
     <div class="container topbar-inner">
-        <span data-i18n="topText">Aliyu Abubakar Shinge | Bauchi Central Senatorial District</span>
+        <span data-i18n="topText">Bello Aliyu Abubakar Shinge | Bauchi Central Senatorial District</span>
 
         <div class="topbar-right">
             <span data-i18n="languageLabel">Harshe / Language</span>
@@ -958,7 +958,8 @@ footer {
                 <li><a href="#priorities" data-i18n="navPriorities">Manufofi</a></li>
                 <li><a href="#news" data-i18n="navNews">Labarai</a></li>
                 <li><a href="#contact" data-i18n="navContact">Tuntuɓa</a></li>
-                <li><a href="#contact" class="nav-join" data-i18n="navJoin">Shiga Shafin</a></li>
+                <li><a href="#registration" class="nav-join">Yi Rajista / Register</a></li>
+                <a href="registration.html">Registration</a>
             </ul>
         </nav>
 
@@ -983,7 +984,7 @@ footer {
             </h1>
 
             <p class="hero-description" data-i18n="heroDescription">
-                Barka da zuwa shafin bayanai na Aliyu Abubakar Shinge,
+                Barka da zuwa shafin bayanai na Bello Aliyu Abubakar Shinge,
                 Bauchi Central Senatorial District.
             </p>
 
@@ -1011,13 +1012,13 @@ footer {
 
                 <div class="image-placeholder">
                     <span data-i18n="photoPlaceholder">
-                        Saka hoton Aliyu Abubakar Shinge a images/candidate.jpg
+                        Saka hoton Bello Aliyu Abubakar Shinge a images/candidate.jpg
                     </span>
                 </div>
             </div>
 
             <div class="photo-label">
-                <strong>Aliyu Abubakar Shinge</strong>
+                <strong>Bello Aliyu Abubakar Shinge</strong>
                 <small data-i18n="photoCaption">Bauchi Central Senatorial District</small>
             </div>
         </div>
@@ -1227,6 +1228,1757 @@ footer {
 </section>
 
 
+<!-- =====================================================
+     SHINGE CAMPAIGN LIVE STATISTICS DASHBOARD
+     Candidate: Hon. Bello Aliyu Abubakar Shinge
+     District: Bauchi Central Senatorial District
+     Coverage: 6 LGAs
+     Standalone HTML + CSS + JavaScript
+====================================================== -->
+
+<section id="shinge-live-dashboard">
+  <div class="shinge-dashboard-container">
+
+    <!-- HEADER -->
+    <header class="shinge-dashboard-header">
+      <div class="shinge-header-label">
+        <span class="shinge-live-dot"></span>
+        CAMPAIGN PROGRESS DASHBOARD
+      </div>
+
+      <h2>LIVE CAMPAIGN STATISTICS</h2>
+
+      <p class="shinge-candidate-name">
+        Hon. Bello Aliyu Abubakar Shinge
+      </p>
+
+      <p class="shinge-district-name">
+        Bauchi Central Senatorial District
+      </p>
+
+      <p class="shinge-dashboard-description">
+        Campaign progress overview across the six selected
+        Local Government Areas.
+      </p>
+    </header>
+
+    <!-- SUMMARY STATISTICS -->
+    <div class="shinge-summary-grid">
+
+      <article class="shinge-summary-card">
+        <div class="shinge-summary-icon">👥</div>
+        <p>Total Supporters</p>
+        <h3 id="shinge-total-supporters">0</h3>
+        <span>Recorded supporters</span>
+      </article>
+
+      <article class="shinge-summary-card">
+        <div class="shinge-summary-icon">🤝</div>
+        <p>Total Volunteers</p>
+        <h3 id="shinge-total-volunteers">0</h3>
+        <span>Recorded volunteers</span>
+      </article>
+
+      <article class="shinge-summary-card">
+        <div class="shinge-summary-icon">📍</div>
+        <p>LGAs Covered</p>
+        <h3 id="shinge-total-lgas">6</h3>
+        <span>Bauchi Central District</span>
+      </article>
+
+    </div>
+
+    <!-- LGA SECTION -->
+    <div class="shinge-section-heading">
+      <div>
+        <h3>Campaign Statistics by LGA</h3>
+        <p>Progress across the six selected local governments</p>
+      </div>
+
+      <span class="shinge-coverage-badge">6 LGAs</span>
+    </div>
+
+    <div id="shinge-lga-grid" class="shinge-lga-grid">
+      <!-- JavaScript will display the six LGA cards here -->
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="shinge-dashboard-footer">
+      <p>
+        <strong>SHINGE CAMPAIGN DASHBOARD</strong>
+      </p>
+
+      <p>
+        Figures shown are based on the campaign data entered
+        in this dashboard.
+      </p>
+
+      <p id="shinge-last-updated">
+        Dashboard initialized.
+      </p>
+    </footer>
+
+  </div>
+</section>
+
+<style>
+/* =====================================================
+   SHINGE DASHBOARD STYLES
+   All styles are restricted to this dashboard.
+====================================================== */
+
+#shinge-live-dashboard {
+  --shinge-green: #087443;
+  --shinge-dark: #063d29;
+  --shinge-light: #eaf7ef;
+  --shinge-gold: #e5b544;
+  --shinge-text: #23352c;
+  --shinge-muted: #6c7c72;
+
+  width: 100%;
+  padding: 45px 18px;
+  box-sizing: border-box;
+  background: #f4f8f5;
+  color: var(--shinge-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#shinge-live-dashboard *,
+#shinge-live-dashboard *::before,
+#shinge-live-dashboard *::after {
+  box-sizing: border-box;
+}
+
+#shinge-live-dashboard .shinge-dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+#shinge-live-dashboard .shinge-dashboard-header {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 25px;
+  margin-bottom: 28px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #063d29, #087443);
+}
+
+#shinge-live-dashboard .shinge-dashboard-header::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -75px;
+  top: -85px;
+  border: 25px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#shinge-live-dashboard .shinge-header-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+#shinge-live-dashboard .shinge-live-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #73f0a3;
+  box-shadow: 0 0 0 4px rgba(115,240,163,0.15);
+}
+
+#shinge-live-dashboard .shinge-dashboard-header h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(25px, 4vw, 42px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+#shinge-live-dashboard .shinge-candidate-name {
+  margin: 0 0 7px;
+  color: #f2cf6b;
+  font-size: clamp(17px, 2.5vw, 23px);
+  font-weight: 700;
+}
+
+#shinge-live-dashboard .shinge-district-name {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#shinge-live-dashboard .shinge-dashboard-description {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #e0eee5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* SUMMARY CARDS */
+
+#shinge-live-dashboard .shinge-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 38px;
+}
+
+#shinge-live-dashboard .shinge-summary-card {
+  min-width: 0;
+  padding: 25px 20px;
+  border: 1px solid #e0eae3;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(14, 65, 39, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#shinge-live-dashboard .shinge-summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(14, 65, 39, 0.09);
+}
+
+#shinge-live-dashboard .shinge-summary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  background: var(--shinge-light);
+  font-size: 23px;
+}
+
+#shinge-live-dashboard .shinge-summary-card p {
+  margin: 0 0 10px;
+  color: var(--shinge-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#shinge-live-dashboard .shinge-summary-card h3 {
+  margin: 0 0 8px;
+  color: var(--shinge-dark);
+  font-size: clamp(27px, 4vw, 36px);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+#shinge-live-dashboard .shinge-summary-card span {
+  color: var(--shinge-muted);
+  font-size: 12px;
+}
+
+/* LGA HEADING */
+
+#shinge-live-dashboard .shinge-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#shinge-live-dashboard .shinge-section-heading h3 {
+  margin: 0 0 7px;
+  color: var(--shinge-dark);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+#shinge-live-dashboard .shinge-section-heading p {
+  margin: 0;
+  color: var(--shinge-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#shinge-live-dashboard .shinge-coverage-badge {
+  flex-shrink: 0;
+  padding: 8px 13px;
+  border-radius: 30px;
+  background: #dff3e6;
+  color: var(--shinge-green);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* LGA CARDS */
+
+#shinge-live-dashboard .shinge-lga-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#shinge-live-dashboard .shinge-lga-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #e0eae3;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(14, 65, 39, 0.04);
+}
+
+#shinge-live-dashboard .shinge-lga-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #edf1ed;
+}
+
+#shinge-live-dashboard .shinge-lga-card-header h4 {
+  margin: 0 0 6px;
+  color: var(--shinge-dark);
+  font-size: 19px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+#shinge-live-dashboard .shinge-lga-card-header p {
+  margin: 0;
+  color: var(--shinge-muted);
+  font-size: 12px;
+}
+
+#shinge-live-dashboard .shinge-lga-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--shinge-light);
+  color: var(--shinge-green);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+#shinge-live-dashboard .shinge-lga-metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f3f0;
+}
+
+#shinge-live-dashboard .shinge-lga-metric:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#shinge-live-dashboard .shinge-lga-metric-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #596b60;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#shinge-live-dashboard .shinge-lga-metric-value {
+  flex-shrink: 0;
+  color: var(--shinge-dark);
+  font-size: 16px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+
+#shinge-live-dashboard .shinge-dashboard-footer {
+  margin-top: 32px;
+  padding: 22px;
+  border-radius: 12px;
+  background: #eaf3ed;
+  text-align: center;
+}
+
+#shinge-live-dashboard .shinge-dashboard-footer p {
+  margin: 5px 0;
+  color: #5d7164;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#shinge-live-dashboard .shinge-dashboard-footer strong {
+  color: var(--shinge-dark);
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+  #shinge-live-dashboard .shinge-lga-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #shinge-live-dashboard .shinge-summary-grid {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  #shinge-live-dashboard {
+    padding: 25px 12px;
+  }
+
+  #shinge-live-dashboard .shinge-dashboard-header {
+    padding: 32px 17px;
+    border-radius: 14px;
+  }
+
+  #shinge-live-dashboard .shinge-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  #shinge-live-dashboard .shinge-summary-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 13px;
+    align-items: center;
+    padding: 17px;
+  }
+
+  #shinge-live-dashboard .shinge-summary-icon {
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+
+  #shinge-live-dashboard .shinge-summary-card p {
+    margin-bottom: 4px;
+  }
+
+  #shinge-live-dashboard .shinge-summary-card h3 {
+    margin-bottom: 3px;
+    font-size: 27px;
+  }
+
+  #shinge-live-dashboard .shinge-lga-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #shinge-live-dashboard .shinge-section-heading {
+    align-items: flex-start;
+  }
+
+  #shinge-live-dashboard .shinge-section-heading h3 {
+    font-size: 20px;
+  }
+
+  #shinge-live-dashboard .shinge-lga-card {
+    padding: 20px;
+  }
+}
+</style>
+
+<script>
+/* =====================================================
+   CAMPAIGN STATISTICS DATA
+
+   Change the numbers below when verified figures become
+   available. These initial zeroes are placeholders, not
+   actual campaign results.
+====================================================== */
+
+(function () {
+  "use strict";
+
+  const campaignLgas = [
+    {
+      name: "Misau",
+      supporters: 10,
+      volunteers: 150,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Dambam",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Ningi",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Warji",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Darazo",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Ganjuwa",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    }
+  ];
+
+  const dashboard = document.getElementById(
+    "shinge-live-dashboard"
+  );
+
+  if (!dashboard) return;
+
+  const lgaGrid = dashboard.querySelector("#shinge-lga-grid");
+
+  const formatNumber = function (number) {
+    return Number(number || 0).toLocaleString("en-NG");
+  };
+
+  function createMetric(icon, label, value) {
+    return `
+      <div class="shinge-lga-metric">
+        <span class="shinge-lga-metric-label">
+          <span aria-hidden="true">${icon}</span>
+          <span>${label}</span>
+        </span>
+        <span class="shinge-lga-metric-value">
+          ${formatNumber(value)}
+        </span>
+      </div>
+    `;
+  }
+
+  function renderDashboard() {
+    let totalSupporters = 0;
+    let totalVolunteers = 0;
+
+    lgaGrid.innerHTML = campaignLgas.map(function (lga, index) {
+      totalSupporters += Number(lga.supporters) || 0;
+      totalVolunteers += Number(lga.volunteers) || 0;
+
+      return `
+        <article class="shinge-lga-card">
+          <div class="shinge-lga-card-header">
+            <div>
+              <h4>${lga.name}</h4>
+              <p>Local Government Area</p>
+            </div>
+
+            <span class="shinge-lga-number">
+              ${String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+
+          ${createMetric(
+            "👥",
+            "Supporters",
+            lga.supporters
+          )}
+
+          ${createMetric(
+            "🤝",
+            "Volunteers",
+            lga.volunteers
+          )}
+
+          ${createMetric(
+            "📍",
+            "Wards Reported",
+            lga.wardsReported
+          )}
+
+          ${createMetric(
+            "🗳️",
+            "Polling Units Reported",
+            lga.pollingUnitsReported
+          )}
+        </article>
+      `;
+    }).join("");
+
+    dashboard.querySelector("#shinge-total-supporters")
+      .textContent = formatNumber(totalSupporters);
+
+    dashboard.querySelector("#shinge-total-volunteers")
+      .textContent = formatNumber(totalVolunteers);
+
+    dashboard.querySelector("#shinge-total-lgas")
+      .textContent = formatNumber(campaignLgas.length);
+
+    const now = new Date();
+
+    dashboard.querySelector("#shinge-last-updated")
+      .textContent =
+        "Dashboard displayed: " +
+        now.toLocaleString("en-NG", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        });
+  }
+
+  renderDashboard();
+})();
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinge Campaign | Kamfen ɗin Shinge</title>
+
+<style>
+/* ==========================================
+   SHINGE CAMPAIGN WEBSITE
+   HAUSA + ENGLISH
+   HTML, CSS AND JAVASCRIPT
+========================================== */
+
+#shinge-site {
+  --green: #087443;
+  --dark: #06452f;
+  --gold: #e4b536;
+  --light: #f3f8f4;
+  --text: #26382e;
+  --muted: #68786e;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.7;
+}
+
+#shinge-site *,
+#shinge-site *::before,
+#shinge-site *::after {
+  box-sizing: border-box;
+}
+
+#shinge-site .sh-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#shinge-site .sh-section {
+  padding: 70px 0;
+}
+
+#shinge-site h2,
+#shinge-site h3,
+#shinge-site p {
+  overflow-wrap: anywhere;
+}
+
+#shinge-site h2 {
+  line-height: 1.25;
+}
+
+#shinge-site .sh-section-heading {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+#shinge-site .sh-eyebrow {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 30px;
+  background: var(--dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+#shinge-site .sh-section-heading h2 {
+  margin: 17px 0 14px;
+  color: var(--dark);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+}
+
+#shinge-site .sh-section-heading h2 span {
+  color: #bd901c;
+}
+
+#shinge-site .sh-section-heading p {
+  margin: 0 auto;
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+#shinge-site .sh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 23px;
+  min-height: 48px;
+  border: 2px solid var(--gold);
+  border-radius: 40px;
+  background: var(--dark);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  transition: .2s ease;
+}
+
+#shinge-site .sh-btn:hover {
+  background: var(--gold);
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* LANGUAGE BAR */
+
+#shinge-site .sh-language-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 13px 20px;
+  background: var(--dark);
+  color: #fff;
+}
+
+#shinge-site .sh-brand {
+  font-weight: 800;
+  font-size: 15px;
+}
+
+#shinge-site .sh-brand small {
+  display: block;
+  color: #d6e8dc;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+#shinge-site .sh-language-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#shinge-site .sh-lang-btn {
+  min-width: 48px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#shinge-site .sh-lang-btn.active {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--dark);
+}
+
+#shinge-site .sh-lang-btn:focus-visible,
+#shinge-site a:focus-visible {
+  outline: 3px solid #f0c75e;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   1. CAMPAIGN STATISTICS
+========================================== */
+
+#shinge-site .sh-statistics {
+  padding: 65px 0;
+  background: var(--light);
+}
+
+#shinge-site .sh-stat-hero {
+  padding: 38px 25px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--dark), var(--green));
+  color: white;
+  text-align: center;
+}
+
+#shinge-site .sh-stat-hero .sh-eyebrow {
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.08);
+  color: #f5d46f;
+}
+
+#shinge-site .sh-stat-hero h2 {
+  margin: 18px 0 10px;
+  color: white;
+  font-size: clamp(27px, 4vw, 42px);
+}
+
+#shinge-site .sh-stat-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #e3efe7;
+}
+
+#shinge-site .sh-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  margin: 25px 0 40px;
+}
+
+#shinge-site .sh-summary-card {
+  padding: 24px 18px;
+  border: 1px solid #e0eae3;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,.04);
+}
+
+#shinge-site .sh-summary-card .sh-summary-icon {
+  font-size: 27px;
+}
+
+#shinge-site .sh-summary-card p {
+  margin: 7px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#shinge-site .sh-summary-card h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 32px;
+  font-weight: 800;
+}
+
+#shinge-site .sh-lga-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+#shinge-site .sh-lga-heading h3 {
+  margin: 0;
+  color: var(--dark);
+  font-size: 23px;
+}
+
+#shinge-site .sh-lga-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#shinge-site .sh-count-badge {
+  flex-shrink: 0;
+  padding: 7px 13px;
+  border-radius: 30px;
+  background: #dff3e6;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+#shinge-site .sh-lga-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#shinge-site .sh-lga-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid #e2ebe4;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(0,0,0,.04);
+}
+
+#shinge-site .sh-lga-card h4 {
+  margin: 0 0 5px;
+  color: var(--dark);
+  font-size: 20px;
+}
+
+#shinge-site .sh-lga-subtitle {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#shinge-site .sh-lga-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  border-top: 1px solid #edf1ed;
+  font-size: 13px;
+}
+
+#shinge-site .sh-lga-metric span:first-child {
+  color: var(--muted);
+}
+
+#shinge-site .sh-lga-metric strong {
+  color: var(--dark);
+  text-align: right;
+}
+
+#shinge-site .sh-data-note {
+  margin-top: 25px;
+  padding: 15px;
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ==========================================
+   2. ELECTION COUNTDOWN
+========================================== */
+
+#shinge-site .sh-countdown-section {
+  padding: 70px 0;
+  background:
+    radial-gradient(circle at top right, rgba(228,181,54,.13), transparent 35%),
+    linear-gradient(135deg, var(--dark), var(--green));
+  color: #fff;
+  text-align: center;
+}
+
+#shinge-site .sh-countdown-section .sh-eyebrow {
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(255,255,255,.08);
+  color: #f5d46f;
+}
+
+#shinge-site .sh-countdown-section h2 {
+  margin: 18px 0;
+  color: white;
+  font-size: clamp(28px, 4vw, 43px);
+}
+
+#shinge-site .sh-countdown-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #e3efe7;
+}
+
+#shinge-site .sh-timer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 850px;
+  margin: 35px auto 20px;
+}
+
+#shinge-site .sh-timer-box {
+  padding: 25px 10px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  background: rgba(255,255,255,.1);
+}
+
+#shinge-site .sh-timer-box strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #f5d46f;
+  font-size: clamp(30px, 5vw, 53px);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+#shinge-site .sh-timer-box span {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#shinge-site .sh-countdown-status {
+  min-height: 25px;
+  margin: 20px 0;
+  color: #e3efe7;
+  font-size: 13px;
+}
+
+#shinge-site .sh-countdown-footer p {
+  margin: 0 auto 22px;
+  color: #e3efe7;
+}
+
+/* ==========================================
+   3. MANIFESTO
+========================================== */
+
+#shinge-site .sh-manifesto {
+  padding: 70px 0;
+  background: #f8fbf9;
+}
+
+#shinge-site .sh-manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+#shinge-site .sh-manifesto-card {
+  position: relative;
+  overflow: hidden;
+  padding: 25px 23px 30px;
+  border: 1px solid #e4ece6;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 7px 22px rgba(0,0,0,.045);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#shinge-site .sh-manifesto-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--green);
+}
+
+#shinge-site .sh-manifesto-card:nth-child(even)::after {
+  background: var(--gold);
+}
+
+#shinge-site .sh-manifesto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.09);
+}
+
+#shinge-site .sh-manifesto-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 17px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 27px;
+}
+
+#shinge-site .sh-manifesto-card h3 {
+  margin: 0 0 10px;
+  color: var(--dark);
+  font-size: 20px;
+}
+
+#shinge-site .sh-manifesto-card p {
+  margin: 0;
+  color: #59695f;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+#shinge-site .sh-manifesto-button {
+  margin-top: 35px;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  #shinge-site .sh-lga-grid,
+  #shinge-site .sh-manifesto-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  #shinge-site .sh-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  #shinge-site .sh-section,
+  #shinge-site .sh-countdown-section {
+    padding: 48px 0;
+  }
+
+  #shinge-site .sh-language-bar {
+    padding: 12px;
+  }
+
+  #shinge-site .sh-brand {
+    font-size: 13px;
+  }
+
+  #shinge-site .sh-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #shinge-site .sh-summary-card {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 12px;
+    align-items: center;
+    padding: 16px;
+  }
+
+  #shinge-site .sh-summary-icon {
+    grid-row: 1 / span 2;
+  }
+
+  #shinge-site .sh-summary-card p {
+    margin: 0;
+  }
+
+  #shinge-site .sh-summary-card h3 {
+    font-size: 26px;
+  }
+
+  #shinge-site .sh-lga-grid,
+  #shinge-site .sh-manifesto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #shinge-site .sh-timer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #shinge-site .sh-timer-box {
+    padding: 20px 8px;
+  }
+
+  #shinge-site .sh-lga-heading {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #shinge-site *,
+  #shinge-site *::before,
+  #shinge-site *::after {
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="shinge-site">
+
+  <!-- LANGUAGE SWITCHER -->
+  <div class="sh-language-bar">
+    <div class="sh-brand">
+      <span data-en="SHINGE CAMPAIGN" data-ha="KAMFEN ƊIN SHINGE">SHINGE CAMPAIGN</span>
+      <small data-en="Bauchi Central Senatorial District"
+             data-ha="Gundumar Sanatan Bauchi ta Tsakiya">
+        Bauchi Central Senatorial District
+      </small>
+    </div>
+
+    <div class="sh-language-controls" aria-label="Choose language">
+      <button type="button" class="sh-lang-btn active"
+              data-language="en" aria-pressed="true">EN</button>
+      <button type="button" class="sh-lang-btn"
+              data-language="ha" aria-pressed="false">HA</button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       1. CAMPAIGN STATISTICS
+  =========================================== -->
+
+  <section class="sh-statistics" id="campaign-statistics">
+    <div class="sh-container">
+
+      <header class="sh-stat-hero">
+        <span class="sh-eyebrow"
+              data-en="CAMPAIGN PROGRESS DASHBOARD"
+              data-ha="ALLON CI GABAN KAMFEN">
+          CAMPAIGN PROGRESS DASHBOARD
+        </span>
+
+        <h2 data-en="Live Campaign Statistics"
+            data-ha="Ƙididdigar Ci Gaban Kamfen">
+          Live Campaign Statistics
+        </h2>
+
+        <p data-en="Campaign overview across the six selected Local Government Areas of Bauchi Central Senatorial District."
+           data-ha="Bayanin ci gaban kamfen a ƙananan hukumomi shida na Gundumar Sanatan Bauchi ta Tsakiya.">
+          Campaign overview across the six selected Local Government Areas of Bauchi Central Senatorial District.
+        </p>
+      </header>
+
+      <div class="sh-summary-grid">
+        <article class="sh-summary-card">
+          <div class="sh-summary-icon" aria-hidden="true">👥</div>
+          <p data-en="Total Supporters" data-ha="Jimillar Magoya Baya">Total Supporters</p>
+          <h3 id="sh-total-supporters">0</h3>
+        </article>
+
+        <article class="sh-summary-card">
+          <div class="sh-summary-icon" aria-hidden="true">🤝</div>
+          <p data-en="Total Volunteers" data-ha="Jimillar Masu Sa Kai">Total Volunteers</p>
+          <h3 id="sh-total-volunteers">0</h3>
+        </article>
+
+        <article class="sh-summary-card">
+          <div class="sh-summary-icon" aria-hidden="true">📍</div>
+          <p data-en="LGAs Covered" data-ha="Ƙananan Hukumomi">LGAs Covered</p>
+          <h3 id="sh-total-lgas">6</h3>
+        </article>
+      </div>
+
+      <div class="sh-lga-heading">
+        <div>
+          <h3 data-en="Statistics by LGA" data-ha="Ƙididdiga ta Ƙaramar Hukuma">
+            Statistics by LGA
+          </h3>
+          <p data-en="Progress across the six local governments"
+             data-ha="Ci gaba a ƙananan hukumomi shida">
+            Progress across the six local governments
+          </p>
+        </div>
+        <span class="sh-count-badge"
+              data-en="6 LGAs"
+              data-ha="Ƙananan hukumomi 6">6 LGAs</span>
+      </div>
+
+      <div class="sh-lga-grid" id="sh-lga-grid"></div>
+
+      <div class="sh-data-note"
+           data-en="Note: Figures initially show zero placeholders. Replace them with verified campaign records. This standalone page does not receive updates from other devices."
+           data-ha="Lura: Adadin da aka fara nunawa sifili ne na wucin gadi. Sauya su da sahihan bayanan kamfen. Wannan shafi shi kaɗai ba ya karɓar sabbin bayanai daga wasu na'urori.">
+        Note: Figures initially show zero placeholders. Replace them with verified campaign records. This standalone page does not receive updates from other devices.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       2. ELECTION COUNTDOWN
+  =========================================== -->
+
+  <section class="sh-countdown-section" id="election-countdown">
+    <div class="sh-container">
+
+      <header class="sh-section-heading">
+        <span class="sh-eyebrow"
+              data-en="ELECTION COUNTDOWN"
+              data-ha="ƘIDAYA ZUWA RANAR ZAƁE">
+          ELECTION COUNTDOWN
+        </span>
+
+        <h2 data-en="The Journey to Victory Begins Now"
+            data-ha="Tafiyar Cimma Nasara Ta Fara Yanzu">
+          The Journey to Victory Begins Now
+        </h2>
+
+        <p class="sh-countdown-intro"
+           data-en="Every day brings us closer to a better Bauchi State. Join the movement and be part of history."
+           data-ha="Kowace rana tana kusantar da mu ga ingantacciyar Jihar Bauchi. Kasance cikin wannan tafiya da tarihin da ake son ginawa.">
+          Every day brings us closer to a better Bauchi State. Join the movement and be part of history.
+        </p>
+      </header>
+
+      <div class="sh-timer-grid" aria-label="Election countdown">
+        <div class="sh-timer-box">
+          <strong id="sh-days">00</strong>
+          <span data-en="Days" data-ha="Kwanaki">Days</span>
+        </div>
+
+        <div class="sh-timer-box">
+          <strong id="sh-hours">00</strong>
+          <span data-en="Hours" data-ha="Awanni">Hours</span>
+        </div>
+
+        <div class="sh-timer-box">
+          <strong id="sh-minutes">00</strong>
+          <span data-en="Minutes" data-ha="Mintuna">Minutes</span>
+        </div>
+
+        <div class="sh-timer-box">
+          <strong id="sh-seconds">00</strong>
+          <span data-en="Seconds" data-ha="Dakiku">Seconds</span>
+        </div>
+      </div>
+
+      <p class="sh-countdown-status" id="sh-countdown-status"
+         aria-live="polite">
+        Counting down to 6 February 2027.
+      </p>
+
+      <div class="sh-countdown-footer">
+        <p data-en="Together we move toward a peaceful, free and credible election."
+           data-ha="Tare za mu yi aiki domin zaɓe mai zaman lafiya, 'yanci da sahihanci.">
+          Together we move toward a peaceful, free and credible election.
+        </p>
+
+        <a href="register.html" class="sh-btn">
+          <span data-en="Join the Campaign" data-ha="Shiga Cikin Kamfen">
+            Join the Campaign
+          </span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. MANIFESTO
+  =========================================== -->
+
+  <section class="sh-manifesto" id="manifesto">
+    <div class="sh-container">
+
+      <header class="sh-section-heading">
+        <span class="sh-eyebrow"
+              data-en="OUR MANIFESTO"
+              data-ha="MANUFOFINMU">
+          OUR MANIFESTO
+        </span>
+
+        <h2>
+          <span data-en="Our Vision for a Greater"
+                data-ha="Burinmu na Gina">
+            Our Vision for a Greater
+          </span>
+          <span data-en="Bauchi State" data-ha="Jihar Bauchi Mai Ci Gaba">
+            Bauchi State
+          </span>
+        </h2>
+
+        <p data-en="A practical roadmap for sustainable development, prosperity, accountability and inclusive governance."
+           data-ha="Tsarin aiki na ci gaba mai ɗorewa, wadata, riƙon amana da shugabanci da ya haɗa kowa.">
+          A practical roadmap for sustainable development, prosperity, accountability and inclusive governance.
+        </p>
+      </header>
+
+      <div class="sh-manifesto-grid">
+
+        <!-- EDUCATION -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">🎓</div>
+
+          <h3 data-en="Quality Education" data-ha="Ilimi Mai Inganci">
+            Quality Education
+          </h3>
+
+          <p data-en="Improve access to quality education through school renovation, teacher development, ICT integration and scholarship programmes."
+             data-ha="Inganta samun ilimi mai kyau ta hanyar gyaran makarantu, horas da malamai, amfani da fasahar zamani da shirye-shiryen tallafin karatu.">
+            Improve access to quality education through school renovation, teacher development, ICT integration and scholarship programmes.
+          </p>
+        </article>
+
+        <!-- HEALTH -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">❤️</div>
+
+          <h3 data-en="Healthcare" data-ha="Kiwon Lafiya">
+            Healthcare
+          </h3>
+
+          <p data-en="Strengthen primary healthcare centres, improve maternal healthcare, provide modern medical equipment and promote affordable healthcare."
+             data-ha="Ƙarfafa cibiyoyin kiwon lafiya na matakin farko, inganta lafiyar mata masu juna biyu, samar da kayan aikin zamani da inganta samun lafiya a farashi mai sauƙi.">
+            Strengthen primary healthcare centres, improve maternal healthcare, provide modern medical equipment and promote affordable healthcare.
+          </p>
+        </article>
+
+        <!-- AGRICULTURE -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">🌱</div>
+
+          <h3 data-en="Agriculture" data-ha="Noma">
+            Agriculture
+          </h3>
+
+          <p data-en="Support farmers with improved seedlings, fertilizers, irrigation facilities, extension services and better access to markets."
+             data-ha="Tallafa wa manoma da ingantattun iri, takin zamani, hanyoyin ban ruwa, shawarwarin ƙwararru da ingantacciyar hanyar samun kasuwanni.">
+            Support farmers with improved seedlings, fertilizers, irrigation facilities, extension services and better access to markets.
+          </p>
+        </article>
+
+        <!-- YOUTH -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">👥</div>
+
+          <h3 data-en="Youth Empowerment" data-ha="Ƙarfafa Matasa">
+            Youth Empowerment
+          </h3>
+
+          <p data-en="Create employment opportunities, vocational training, entrepreneurship support and digital skills programmes for young people."
+             data-ha="Ƙirƙirar damar aikin yi, koyar da sana'o'i, tallafa wa masu kasuwanci da shirye-shiryen koyon fasahar zamani ga matasa.">
+            Create employment opportunities, vocational training, entrepreneurship support and digital skills programmes for young people.
+          </p>
+        </article>
+
+        <!-- WOMEN -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">🌷</div>
+
+          <h3 data-en="Women Development" data-ha="Ci Gaban Mata">
+            Women Development
+          </h3>
+
+          <p data-en="Promote women's participation in governance, improve access to finance and expand empowerment programmes for women."
+             data-ha="Ƙarfafa shigar mata cikin shugabanci, inganta damar samun kuɗaɗen jari da faɗaɗa shirye-shiryen tallafa wa mata.">
+            Promote women's participation in governance, improve access to finance and expand empowerment programmes for women.
+          </p>
+        </article>
+
+        <!-- ECONOMY -->
+        <article class="sh-manifesto-card">
+          <div class="sh-manifesto-icon" aria-hidden="true">📈</div>
+
+          <h3 data-en="Economic Growth" data-ha="Bunƙasar Tattalin Arziki">
+            Economic Growth
+          </h3>
+
+          <p data-en="Encourage investment, promote SMEs, improve infrastructure and create a business-friendly environment for sustainable development."
+             data-ha="Ƙarfafa zuba jari, tallafa wa ƙananan da matsakaitan kasuwanci, inganta ababen more rayuwa da samar da yanayin kasuwanci mai kyau domin ci gaba mai ɗorewa.">
+            Encourage investment, promote SMEs, improve infrastructure and create a business-friendly environment for sustainable development.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="sh-manifesto-button">
+        <a href="manifesto.html" class="sh-btn">
+          <span data-en="Read Full Manifesto"
+                data-ha="Karanta Cikakkun Manufofi">
+            Read Full Manifesto
+          </span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ==========================================
+   SHINGE CAMPAIGN WEBSITE JAVASCRIPT
+   LANGUAGE SWITCHER + STATISTICS + COUNTDOWN
+========================================== */
+
+(function () {
+  "use strict";
+
+  const site = document.getElementById("shinge-site");
+
+  if (!site) return;
+
+  /* ------------------------------------------
+     1. LANGUAGE SWITCHER
+  ------------------------------------------ */
+
+  const languageButtons = site.querySelectorAll("[data-language]");
+
+  function setLanguage(language) {
+    const selectedLanguage = language === "ha" ? "ha" : "en";
+
+    site.querySelectorAll("[data-en][data-ha]").forEach(function (element) {
+      const translation = element.getAttribute(
+        "data-" + selectedLanguage
+      );
+
+      if (translation !== null) {
+        element.textContent = translation;
+      }
+    });
+
+    languageButtons.forEach(function (button) {
+      const isActive =
+        button.getAttribute("data-language") === selectedLanguage;
+
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    site.setAttribute("lang", selectedLanguage);
+    document.documentElement.lang = selectedLanguage;
+
+    const pageTitle = selectedLanguage === "ha"
+      ? "Kamfen ɗin Shinge | Hausa"
+      : "Shinge Campaign | English";
+
+    document.title = pageTitle;
+
+    updateCountdownStatus(selectedLanguage);
+  }
+
+  languageButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      setLanguage(button.getAttribute("data-language"));
+    });
+  });
+
+  /* ------------------------------------------
+     2. CAMPAIGN STATISTICS
+
+     Replace the zero values with verified data.
+  ------------------------------------------ */
+
+  const lgaStatistics = [
+    {
+      name: "Misau",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Dambam",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Ningi",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Warji",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Darazo",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    },
+    {
+      name: "Ganjuwa",
+      supporters: 0,
+      volunteers: 0,
+      wardsReported: 0,
+      pollingUnitsReported: 0
+    }
+  ];
+
+  const lgaGrid = site.querySelector("#sh-lga-grid");
+
+  function numberFormat(value) {
+    return Number(value || 0).toLocaleString("en-NG");
+  }
+
+  function renderStatistics() {
+    let totalSupporters = 0;
+    let totalVolunteers = 0;
+
+    const currentLanguage = site.getAttribute("lang") || "en";
+
+    lgaGrid.innerHTML = lgaStatistics.map(function (lga) {
+      totalSupporters += Number(lga.supporters) || 0;
+      totalVolunteers += Number(lga.volunteers) || 0;
+
+      const localGovernmentLabel = currentLanguage === "ha"
+        ? "Ƙaramar Hukuma"
+        : "Local Government Area";
+
+      const supportersLabel = currentLanguage === "ha"
+        ? "Magoya baya"
+        : "Supporters";
+
+      const volunteersLabel = currentLanguage === "ha"
+        ? "Masu sa kai"
+        : "Volunteers";
+
+      const wardsLabel = currentLanguage === "ha"
+        ? "Gundumomin zaɓe da aka ruwaito"
+        : "Wards Reported";
+
+      const pollingUnitsLabel = currentLanguage === "ha"
+        ? "Wuraren zaɓe da aka ruwaito"
+        : "Polling Units Reported";
+
+      return `
+        <article class="sh-lga-card">
+          <h4>${lga.name}</h4>
+          <p class="sh-lga-subtitle">${localGovernmentLabel}</p>
+
+          <div class="sh-lga-metric">
+            <span>👥 ${supportersLabel}</span>
+            <strong>${numberFormat(lga.supporters)}</strong>
+          </div>
+
+          <div class="sh-lga-metric">
+            <span>🤝 ${volunteersLabel}</span>
+            <strong>${numberFormat(lga.volunteers)}</strong>
+          </div>
+
+          <div class="sh-lga-metric">
+            <span>📍 ${wardsLabel}</span>
+            <strong>${numberFormat(lga.wardsReported)}</strong>
+          </div>
+
+          <div class="sh-lga-metric">
+            <span>🗳️ ${pollingUnitsLabel}</span>
+            <strong>${numberFormat(lga.pollingUnitsReported)}</strong>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    site.querySelector("#sh-total-supporters").textContent =
+      numberFormat(totalSupporters);
+
+    site.querySelector("#sh-total-volunteers").textContent =
+      numberFormat(totalVolunteers);
+
+    site.querySelector("#sh-total-lgas").textContent =
+      numberFormat(lgaStatistics.length);
+  }
+
+  /* ------------------------------------------
+     3. ELECTION COUNTDOWN
+
+     Date is set to 6 February 2027, Nigeria time.
+     Change it if the official election date changes.
+  ------------------------------------------ */
+
+  const electionDate = new Date("2027-02-06T00:00:00+01:00");
+
+  const daysElement = site.querySelector("#sh-days");
+  const hoursElement = site.querySelector("#sh-hours");
+  const minutesElement = site.querySelector("#sh-minutes");
+  const secondsElement = site.querySelector("#sh-seconds");
+  const countdownStatus = site.querySelector("#sh-countdown-status");
+
+  let countdownInterval = null;
+
+  function padNumber(number) {
+    return String(number).padStart(2, "0");
+  }
+
+  function updateCountdownStatus(language) {
+    if (!countdownStatus) return;
+
+    const selectedLanguage =
+      language || site.getAttribute("lang") || "en";
+
+    const difference = electionDate.getTime() - Date.now();
+
+    if (difference <= 0) {
+      countdownStatus.textContent = selectedLanguage === "ha"
+        ? "Ƙidayar zuwa ranar da aka tsara ta ƙare."
+        : "The countdown to the scheduled date has ended.";
+
+      return;
+    }
+
+    countdownStatus.textContent = selectedLanguage === "ha"
+      ? "Lokacin da ya rage zuwa 6 ga Fabrairu, 2027."
+      : "Time remaining until 6 February 2027.";
+  }
+
+  function updateCountdown() {
+    const difference = electionDate.getTime() - Date.now();
+
+    if (difference <= 0) {
+      daysElement.textContent = "00";
+      hoursElement.textContent = "00";
+      minutesElement.textContent = "00";
+      secondsElement.textContent = "00";
+
+      updateCountdownStatus();
+
+      if (countdownInterval !== null) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
+
+      return;
+    }
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    daysElement.textContent = padNumber(days);
+    hoursElement.textContent = padNumber(hours);
+    minutesElement.textContent = padNumber(minutes);
+    secondsElement.textContent = padNumber(seconds);
+
+    updateCountdownStatus();
+  }
+
+  /* INITIALIZE */
+
+  renderStatistics();
+  updateCountdown();
+  countdownInterval = setInterval(updateCountdown, 1000);
+
+  setLanguage("en");
+
+})();
+</script>
+
+</body>
+</html>
+
 <!-- =========================================
      SHINGE CAMPAIGN GALLERY
 ========================================= -->
@@ -1353,291 +3105,261 @@ footer {
         </div>
 
         <p class="gallery-note">
-           
+            
         </p>
 
     </div>
 
 </section>
 
-
-<!-- =========================================
-     SHINGE NEWS AND UPDATES
-========================================= -->
-
-<section class="campaign-news" id="campaign-news">
-
-    <div class="news-container">
-
-        <div class="news-heading">
-            <span class="news-eyebrow">LABARAN KAMFEN • CAMPAIGN NEWS</span>
-
-            <h2>News & Updates</h2>
-
-            <p>
-                Sabbin sanarwa, labaran ayyukan kamfen da muhimman bayanai.
-                Latest campaign news, announcements and updates.
-            </p>
-        </div>
-
-        <!-- NEWS FILTERS -->
-        <div class="news-filters">
-
-            <button type="button" class="news-filter active"
-                    data-news-filter="all">
-                Duka / All
-            </button>
-
-            <button type="button" class="news-filter"
-                    data-news-filter="announcements">
-                Sanarwa / Announcements
-            </button>
-
-            <button type="button" class="news-filter"
-                    data-news-filter="events">
-                Ayyuka / Events
-            </button>
-
-            <button type="button" class="news-filter"
-                    data-news-filter="updates">
-                Sabuntawa / Updates
-            </button>
-
-        </div>
-
-        <!-- NEWS CARDS -->
-        <div class="news-grid">
-
-            <article class="news-card" data-news-category="announcements">
-
-                <div class="news-card-top">
-                    <span class="news-category">Sanarwa</span>
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-
-                <div class="news-card-content">
-
-                    <p class="news-date">Sanarwar Kamfen</p>
-
-                    <h3>Sanarwa ta Hukuma</h3>
-
-                    <p class="news-summary">
-                        A nan za a saka sanarwar hukuma da shugabannin
-                        kamfen suka amince a wallafa.
-                    </p>
-
-                    <details class="news-details">
-                        <summary>Karanta ƙarin bayani / Read More</summary>
-
-                        <p>
-                            Saka cikakken bayanin sanarwar a nan.
-                            A tabbatar da sahihancin bayanin da kuma
-                            amincewar wanda ke da ikon wallafa shi.
-                        </p>
-                    </details>
-
-                </div>
-
-            </article>
-
-            <article class="news-card" data-news-category="events">
-
-                <div class="news-card-top">
-                    <span class="news-category">Ayyukan Kamfen</span>
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-
-                <div class="news-card-content">
-
-                    <p class="news-date">Labarin Aiki</p>
-
-                    <h3>Ayyuka da Taro</h3>
-
-                    <p class="news-summary">
-                        A nan za a wallafa bayanai game da tarukan kamfen,
-                        ziyarce-ziyarcen al'umma da sauran ayyuka.
-                    </p>
-
-                    <details class="news-details">
-                        <summary>Karanta ƙarin bayani / Read More</summary>
-
-                        <p>
-                            Saka ranar taro, wurin da aka gudanar da shi,
-                            muhimman bayanai da hotunan da aka amince
-                            a wallafa.
-                        </p>
-                    </details>
-
-                </div>
-
-            </article>
-
-            <article class="news-card" data-news-category="updates">
-
-                <div class="news-card-top">
-                    <span class="news-category">Sabuntawa</span>
-                    <i class="fas fa-newspaper"></i>
-                </div>
-
-                <div class="news-card-content">
-
-                    <p class="news-date">Sabon Bayani</p>
-
-                    <h3>Sabbin Bayanai na Kamfen</h3>
-
-                    <p class="news-summary">
-                        A nan za a saka sabbin bayanai da suka shafi
-                        shirye-shirye da ayyukan kamfen.
-                    </p>
-
-                    <details class="news-details">
-                        <summary>Karanta ƙarin bayani / Read More</summary>
-
-                        <p>
-                            Saka cikakken bayani, ranar wallafawa,
-                            da tushen bayanin idan ya dace.
-                        </p>
-                    </details>
-
-                </div>
-
-            </article>
-
-        </div>
-
-        <p class="news-notice">
-            Waɗannan katunan misalai ne. A maye gurbin bayanansu da
-            sahihan labarai da sanarwar da aka amince a wallafa.
-        </p>
-
-    </div>
-
-</section>
 
 <!-- ==========================================
-     SUPHI CAMPAIGN WEBSITE
-     CONTACT & SOCIAL MEDIA
+     SHINGE CAMPAIGN — NEWS & EVENTS
 ========================================== -->
 
-<section class="campaign-contact" id="campaign-contact">
-    <div class="contact-container">
+<section class="shinge-news" id="news">
+    <div class="shinge-container">
 
-        <div class="contact-heading">
-            <span class="contact-label">GET IN TOUCH</span>
-            <h2>Contact Our Campaign</h2>
-            <p>
-                Connect with the campaign team for enquiries,
-                participation and official updates.
+        <header class="shinge-section-heading">
+            <span data-en="NEWS & UPDATES" data-ha="LABARAI DA SABUNTAWA">
+                NEWS & UPDATES
+            </span>
+
+            <h2 data-en="Latest News & Upcoming Events"
+                data-ha="Sabbin Labarai da Shirye-shiryen da ke Tafe">
+                Latest News & Upcoming Events
+            </h2>
+
+            <p data-en="Follow campaign activities, announcements and events across Misau, Dambam, Ningi, Warji, Darazo and Ganjuwa."
+               data-ha="Bi ayyukan kamfen, sanarwa da shirye-shirye a Misau, Dambam, Ningi, Warji, Darazo da Ganjuwa.">
+                Follow campaign activities, announcements and events across Misau, Dambam, Ningi, Warji, Darazo and Ganjuwa.
             </p>
+        </header>
+
+        <div class="shinge-news-grid">
+
+            <article class="shinge-news-card">
+                <div class="shinge-news-photo">
+                    <img src="images/news/news1.jpg"
+                         alt="Campaign News"
+                         loading="lazy">
+                    <span class="shinge-news-label"
+                          data-en="CAMPAIGN NEWS"
+                          data-ha="LABARIN KAMFEN">CAMPAIGN NEWS</span>
+                </div>
+
+                <div class="shinge-news-body">
+                    <span class="shinge-news-date">15 Jan 2027</span>
+
+                    <h3 data-en="Campaign Flag-Off"
+                        data-ha="Kaddamar da Kamfen">
+                        Campaign Flag-Off
+                    </h3>
+
+                    <p data-en="Updates on the campaign launch and engagement with communities across Bauchi Central."
+                       data-ha="Sabbin bayanai kan kaddamar da kamfen da ganawa da al'ummomi a Bauchi Central.">
+                        Updates on the campaign launch and engagement with communities across Bauchi Central.
+                    </p>
+
+                    <a class="shinge-read-more" href="news.html">
+                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="shinge-news-card">
+                <div class="shinge-news-photo">
+                    <img src="images/news/news2.jpg"
+                         alt="Youth Engagement"
+                         loading="lazy">
+                    <span class="shinge-news-label"
+                          data-en="YOUTH"
+                          data-ha="MATASA">YOUTH</span>
+                </div>
+
+                <div class="shinge-news-body">
+                    <span class="shinge-news-date">20 Jan 2027</span>
+
+                    <h3 data-en="Youth Engagement"
+                        data-ha="Shigar da Matasa Cikin Ayyuka">
+                        Youth Engagement
+                    </h3>
+
+                    <p data-en="Campaign engagement focused on youth participation, leadership and empowerment."
+                       data-ha="Ayyukan kamfen da suka mayar da hankali kan shigar matasa, jagoranci da karfafawa.">
+                        Campaign engagement focused on youth participation, leadership and empowerment.
+                    </p>
+
+                    <a class="shinge-read-more" href="news.html">
+                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="shinge-news-card">
+                <div class="shinge-news-photo">
+                    <img src="images/news/news3.jpg"
+                         alt="Community Meeting"
+                         loading="lazy">
+                    <span class="shinge-news-label"
+                          data-en="COMMUNITY"
+                          data-ha="AL'UMMA">COMMUNITY</span>
+                </div>
+
+                <div class="shinge-news-body">
+                    <span class="shinge-news-date">28 Jan 2027</span>
+
+                    <h3 data-en="Community Stakeholders Meeting"
+                        data-ha="Taron Masu Ruwa da Tsaki">
+                        Community Stakeholders Meeting
+                    </h3>
+
+                    <p data-en="Community discussions on local priorities and development needs in the six LGAs."
+                       data-ha="Tattaunawar al'umma kan muhimman bukatu da ci gaba a kananan hukumomi shida.">
+                        Community discussions on local priorities and development needs in the six LGAs.
+                    </p>
+
+                    <a class="shinge-read-more" href="news.html">
+                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
         </div>
 
-        <div class="contact-grid">
+        <div class="shinge-event-banner">
+            <div class="shinge-event-icon" aria-hidden="true">📅</div>
 
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h3>Contact Information</h3>
+            <div class="shinge-event-text">
+                <h3 data-en="Upcoming Campaign Events"
+                    data-ha="Shirye-shiryen Kamfen Masu Zuwa">
+                    Upcoming Campaign Events
+                </h3>
 
-                <div class="contact-item">
-                    <div class="contact-icon">✉</div>
-                    <div>
-                        <h4>Email</h4>
-                        <p>Replace with the campaign's verified email</p>
-                    </div>
-                </div>
+                <p data-en="Watch this section for verified announcements about meetings, consultations and rallies across the six LGAs."
+                   data-ha="Duba wannan sashe domin samun sahihan sanarwa kan taruka, tattaunawa da gangami a kananan hukumomi shida.">
+                    Watch this section for verified announcements about meetings, consultations and rallies across the six LGAs.
+                </p>
+            </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">☎</div>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>Replace with the official campaign phone number</p>
-                    </div>
-                </div>
+            <a href="#join" class="shinge-primary-btn">
+                <span data-en="Get Involved" data-ha="Shiga Ciki">Get Involved</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div>
-                        <h4>Campaign Office</h4>
-                        <p>Add the verified campaign office address</p>
-                    </div>
-                </div>
+    </div>
+</section>
 
-                <div class="contact-socials">
-                    <h4>Follow Our Campaign</h4>
 
-                    <!-- Replace # with the verified official profile URLs -->
-                    <a href="#" class="social-link" target="_blank"
-                       rel="noopener noreferrer">Facebook</a>
+<!-- ==========================================
+     SHINGE CAMPAIGN — JOIN CAMPAIGN
+========================================== -->
 
-                    <a href="#" class="social-link" target="_blank"
-                       rel="noopener noreferrer">Instagram</a>
+<section class="shinge-join" id="join">
+    <div class="shinge-container">
 
-                    <a href="#" class="social-link" target="_blank"
-                       rel="noopener noreferrer">X</a>
+        <header class="shinge-section-heading">
+            <span data-en="JOIN THE CAMPAIGN"
+                  data-ha="SHIGA CIKIN KAMFEN">
+                JOIN THE CAMPAIGN
+            </span>
 
-                    <a href="#" class="social-link" target="_blank"
-                       rel="noopener noreferrer">YouTube</a>
+            <h2 data-en="Be Part of the Movement"
+                data-ha="Kasance Cikin Wannan Yunkuri">
+                Be Part of the Movement
+            </h2>
+
+            <p data-en="Express your interest in supporting campaign activities in Bauchi Central."
+               data-ha="Bayyana sha'awarka ta tallafa wa ayyukan kamfen a Bauchi Central.">
+                Express your interest in supporting campaign activities in Bauchi Central.
+            </p>
+        </header>
+
+        <div class="shinge-join-grid">
+
+            <div class="shinge-join-info">
+                <div class="shinge-join-symbol" aria-hidden="true">🤝</div>
+
+                <h3 data-en="Join Us in Building a Better Future"
+                    data-ha="Shiga Tare da Mu Domin Gina Kyakkyawar Makoma">
+                    Join Us in Building a Better Future
+                </h3>
+
+                <p data-en="Support community engagement and participate in campaign activities throughout the six LGAs."
+                   data-ha="Tallafa wa hulda da al'umma kuma shiga ayyukan kamfen a dukkan kananan hukumomi shida.">
+                    Support community engagement and participate in campaign activities throughout the six LGAs.
+                </p>
+
+                <ul class="shinge-benefits">
+                    <li>
+                        <span>✓</span>
+                        <span data-en="Receive campaign announcements"
+                              data-ha="Samun sanarwar kamfen">Receive campaign announcements</span>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <span data-en="Participate in community activities"
+                              data-ha="Shiga ayyukan al'umma">Participate in community activities</span>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <span data-en="Volunteer in your LGA and ward"
+                              data-ha="Ba da gudummawa a karamar hukuma da mazabarka">Volunteer in your LGA and ward</span>
+                    </li>
+                    <li>
+                        <span>✓</span>
+                        <span data-en="Help share verified campaign information"
+                              data-ha="Taimaka wajen yada sahihan bayanan kamfen">Help share verified campaign information</span>
+                    </li>
+                </ul>
+
+                <div class="shinge-lga-list">
+                    <span>Misau</span>
+                    <span>Dambam</span>
+                    <span>Ningi</span>
+                    <span>Warji</span>
+                    <span>Darazo</span>
+                    <span>Ganjuwa</span>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-box">
-                <h3>Send Us a Message</h3>
-                <p>Complete the form below to prepare your message.</p>
+            <div class="shinge-join-form-card">
+                <h3 data-en="Register Your Interest"
+                    data-ha="Yi Rajistar Sha'awarka">
+                    Register Your Interest
+                </h3>
 
-                <form id="campaignContactForm">
+                <p data-en="Continue to our official campaign registration form."
+                   data-ha="Ci gaba zuwa fom din rajista na kamfen.">
+                    Continue to our official campaign registration form.
+                </p>
 
-                    <div class="contact-form-group">
-                        <label for="contactName">Full Name</label>
-                        <input
-                            type="text"
-                            id="contactName"
-                            name="name"
-                            placeholder="Enter your full name"
-                            required
-                        >
-                    </div>
+                <!--
+                  Replace the URL below with your actual published
+                  Google Forms responder URL.
+                -->
+                <a
+                    class="shinge-primary-btn shinge-register-btn"
+                    href="PASTE_YOUR_GOOGLE_FORM_URL_HERE"
+                    target="_blank"
+                    rel="noopener noreferrer">
 
-                    <div class="contact-form-group">
-                        <label for="contactEmail">Email Address</label>
-                        <input
-                            type="email"
-                            id="contactEmail"
-                            name="email"
-                            placeholder="Enter your email address"
-                            required
-                        >
-                    </div>
+                    <span data-en="Register Now" data-ha="Yi Rajista Yanzu">
+                        Register Now
+                    </span>
 
-                    <div class="contact-form-group">
-                        <label for="contactSubject">Subject</label>
-                        <select id="contactSubject" name="subject" required>
-                            <option value="">Select a subject</option>
-                            <option value="General Enquiry">General Enquiry</option>
-                            <option value="Campaign Participation">Campaign Participation</option>
-                            <option value="Volunteer Support">Volunteer Support</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+                    <span aria-hidden="true">→</span>
+                </a>
 
-                    <div class="contact-form-group">
-                        <label for="contactMessage">Your Message</label>
-                        <textarea
-                            id="contactMessage"
-                            name="message"
-                            rows="5"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
-                    </div>
-
-                    <button type="submit" class="contact-submit-btn">
-                        Prepare Email Message
-                    </button>
-
-                    <p class="contact-form-note" id="contactFormStatus"
-                       aria-live="polite"></p>
-
-                </form>
+                <p class="shinge-form-note"
+                   data-en="Your registration will open in a new tab."
+                   data-ha="Fom din rajista zai bude a sabon shafi.">
+                    Your registration will open in a new tab.
+                </p>
             </div>
 
         </div>
@@ -2185,7 +3907,73 @@ footer {
         padding: 8px 10px;
     }
 }
+/* ==========================================
+   SHINGE CAMPAIGN REGISTRATION FORM
+========================================== */
 
+.registration-section {
+    background: #f3f8f4;
+    padding: 78px 0;
+}
+
+.registration-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e0eae2;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.registration-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+.registration-intro p {
+    color: #68766d;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.registration-frame {
+    width: 100%;
+    height: 1450px;
+    border: none;
+    display: block;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.registration-help {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #68766d;
+}
+
+.registration-help a {
+    color: #087b45;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .registration-section {
+        padding: 45px 0;
+    }
+
+    .registration-card {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .registration-frame {
+        height: 1550px;
+    }
+}
 </style>
 
 
@@ -2586,7 +4374,7 @@ body.gallery-modal-open {
 
 
 /* =========================================
-   SUPHI NEWS AND UPDATES
+   SHINGE NEWS AND UPDATES
 ========================================= */
 
 .campaign-news {
@@ -2790,7 +4578,7 @@ body.gallery-modal-open {
 }
 
 /* ==========================================
-   SUPHI CAMPAIGN WEBSITE
+   SHINGE CAMPAIGN WEBSITE
    MOBILE VIEW IMPROVEMENTS
 ========================================== */
 
@@ -2980,145 +4768,638 @@ section {
 </style>
 
 
-<!-- PRIORITIES -->
-<section class="priorities" id="priorities">
+<!-- ==========================================
+     SHINGE CAMPAIGN REGISTRATION FORM
+     HTML + CSS + JAVASCRIPT
+     SINGLE-FILE VERSION: index.html
+========================================== -->
+
+<section id="registration" class="registration-section">
+  <div class="registration-container">
+
+    <div class="registration-header">
+      <span class="registration-label">JOIN THE MOVEMENT</span>
+      <h2>Registration Form</h2>
+      <p>
+        Register your details to participate in community
+        activities and campaign-related programmes.
+      </p>
+    </div>
+
+    <form id="campaignRegistrationForm">
+
+      <div class="registration-grid">
+
+        <div class="form-group">
+          <label for="regType">Registration Type *</label>
+          <select id="regType" name="registrationType" required>
+            <option value="">Choose registration type</option>
+            <option value="Supporter">Supporter</option>
+            <option value="Volunteer">Volunteer</option>
+            <option value="Organization">Organization</option>
+            <option value="Campaign Official">Campaign Official</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="e.g. 08012345678"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="state">State *</label>
+          <select id="state" name="state" required>
+            <option value="Bauchi" selected>Bauchi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="lga">Local Government Area *</label>
+          <select id="lga" name="lga" required>
+            <option value="">Select LGA</option>
+            <option value="Misau">Misau</option>
+            <option value="Dambam">Dambam</option>
+            <option value="Ningi">Ningi</option>
+            <option value="Warji">Warji</option>
+            <option value="Darazo">Darazo</option>
+            <option value="Ganjuwa">Ganjuwa</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ward">Ward *</label>
+          <select id="ward" name="ward" required disabled>
+            <option value="">Select LGA first</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pollingUnit">Polling Unit</label>
+          <select id="pollingUnit" name="pollingUnit" disabled>
+            <option value="">Select Ward first</option>
+          </select>
+          <small>
+            If the list is unavailable, enter the name below.
+          </small>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="manualPollingUnit">
+            Or Enter Polling Unit Manually
+          </label>
+          <input
+            type="text"
+            id="manualPollingUnit"
+            name="manualPollingUnit"
+            placeholder="Enter your Polling Unit name"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-group full-width" id="organizationField" hidden>
+          <label for="organizationName">Organization Name *</label>
+          <input
+            type="text"
+            id="organizationName"
+            name="organizationName"
+            placeholder="Enter organization name"
+          >
+        </div>
+
+        <div class="form-group full-width" id="volunteerField" hidden>
+          <label for="volunteerArea">Preferred Volunteer Area *</label>
+          <select id="volunteerArea" name="volunteerArea">
+            <option value="">Select volunteer area</option>
+            <option value="Community Outreach">Community Outreach</option>
+            <option value="Public Information">Public Information</option>
+            <option value="Digital and ICT">Digital and ICT</option>
+            <option value="Event Support">Event Support</option>
+            <option value="Logistics">Logistics</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="message">Additional Information</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Additional information (optional)"
+          ></textarea>
+        </div>
+
+      </div>
+
+      <div class="registration-consent">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">
+          I confirm that the information provided is accurate and
+          agree to its use for registration and programme administration.
+        </label>
+      </div>
+
+      <button type="submit" class="registration-submit">
+        Submit Registration
+      </button>
+
+      <p id="registrationMessage" role="status" aria-live="polite"></p>
+
+    </form>
+  </div>
+</section>
+
+<style>
+.registration-section {
+  padding: 70px 20px;
+  background: #f3f7f4;
+  font-family: Arial, sans-serif;
+}
+
+.registration-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 35px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.registration-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.registration-label {
+  color: #16834a;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.registration-header h2 {
+  color: #123e2b;
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+.registration-header p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #26352c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d4ddd7;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.form-group small {
+  color: #666;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid #16834a;
+  outline-offset: 1px;
+}
+
+.form-group select:disabled {
+  background: #eee;
+  cursor: not-allowed;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.registration-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 24px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.registration-consent input {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.registration-submit {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #16834a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.registration-submit:hover {
+  background: #106638;
+}
+
+.registration-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+#registrationMessage {
+  margin-top: 18px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .registration-container {
+    padding: 22px 16px;
+  }
+
+  .registration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .registration-header h2 {
+    font-size: 26px;
+  }
+}
+</style>
+
+<script>
+(() => {
+  "use strict";
+
+  const form = document.getElementById("campaignRegistrationForm");
+  if (!form || form.dataset.initialized === "true") return;
+  form.dataset.initialized = "true";
+
+  const lgaSelect = document.getElementById("lga");
+  const wardSelect = document.getElementById("ward");
+  const pollingSelect = document.getElementById("pollingUnit");
+  const manualPollingUnit = document.getElementById("manualPollingUnit");
+  const typeSelect = document.getElementById("regType");
+  const organizationField = document.getElementById("organizationField");
+  const volunteerField = document.getElementById("volunteerField");
+  const organizationInput = document.getElementById("organizationName");
+  const volunteerSelect = document.getElementById("volunteerArea");
+  const message = document.getElementById("registrationMessage");
+  const submitButton = form.querySelector('[type="submit"]');
+
+  // Ward data currently included in this form.
+  // Polling Unit names have not yet been added.
+  const electoralData = {
+    "Misau": {
+      "Ajilin/Gugulin": [],
+      "Beti": [],
+      "Gwaram": [],
+      "Hardawa": [],
+      "Jarkasa": [],
+      "Kukadi/Gundari": [],
+      "Sarma/Akuyam": [],
+      "Sirko": [],
+      "Tofu": [],
+      "Zadawa": []
+    },
+
+    "Dambam": {
+      "Garuza": [],
+      "Gurbana": [],
+      "Dambam": [],
+      "Yanda": [],
+      "Yame": [],
+      "Dagauda": [],
+      "Gargawa": [],
+      "Zaura": [],
+      "Jalam Central": [],
+      "Jalam East": []
+    },
+
+    "Ningi": {
+      "Ningi": [],
+      "Dingis": [],
+      "Nasaru": [],
+      "Jangu": [],
+      "Balma": [],
+      "Kudu / Yamma": [],
+      "Tiffi / Guda": [],
+      "Burra / Kyata": [],
+      "Sama": [],
+      "Bashe": [],
+      "Kurmi": []
+    },
+
+    "Warji": {
+      "Baima North / West": [],
+      "Baima South/East": [],
+      "Dagu East": [],
+      "Dagu West": [],
+      "Gabanga": [],
+      "Katanga": [],
+      "Ranga": [],
+      "Tiyin": [],
+      "Tudun Wada East": [],
+      "Tudun Wada West": []
+    },
+
+    "Darazo": {
+      "Darazo": [],
+      "Tauya": [],
+      "Gabarin": [],
+      "Konkiyal": [],
+      "Lago": [],
+      "Sade": [],
+      "Lanzai": [],
+      "Yautare": [],
+      "Gabciyari": [],
+      "Wahu": [],
+      "Papa": []
+    },
+
+    "Ganjuwa": {
+      "Ganjuwa": [],
+      "Gungura": [],
+      "Kafin Madaki": [],
+      "Kariya": [],
+      "Kubi East": [],
+      "Kubi West": [],
+      "Miya East": [],
+      "Miya West": [],
+      "Nasarawa North": [],
+      "Nasarawa South": [],
+      "Yali": []
+    }
+  };
+
+  function resetSelect(select, placeholder) {
+    select.replaceChildren(new Option(placeholder, ""));
+  }
+
+  // Update Ward list when the LGA changes.
+  lgaSelect.addEventListener("change", () => {
+    resetSelect(wardSelect, "Select Ward");
+    resetSelect(pollingSelect, "Select Ward first");
+
+    wardSelect.disabled = true;
+    pollingSelect.disabled = true;
+
+    const wards = electoralData[lgaSelect.value] || {};
+    const wardNames = Object.keys(wards);
+
+    if (wardNames.length === 0) {
+      resetSelect(wardSelect, "Ward data not available");
+      return;
+    }
+
+    wardNames.forEach(name => {
+      wardSelect.add(new Option(name, name));
+    });
+
+    wardSelect.disabled = false;
+  });
+
+  // Update Polling Unit list when the Ward changes.
+  wardSelect.addEventListener("change", () => {
+    resetSelect(pollingSelect, "No list available — enter below");
+    pollingSelect.disabled = true;
+
+    const units =
+      electoralData[lgaSelect.value]?.[wardSelect.value] || [];
+
+    if (units.length > 0) {
+      resetSelect(pollingSelect, "Select Polling Unit");
+
+      units.forEach(unit => {
+        pollingSelect.add(new Option(unit, unit));
+      });
+
+      pollingSelect.disabled = false;
+    }
+
+    // Manual entry remains available when no units are listed.
+    manualPollingUnit.value = "";
+  });
+
+  // Show or hide extra fields according to registration type.
+  typeSelect.addEventListener("change", () => {
+    const isOrganization = typeSelect.value === "Organization";
+    const isVolunteer = typeSelect.value === "Volunteer";
+
+    organizationField.hidden = !isOrganization;
+    volunteerField.hidden = !isVolunteer;
+
+    organizationInput.required = isOrganization;
+    volunteerSelect.required = isVolunteer;
+  });
+
+  // Save registration in this browser.
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    message.textContent = "";
+
+    const typedPollingUnit = manualPollingUnit.value.trim();
+    const selectedPollingUnit = pollingSelect.value;
+
+    const registration = {
+      id: "REG-" + Date.now(),
+      registrationType: typeSelect.value,
+      fullName: document.getElementById("fullName").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      state: document.getElementById("state").value,
+      lga: lgaSelect.value,
+      ward: wardSelect.value,
+      pollingUnit: typedPollingUnit || selectedPollingUnit,
+      organizationName: organizationInput.value.trim(),
+      volunteerArea: volunteerSelect.value,
+      message: document.getElementById("message").value.trim(),
+      status: "Pending",
+      registeredAt: new Date().toISOString()
+    };
+
+    try {
+      const key = "shingeCampaignRegistrations";
+      const existing = JSON.parse(localStorage.getItem(key) || "[]");
+
+      if (!Array.isArray(existing)) {
+        throw new Error("Saved registration data is invalid.");
+      }
+
+      const normalizedPhone = registration.phone.replace(/\s+/g, "");
+
+      const duplicate = existing.some(item =>
+        item.phone &&
+        item.phone.replace(/\s+/g, "") === normalizedPhone
+      );
+
+      if (duplicate) {
+        message.textContent =
+          "This phone number is already registered in this browser.";
+        message.style.color = "#b42318";
+        return;
+      }
+
+      existing.push(registration);
+      localStorage.setItem(key, JSON.stringify(existing));
+
+      form.reset();
+
+      organizationField.hidden = true;
+      volunteerField.hidden = true;
+      organizationInput.required = false;
+      volunteerSelect.required = false;
+
+      resetSelect(wardSelect, "Select LGA first");
+      resetSelect(pollingSelect, "Select Ward first");
+      wardSelect.disabled = true;
+      pollingSelect.disabled = true;
+
+      message.textContent =
+        "Registration saved in this browser. Thank you.";
+      message.style.color = "#16834a";
+
+    } catch (error) {
+      console.error("Registration save error:", error);
+
+      message.textContent =
+        "Unable to save registration. Please try again.";
+      message.style.color = "#b42318";
+    }
+  });
+})();
+</script>
+
+<!-- ==========================================
+     SHINGE CAMPAIGN REGISTRATION
+========================================== -->
+
+<section class="registration-section" id="registration">
+
     <div class="container">
 
         <div class="section-heading">
-            <span class="section-label" data-i18n="prioritiesLabel">Muhimman Batutuwa</span>
-            <h2 data-i18n="prioritiesTitle">Manufofi da Manyan Batutuwa</h2>
-            <p data-i18n="prioritiesDescription">
-                Wannan sashe zai ƙunshi bayanai kan batutuwan ci gaba
-                da za a fayyace a cikin shirin kamfen.
+
+            <span class="section-label">
+                REGISTRATION / RAJISTA
+            </span>
+
+            <h2>
+                Supporter & Volunteer Registration
+            </h2>
+
+            <p>
+                Register to participate in campaign activities.
+                Fill in the form below with accurate information.
             </p>
-        </div>
-
-        <div class="priority-grid">
-
-            <article class="priority-card">
-                <div class="priority-icon">🎓</div>
-                <h3 data-i18n="priority1Title">Ilimi</h3>
-                <p data-i18n="priority1Text">
-                    Bayani kan shawarwari da shirye-shiryen da suka shafi ilimi.
-                </p>
-            </article>
-
-            <article class="priority-card">
-                <div class="priority-icon">🏥</div>
-                <h3 data-i18n="priority2Title">Lafiya</h3>
-                <p data-i18n="priority2Text">
-                    Bayani kan inganta ayyukan lafiya da jin daɗin al'umma.
-                </p>
-            </article>
-
-            <article class="priority-card">
-                <div class="priority-icon">🌾</div>
-                <h3 data-i18n="priority3Title">Noma</h3>
-                <p data-i18n="priority3Text">
-                    Batutuwan noma, manoma da bunƙasa tattalin arziki.
-                </p>
-            </article>
-
-            <article class="priority-card">
-                <div class="priority-icon">💼</div>
-                <h3 data-i18n="priority4Title">Matasa da Sana'o'i</h3>
-                <p data-i18n="priority4Text">
-                    Bayani kan ƙwarewa, sana'o'i da damar tattalin arziki.
-                </p>
-            </article>
-
-            <article class="priority-card">
-                <div class="priority-icon">🚰</div>
-                <h3 data-i18n="priority5Title">Ruwa da Ababen More Rayuwa</h3>
-                <p data-i18n="priority5Text">
-                    Muhimman batutuwan ruwa, hanyoyi da sauran abubuwan more rayuwa.
-                </p>
-            </article>
-
-            <article class="priority-card">
-                <div class="priority-icon">🤝</div>
-                <h3 data-i18n="priority6Title">Riƙon Amana</h3>
-                <p data-i18n="priority6Text">
-                    Bayanan gaskiya, riƙon amana da wakilci bisa doka.
-                </p>
-            </article>
 
         </div>
+
+        <div class="registration-card">
+
+            <div class="registration-intro">
+
+                <h3>SHINGE CAMPAIGN 2027</h3>
+
+                <p>
+                    Cika fom ɗin da ke ƙasa domin yin rajista.
+                    Ka tabbatar bayanan da ka bayar daidai ne.
+                </p>
+
+            </div>
+
+            <iframe
+                class="registration-frame"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc7TekWnVsqPr6SEkVqZ7ZfP7LOg-u8-Lg2JAv38N3IlSaGPg/viewform?embedded=true"
+                title="Shinge Campaign 2027 Registration Form"
+                loading="lazy">
+            </iframe>
+
+            <p class="registration-help">
+                Form bai buɗe ba?
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSc7TekWnVsqPr6SEkVqZ7ZfP7LOg-u8-Lg2JAv38N3IlSaGPg/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Danna nan domin buɗe Registration Form
+                </a>
+            </p>
+
+        </div>
+
     </div>
+
 </section>
 
-<!-- INFORMATION BANNER -->
-<div class="info-banner">
-    <div class="container info-banner-inner">
-        <div>
-            <h2 data-i18n="bannerTitle">Bayanai a Wuri Ɗaya</h2>
-            <p data-i18n="bannerText">
-                Karanta bayanai, manufofi da sabbin sanarwa a wannan shafi.
-            </p>
-        </div>
-
-        <a href="#contact" class="btn btn-gold" data-i18n="bannerButton">
-            Tuntuɓi Ofishi →
-        </a>
-    </div>
-</div>
-
-<!-- NEWS -->
-<section id="news">
-    <div class="container">
-
-        <div class="section-heading">
-            <span class="section-label" data-i18n="newsLabel">Sabbin Bayanai</span>
-            <h2 data-i18n="newsTitle">Labarai da Sanarwa</h2>
-            <p data-i18n="newsDescription">
-                Za a wallafa sahihan labarai da sanarwa a wannan sashe.
-            </p>
-        </div>
-
-        <div class="news-grid">
-
-            <article class="news-card">
-                <div class="news-image">
-                    <span data-i18n="newsPlaceholder1">Hoton Labari na 1</span>
-                </div>
-                <div class="news-body">
-                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
-                    <h3 data-i18n="news1Title">Sabon Bayani Zai Bayyana a Nan</h3>
-                    <p data-i18n="news1Text">
-                        Saka sahihin labari ko sanarwa a nan bayan an tabbatar da shi.
-                    </p>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-image">
-                    <span data-i18n="newsPlaceholder2">Hoton Labari na 2</span>
-                </div>
-                <div class="news-body">
-                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
-                    <h3 data-i18n="news2Title">Bayanan Ayyuka da Tarurruka</h3>
-                    <p data-i18n="news2Text">
-                        Za a sanya sahihan bayanai game da tarurruka da ayyuka.
-                    </p>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-image">
-                    <span data-i18n="newsPlaceholder3">Hoton Labari na 3</span>
-                </div>
-                <div class="news-body">
-                    <span class="news-tag" data-i18n="newsTag">Sanarwa</span>
-                    <h3 data-i18n="news3Title">Bayanan Kamfen</h3>
-                    <p data-i18n="news3Text">
-                        Ƙara sabbin bayanan kamfen da takardu da aka amince da su.
-                    </p>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
+<!-- END REGISTRATION SECTION -->
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
@@ -3184,46 +5465,7 @@ section {
 
 </main>
 
-<!-- FOOTER -->
-<footer>
-    <div class="container">
 
-        <div class="footer-grid">
-
-            <div>
-                <div class="footer-brand">SHINGE 2027</div>
-                <p data-i18n="footerDescription">
-                    Shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.
-                </p>
-            </div>
-
-            <div>
-                <h3 data-i18n="footerLinksTitle">Hanyoyin Shafi</h3>
-                <div class="footer-links">
-                    <a href="#home" data-i18n="navHome">Gida</a>
-                    <a href="#about" data-i18n="navAbout">Game da Shi</a>
-                    <a href="#priorities" data-i18n="navPriorities">Manufofi</a>
-                    <a href="#news" data-i18n="navNews">Labarai</a>
-                </div>
-            </div>
-
-            <div>
-                <h3 data-i18n="footerContactTitle">Tuntuɓa</h3>
-                <div class="footer-links">
-                    <a href="#contact" data-i18n="footerContactLink">Bayanan Ofishi</a>
-                    <a href="#contact" data-i18n="footerMessageLink">Aika Saƙo</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>© <span id="currentYear"></span> Aliyu Abubakar Shinge.</span>
-            <span data-i18n="footerRights">An tanadi haƙƙoƙi.</span>
-        </div>
-
-    </div>
-</footer>
 
 <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
@@ -3236,7 +5478,7 @@ section {
 
 const translations = {
     ha: {
-        topText: "Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
+        topText: "Bello Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
         languageLabel: "Harshe / Language",
         brandSubtitle: "BAUCHI CENTRAL",
 
@@ -3248,13 +5490,13 @@ const translations = {
         navJoin: "Shiga Shafin",
 
         heroEyebrow: "YANKIN SANATA NA BAUCHI CENTRAL",
-        heroLine1: "Aliyu Abubakar",
+        heroLine1: "Bello Aliyu Abubakar",
         heroLine2: "Shinge",
-        heroDescription: "Barka da zuwa shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        heroDescription: "Barka da zuwa shafin bayanai na Bello Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
         heroButton1: "Ƙarin Bayani →",
         heroButton2: "Duba Manufofi",
         heroNote: "Ingantaccen Wakilci, Ci Gaba Mai Dorewa",
-        photoPlaceholder: "Saka hoton Aliyu Abubakar Shinge a images/candidate.jpg",
+        photoPlaceholder: "Saka hoton Bello Aliyu Abubakar Shinge a images/candidate.jpg",
         photoCaption: "Bauchi Central Senatorial District",
 
         slogan: "Ingantaccen Wakilci, Ci Gaba Mai Dorewa",
@@ -3263,7 +5505,7 @@ const translations = {
         aboutVisual: "Bauchi Central • Sanata • Wakilci",
         aboutLabel: "Game da Ɗan Takara",
         aboutTitle: "Sanin Ɗan Takara da Ayyukansa",
-        aboutP1: "Wannan shafi an tsara shi ne domin gabatar da bayanan Aliyu Abubakar Shinge, tarihin rayuwarsa, da abubuwan da suka shafi takararsa a Bauchi Central.",
+        aboutP1: "Wannan shafi an tsara shi ne domin gabatar da bayanan Bello Aliyu Abubakar Shinge, tarihin rayuwarsa, da abubuwan da suka shafi takararsa a Bauchi Central.",
         aboutP2: "Za a iya sabunta wannan sashe da sahihin tarihin rayuwa, ilimi, gogewa, ayyuka da sauran bayanan da aka tabbatar.",
         aboutPoint1: "Tarihin Rayuwa",
         aboutPoint2: "Ilimi da Gogewa",
@@ -3323,7 +5565,7 @@ const translations = {
         sendButton: "Shirya Saƙo",
         messageReady: "An shirya saƙonka. Wannan demo ne; ba a aika saƙon zuwa server ba.",
 
-        footerDescription: "Shafin bayanai na Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        footerDescription: "Shafin bayanai na Bello Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
         footerLinksTitle: "Hanyoyin Shafi",
         footerContactTitle: "Tuntuɓa",
         footerContactLink: "Bayanan Ofishi",
@@ -3332,7 +5574,7 @@ const translations = {
     },
 
     en: {
-        topText: "Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
+        topText: "Bello Aliyu Abubakar Shinge | Bauchi Central Senatorial District",
         languageLabel: "Language / Harshe",
         brandSubtitle: "BAUCHI CENTRAL",
 
@@ -3359,7 +5601,7 @@ const translations = {
         aboutVisual: "Bauchi Central • Senate • Representation",
         aboutLabel: "About the Candidate",
         aboutTitle: "Learn About the Candidate",
-        aboutP1: "This section introduces Aliyu Abubakar Shinge, his biography and information relating to his candidacy in Bauchi Central.",
+        aboutP1: "This section introduces Bello Aliyu Abubakar Shinge, his biography and information relating to his candidacy in Bauchi Central.",
         aboutP2: "Replace this text with verified biographical information, education, experience, achievements and other confirmed details.",
         aboutPoint1: "Biography",
         aboutPoint2: "Education & Experience",
@@ -3419,7 +5661,7 @@ const translations = {
         sendButton: "Prepare Message",
         messageReady: "Your message is prepared. This is a demo; the message has not been sent to a server.",
 
-        footerDescription: "Information portal for Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
+        footerDescription: "Information portal for Bello Aliyu Abubakar Shinge, Bauchi Central Senatorial District.",
         footerLinksTitle: "Quick Links",
         footerContactTitle: "Contact",
         footerContactLink: "Office Information",
@@ -3856,7 +6098,7 @@ setLanguage(savedLanguage);
 
 
 /* =========================================
-   SUPHI NEWS FILTER
+   SHINGE NEWS FILTER
 ========================================= */
 
 (() => {
@@ -3887,7 +6129,7 @@ setLanguage(savedLanguage);
 })();
 
 /* ==========================================
-   SUPHI CONTACT FORM
+   SHINGE CONTACT FORM
 ========================================== */
 
 (function () {
@@ -3950,6 +6192,1327 @@ setLanguage(savedLanguage);
     });
 })();
 
+</script>
+
+
+
+<!-- =====================================
+     SHINGE CAMPAIGN FOOTER
+===================================== -->
+
+<!-- FONT AWESOME ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<footer class="shinge-footer" id="contact">
+
+    <div class="footer-container">
+
+        <div class="footer-grid">
+
+            <!-- CANDIDATE INFORMATION -->
+            <div class="footer-brand">
+
+                <h2>
+                    HON. BELLO ALIYU
+                    <span>ABUBAKAR SHINGE</span>
+                </h2>
+
+                <p class="footer-slogan">
+                    Leadership • Service • Progress
+                </p>
+
+                <p>
+                    Official campaign platform for updates, public
+                    engagement, registration and information about
+                    our movement across Bauchi Central Senatorial District.
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+
+                <a href="index.html#about">
+                    <i class="fa-solid fa-user"></i>
+                    About the Candidate
+                </a>
+
+                <a href="index.html#projects">
+                    <i class="fa-solid fa-bullseye"></i>
+                    Our Priorities
+                </a>
+
+                <a href="index.html#news">
+                    <i class="fa-solid fa-newspaper"></i>
+                    News & Updates
+                </a>
+
+                <a href="index.html#registration">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Registration
+                </a>
+
+                <a href="index.html#contact">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <!-- SOCIAL MEDIA -->
+            <div class="footer-social">
+
+                <h3>Connect With Us</h3>
+
+                <p>
+                    Follow the candidate on official social media channels.
+                </p>
+
+                <div class="social-icons">
+
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/networkshinge"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link facebook"
+                       aria-label="Facebook"
+                       title="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/YOUR_USERNAME/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link instagram"
+                       aria-label="Instagram"
+                       title="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <!-- TIKTOK -->
+                    <a href="https://www.tiktok.com/@YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link tiktok"
+                       aria-label="TikTok"
+                       title="TikTok">
+
+                        <i class="fa-brands fa-tiktok"></i>
+
+                    </a>
+
+
+                    <!-- X -->
+                    <a href="https://x.com/YOUR_USERNAME"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link twitter"
+                       aria-label="X"
+                       title="X">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+
+
+                    <!-- YOUTUBE -->
+                    <a href="https://www.youtube.com/@BelloAliyuShinge"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link youtube"
+                       aria-label="YouTube"
+                       title="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+
+                    <!-- WHATSAPP -->
+                    <a href="https://wa.me/2348012345678"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link whatsapp"
+                       aria-label="WhatsApp"
+                       title="WhatsApp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+
+            <p>
+                &copy; <span id="footerYear"></span>
+                Hon. Bello Aliyu Abubakar Shinge Campaign.
+                All rights reserved.
+            </p>
+
+            <a href="#top" class="back-to-top">
+                Back to Top
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<style>
+
+/* =====================================
+   SHINGE CAMPAIGN FOOTER CSS
+===================================== */
+
+.shinge-footer {
+    width: 100%;
+    background: #102d21;
+    color: #ffffff;
+    padding: 55px 20px 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.shinge-footer * {
+    box-sizing: border-box;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.3fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+/* BRAND */
+
+.footer-brand h2 {
+    font-size: 21px;
+    line-height: 1.6;
+    margin: 0 0 12px;
+}
+
+.footer-brand h2 span {
+    display: block;
+    color: #f2c14e;
+}
+
+.footer-brand p,
+.footer-social p {
+    color: #d4e1d9;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.footer-brand .footer-slogan {
+    color: #f2c14e;
+    font-weight: bold;
+}
+
+/* HEADINGS */
+
+.footer-links h3,
+.footer-social h3 {
+    margin: 0 0 18px;
+    color: #f2c14e;
+    font-size: 18px;
+}
+
+/* QUICK LINKS */
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #e5eee8;
+    text-decoration: none;
+    margin-bottom: 14px;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+.footer-links a i {
+    width: 17px;
+    color: #f2c14e;
+    text-align: center;
+}
+
+.footer-links a:hover {
+    color: #f2c14e;
+    padding-left: 5px;
+}
+
+/* SOCIAL ICONS */
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+
+    border: 1px solid #658373;
+    border-radius: 50%;
+
+    color: #ffffff !important;
+    text-decoration: none;
+
+    font-size: 19px;
+    line-height: 1;
+
+    transition: all 0.25s ease;
+}
+
+.social-link i {
+    display: inline-block !important;
+    font-family: "Font Awesome 6 Brands" !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* INDIVIDUAL SOCIAL HOVER */
+
+.social-link.facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+    transform: translateY(-4px);
+}
+
+.social-link.instagram:hover {
+    background: #e1306c;
+    border-color: #e1306c;
+    transform: translateY(-4px);
+}
+
+.social-link.tiktok:hover {
+    background: #000000;
+    border-color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.social-link.twitter:hover {
+    background: #000000;
+    border-color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.social-link.youtube:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+    transform: translateY(-4px);
+}
+
+.social-link.whatsapp:hover {
+    background: #25d366;
+    border-color: #25d366;
+    transform: translateY(-4px);
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    border-top: 1px solid #456052;
+    padding: 20px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #d4e1d9;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f2c14e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.back-to-top:hover {
+    color: #ffffff;
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+
+    .shinge-footer {
+        padding: 40px 18px 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .social-icons {
+        gap: 13px;
+    }
+
+}
+
+</style>
+
+
+<script>
+/* AUTOMATIC COPYRIGHT YEAR */
+
+const footerYearElement = document.getElementById("footerYear");
+
+if (footerYearElement) {
+    footerYearElement.textContent = new Date().getFullYear();
+}
+</script>
+
+<!-- ==========================================
+     SHINGE CAMPAIGN ADMIN DASHBOARD
+     LOCAL TEST VERSION
+========================================== -->
+
+<style>
+  #shingeAdmin {
+    padding: 30px 16px;
+    background: #f3f7f4;
+    color: #20352a;
+    font-family: Arial, sans-serif;
+  }
+
+  #shingeAdmin .admin-wrap {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  #shingeAdmin .admin-header {
+    background: #123e2b;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  #shingeAdmin .admin-header h2 {
+    margin: 0 0 8px;
+  }
+
+  #shingeAdmin .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  #shingeAdmin .admin-stat {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #0000000d;
+  }
+
+  #shingeAdmin .admin-stat span {
+    display: block;
+    color: #66736a;
+    font-size: 13px;
+  }
+
+  #shingeAdmin .admin-stat strong {
+    display: block;
+    font-size: 28px;
+    margin-top: 8px;
+  }
+
+  #shingeAdmin .admin-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  #shingeAdmin input,
+  #shingeAdmin select {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccd8cf;
+    border-radius: 7px;
+    background: white;
+    font-size: 14px;
+  }
+
+  #shingeAdmin .admin-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  #shingeAdmin button {
+    border: 0;
+    border-radius: 7px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #shingeAdmin .admin-primary {
+    background: #16834a;
+    color: white;
+  }
+
+  #shingeAdmin .admin-secondary {
+    background: #e5eee8;
+    color: #123e2b;
+  }
+
+  #shingeAdmin .admin-table-wrap {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+  }
+
+  #shingeAdmin table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+  }
+
+  #shingeAdmin th,
+  #shingeAdmin td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #e5ebe7;
+    font-size: 13px;
+    vertical-align: top;
+  }
+
+  #shingeAdmin th {
+    background: #eaf2ec;
+    color: #123e2b;
+  }
+
+  #shingeAdmin .admin-note {
+    font-size: 13px;
+    color: #59675e;
+    line-height: 1.6;
+    margin-top: 18px;
+  }
+
+  #shingeAdmin .admin-empty {
+    text-align: center;
+    padding: 30px;
+    color: #66736a;
+  }
+
+  @media (max-width: 650px) {
+    #shingeAdmin .admin-stats {
+      grid-template-columns: 1fr;
+    }
+
+    #shingeAdmin .admin-filters {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* ==========================================
+   SHINGE NEWS & JOIN — COMPLETE STYLES
+========================================== */
+
+.shinge-news,
+.shinge-join {
+    width: 100%;
+    padding: 76px 20px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.shinge-news *,
+.shinge-join * {
+    box-sizing: border-box;
+}
+
+.shinge-news {
+    color: #18352a;
+    background: #f3f7f4;
+}
+
+.shinge-join {
+    color: #18352a;
+    background: #ffffff;
+}
+
+.shinge-container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.shinge-section-heading {
+    max-width: 790px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.shinge-section-heading > span {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #087443;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.shinge-section-heading h2 {
+    margin: 0 0 15px;
+    color: #163b2b;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.shinge-section-heading p {
+    margin: 0;
+    color: #647269;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* NEWS GRID */
+
+.shinge-news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.shinge-news-card {
+    min-width: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e1eae3;
+    border-radius: 14px;
+    box-shadow: 0 7px 24px rgba(17, 53, 35, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shinge-news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(17, 53, 35, 0.12);
+}
+
+.shinge-news-photo {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+    background: #dfeae2;
+}
+
+.shinge-news-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.shinge-news-card:hover .shinge-news-photo img {
+    transform: scale(1.04);
+}
+
+.shinge-news-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 8px 11px;
+    color: #ffffff;
+    background: #087443;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.shinge-news-body {
+    padding: 22px;
+}
+
+.shinge-news-date {
+    display: block;
+    margin-bottom: 10px;
+    color: #087443;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.shinge-news-body h3 {
+    margin: 0 0 12px;
+    color: #173c2b;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.shinge-news-body p {
+    margin: 0 0 19px;
+    color: #637067;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.shinge-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #087443;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.shinge-read-more:hover {
+    color: #b38316;
+}
+
+/* EVENT BANNER */
+
+.shinge-event-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 32px;
+    padding: 25px;
+    background: #e7f3eb;
+    border: 1px solid #d3e8d9;
+    border-left: 5px solid #087443;
+    border-radius: 12px;
+}
+
+.shinge-event-icon,
+.shinge-join-symbol {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    background: #087443;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.shinge-event-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.shinge-event-text h3 {
+    margin: 0 0 7px;
+    color: #173c2b;
+    font-size: 20px;
+}
+
+.shinge-event-text p {
+    margin: 0;
+    color: #58685e;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+
+.shinge-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-height: 48px;
+    padding: 13px 20px;
+    color: #ffffff;
+    background: #087443;
+    border: 1px solid #087443;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.shinge-primary-btn:hover {
+    color: #ffffff;
+    background: #065a34;
+    border-color: #065a34;
+    transform: translateY(-1px);
+}
+
+/* JOIN SECTION */
+
+.shinge-join-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: stretch;
+    gap: 32px;
+}
+
+.shinge-join-info {
+    padding: 30px 0;
+}
+
+.shinge-join-symbol {
+    margin-bottom: 22px;
+}
+
+.shinge-join-info h3 {
+    margin: 0 0 15px;
+    color: #173c2b;
+    font-size: clamp(23px, 3vw, 30px);
+    line-height: 1.4;
+}
+
+.shinge-join-info > p {
+    margin: 0 0 24px;
+    color: #637067;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.shinge-benefits {
+    display: grid;
+    gap: 15px;
+    margin: 0 0 25px;
+    padding: 0;
+    list-style: none;
+}
+
+.shinge-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #4d5d52;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.shinge-benefits li > span:first-child {
+    display: inline-flex;
+    flex: 0 0 23px;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    color: #ffffff;
+    background: #087443;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.shinge-lga-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.shinge-lga-list span {
+    padding: 8px 12px;
+    color: #087443;
+    background: #eaf5ed;
+    border: 1px solid #d4e8da;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* REGISTRATION CARD */
+
+.shinge-join-form-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 32px;
+    background: #f7faf7;
+    border: 1px solid #e0e9e2;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(17, 53, 35, 0.06);
+}
+
+.shinge-join-form-card h3 {
+    margin: 0 0 12px;
+    color: #173c2b;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.shinge-join-form-card > p {
+    margin: 0 0 23px;
+    color: #637067;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.shinge-register-btn {
+    width: 100%;
+}
+
+.shinge-join-form-card .shinge-form-note {
+    margin: 14px 0 0;
+    font-size: 12px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .shinge-news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shinge-join-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .shinge-join-info {
+        padding: 10px 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .shinge-news,
+    .shinge-join {
+        padding: 52px 15px;
+    }
+
+    .shinge-news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .shinge-news-photo {
+        height: 215px;
+    }
+
+    .shinge-news-body {
+        padding: 19px;
+    }
+
+    .shinge-event-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 21px;
+    }
+
+    .shinge-event-banner .shinge-primary-btn {
+        width: 100%;
+    }
+
+    .shinge-join-form-card {
+        padding: 23px 19px;
+    }
+
+    .shinge-section-heading {
+        margin-bottom: 30px;
+    }
+}
+</style>
+
+<section id="shingeAdmin" hidden>
+  <div class="admin-wrap">
+
+    <header class="admin-header">
+      <h2>Shinge Campaign Admin Dashboard</h2>
+      <p>Registration Management — Local Test Version</p>
+    </header>
+
+    <div class="admin-stats">
+      <div class="admin-stat">
+        <span>Total Registrations</span>
+        <strong id="adminTotal">0</strong>
+      </div>
+
+      <div class="admin-stat">
+        <span>Supporters</span>
+        <strong id="adminSupporters">0</strong>
+      </div>
+
+      <div class="admin-stat">
+        <span>Volunteers</span>
+        <strong id="adminVolunteers">0</strong>
+      </div>
+    </div>
+
+    <div class="admin-filters">
+      <input
+        type="search"
+        id="adminSearch"
+        placeholder="Search name, phone or email..."
+      >
+
+      <select id="adminLgaFilter">
+        <option value="">All LGAs</option>
+        <option value="Misau">Misau</option>
+        <option value="Dambam">Dambam</option>
+        <option value="Ningi">Ningi</option>
+        <option value="Warji">Warji</option>
+        <option value="Darazo">Darazo</option>
+        <option value="Ganjuwa">Ganjuwa</option>
+      </select>
+
+      <select id="adminTypeFilter">
+        <option value="">All Registration Types</option>
+        <option value="Supporter">Supporter</option>
+        <option value="Volunteer">Volunteer</option>
+        <option value="Organization">Organization</option>
+        <option value="Campaign Official">Campaign Official</option>
+      </select>
+    </div>
+
+    <div class="admin-actions">
+      <button type="button" class="admin-primary" id="adminRefresh">
+        Refresh Registrations
+      </button>
+
+      <button type="button" class="admin-secondary" id="adminExport">
+        Export CSV for Excel
+      </button>
+
+      <button type="button" class="admin-secondary" id="adminClose">
+        Close Dashboard
+      </button>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Type</th>
+            <th>LGA</th>
+            <th>Ward</th>
+            <th>Polling Unit</th>
+            <th>Date Registered</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody"></tbody>
+      </table>
+
+      <p id="adminEmpty" class="admin-empty">
+        No registrations found in this browser.
+      </p>
+    </div>
+
+    <p class="admin-note">
+      Important: This dashboard reads registrations stored in this
+      browser only. It is not protected by administrator authentication
+      and is not connected to an online database. Do not use it to
+      manage real or confidential campaign data yet.
+    </p>
+
+  </div>
+</section>
+
+<script>
+(() => {
+  "use strict";
+
+  const dashboard = document.getElementById("shingeAdmin");
+  if (!dashboard || dashboard.dataset.initialized === "true") return;
+  dashboard.dataset.initialized = "true";
+
+  const storageKey = "shingeCampaignRegistrations";
+
+  const searchInput = document.getElementById("adminSearch");
+  const lgaFilter = document.getElementById("adminLgaFilter");
+  const typeFilter = document.getElementById("adminTypeFilter");
+  const tableBody = document.getElementById("adminTableBody");
+  const emptyMessage = document.getElementById("adminEmpty");
+
+  let registrations = [];
+
+  function readRegistrations() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      registrations = Array.isArray(saved) ? saved : [];
+    } catch (error) {
+      console.error("Unable to read registrations:", error);
+      registrations = [];
+    }
+
+    document.getElementById("adminTotal").textContent =
+      registrations.length;
+
+    document.getElementById("adminSupporters").textContent =
+      registrations.filter(r => r.registrationType === "Supporter").length;
+
+    document.getElementById("adminVolunteers").textContent =
+      registrations.filter(r => r.registrationType === "Volunteer").length;
+
+    renderRegistrations();
+  }
+
+  function addCell(row, value) {
+    const cell = document.createElement("td");
+    cell.textContent = value == null ? "" : String(value);
+    row.appendChild(cell);
+  }
+
+  function renderRegistrations() {
+    const query = searchInput.value.trim().toLowerCase();
+    const selectedLGA = lgaFilter.value;
+    const selectedType = typeFilter.value;
+
+    const filtered = registrations.filter(registration => {
+      const searchable = [
+        registration.fullName,
+        registration.phone,
+        registration.email
+      ].join(" ").toLowerCase();
+
+      return (
+        searchable.includes(query) &&
+        (!selectedLGA || registration.lga === selectedLGA) &&
+        (!selectedType || registration.registrationType === selectedType)
+      );
+    });
+
+    tableBody.replaceChildren();
+    emptyMessage.hidden = filtered.length > 0;
+
+    filtered.forEach((registration, index) => {
+      const row = document.createElement("tr");
+
+      addCell(row, index + 1);
+      addCell(row, registration.fullName);
+      addCell(row, registration.phone);
+      addCell(row, registration.registrationType);
+      addCell(row, registration.lga);
+      addCell(row, registration.ward);
+
+      addCell(
+        row,
+        registration.manualPollingUnit ||
+        registration.pollingUnit ||
+        ""
+      );
+
+      let registeredDate = "";
+
+      if (registration.registeredAt) {
+        const date = new Date(registration.registeredAt);
+
+        if (!Number.isNaN(date.getTime())) {
+          registeredDate = date.toLocaleString();
+        }
+      }
+
+      addCell(row, registeredDate);
+      tableBody.appendChild(row);
+    });
+  }
+
+  function escapeCSV(value) {
+    const text = value == null ? "" : String(value);
+    return '"' + text.replace(/"/g, '""') + '"';
+  }
+
+  function exportCSV() {
+    const query = searchInput.value.trim().toLowerCase();
+    const selectedLGA = lgaFilter.value;
+    const selectedType = typeFilter.value;
+
+    const filtered = registrations.filter(registration => {
+      const searchable = [
+        registration.fullName,
+        registration.phone,
+        registration.email
+      ].join(" ").toLowerCase();
+
+      return (
+        searchable.includes(query) &&
+        (!selectedLGA || registration.lga === selectedLGA) &&
+        (!selectedType || registration.registrationType === selectedType)
+      );
+    });
+
+    if (filtered.length === 0) {
+      alert("There are no registrations to export.");
+      return;
+    }
+
+    const columns = [
+      ["Registration ID", "id"],
+      ["Registration Type", "registrationType"],
+      ["Full Name", "fullName"],
+      ["Phone", "phone"],
+      ["Email", "email"],
+      ["State", "state"],
+      ["LGA", "lga"],
+      ["Ward", "ward"],
+      ["Polling Unit", "pollingUnit"],
+      ["Organization", "organizationName"],
+      ["Volunteer Area", "volunteerArea"],
+      ["Additional Information", "message"],
+      ["Registered At", "registeredAt"]
+    ];
+
+    const csv = [
+      columns.map(column => escapeCSV(column[0])).join(","),
+      ...filtered.map(registration =>
+        columns.map(column => {
+          const key = column[1];
+
+          if (key === "pollingUnit") {
+            return escapeCSV(
+              registration.manualPollingUnit ||
+              registration.pollingUnit ||
+              ""
+            );
+          }
+
+          return escapeCSV(registration[key]);
+        }).join(",")
+      )
+    ].join("\r\n");
+
+    const blob = new Blob(
+      ["\uFEFF" + csv],
+      { type: "text/csv;charset=utf-8;" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "shinge-campaign-registrations.csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  }
+
+  function updateDashboardVisibility() {
+    const isAdminView = window.location.hash === "#admin";
+
+    dashboard.hidden = !isAdminView;
+
+    if (isAdminView) {
+      readRegistrations();
+      dashboard.scrollIntoView({ behavior: "auto", block: "start" });
+    }
+  }
+
+  searchInput.addEventListener("input", renderRegistrations);
+  lgaFilter.addEventListener("change", renderRegistrations);
+  typeFilter.addEventListener("change", renderRegistrations);
+
+  document.getElementById("adminRefresh")
+    .addEventListener("click", readRegistrations);
+
+  document.getElementById("adminExport")
+    .addEventListener("click", exportCSV);
+
+  document.getElementById("adminClose")
+    .addEventListener("click", () => {
+      window.location.hash = "";
+    });
+
+  window.addEventListener("hashchange", updateDashboardVisibility);
+
+  updateDashboardVisibility();
+})();
+
+function translateShingeSection(language) {
+    const lang = language === "ha" ? "ha" : "en";
+
+    document.querySelectorAll("[data-en][data-ha]").forEach((element) => {
+        element.textContent = element.getAttribute(
+            lang === "ha" ? "data-ha" : "data-en"
+        );
+    });
+
+    document.documentElement.lang = lang;
+}
 </script>
 
 </body>
