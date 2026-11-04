@@ -2980,7 +2980,7 @@ footer {
 </html>
 
 
-<!-- =========================================
+ <!-- =========================================
      SHINGE CAMPAIGN GALLERY
      STANDALONE • HAUSA / ENGLISH
 ========================================= -->
@@ -3321,7 +3321,7 @@ footer {
 
             <article class="gallery-item" data-category="visits">
                 <button type="button" class="gallery-image-button">
-                    <img src="images/gallery/visit-28.jpg" alt="Ziyarar al'ummar/ Community Visit" loading="lazy">
+                    <img src="images/gallery/visit-28.jpg" alt="Ziyarar al'ummar / Community Visit" loading="lazy">
                     <span class="gallery-zoom">⌕</span>
                 </button>
                 <div class="gallery-caption"><h3>Ziyarar Al'ummar Garin Soro 02/11/2026</h3><p>Community Visit</p></div>
@@ -3329,7 +3329,7 @@ footer {
 
             <article class="gallery-item" data-category="visits">
                 <button type="button" class="gallery-image-button">
-                    <img src="images/gallery/visit-29.jpg" alt="Ziyarar al'umma/ Community Visit" loading="lazy">
+                    <img src="images/gallery/visit-29.jpg" alt="Ziyarar al'umma / Community Visit" loading="lazy">
                     <span class="gallery-zoom">⌕</span>
                 </button>
                 <div class="gallery-caption"><h3>Ziyarar Al'ummar Garin Soro 02/11/2026</h3><p>Community Visit</p></div>
@@ -3337,7 +3337,7 @@ footer {
 
             <article class="gallery-item" data-category="visits">
                 <button type="button" class="gallery-image-button">
-                    <img src="images/gallery/visit-30.jpg" alt="Ziyarar al'umma/ Community Visit" loading="lazy">
+                    <img src="images/gallery/visit-30.jpg" alt="Ziyarar al'umma / Community Visit" loading="lazy">
                     <span class="gallery-zoom">⌕</span>
                 </button>
                 <div class="gallery-caption"><h3>Ziyarar Al'ummar Garin Soro 02/11/2026</h3><p>Community Visit</p></div>
@@ -3345,7 +3345,7 @@ footer {
 
             <article class="gallery-item" data-category="visits">
                 <button type="button" class="gallery-image-button">
-                    <img src="images/gallery/visit-31.jpg" alt="Ziyarar al'umma/ Community Visit" loading="lazy">
+                    <img src="images/gallery/visit-31.jpg" alt="Ziyarar al'umma / Community Visit" loading="lazy">
                     <span class="gallery-zoom">⌕</span>
                 </button>
                 <div class="gallery-caption"><h3>Ziyarar Al'ummar Garin Gabarin 02/11/2026</h3><p>Community Visit</p></div>
@@ -3366,7 +3366,9 @@ footer {
                 </button>
                 <div class="gallery-caption"><h3>Ziyarar Al'ummar Garin Gabarin 02/11/2026</h3><p>Community Visit</p></div>
             </article>
-          
+                       
+        </div>
+
         <div class="gallery-more-container">
             <button type="button" class="gallery-more-btn">
                 <span class="gallery-more-text">View Full Gallery</span>
@@ -3729,6 +3731,81 @@ footer {
         right: 0;
     }
 }
+/* GALLERY: 3 PHOTOS PER ROW ON ALL DEVICES */
+#campaign-gallery .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+#campaign-gallery .gallery-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+#campaign-gallery .gallery-page-btn {
+    background: #08783e;
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#campaign-gallery .gallery-page-btn:hover:not(:disabled) {
+    background: #05552c;
+}
+
+#campaign-gallery .gallery-page-btn:disabled {
+    background: #b8c5bd;
+    cursor: not-allowed;
+}
+
+#campaign-gallery .gallery-page-number {
+    color: #163c2b;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+@media (max-width: 850px) {
+    #campaign-gallery .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #campaign-gallery .gallery-image-button {
+        height: 180px;
+    }
+}
+
+@media (max-width: 550px) {
+    #campaign-gallery .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    #campaign-gallery .gallery-image-button {
+        height: 120px;
+    }
+
+    #campaign-gallery .gallery-caption {
+        padding: 9px;
+    }
+
+    #campaign-gallery .gallery-caption h3 {
+        font-size: 12px;
+    }
+
+    #campaign-gallery .gallery-caption p {
+        font-size: 10px;
+    }
+}
 </style>
 
 <script>
@@ -3737,17 +3814,13 @@ footer {
 
     const section = document.getElementById("campaign-gallery");
 
-    if (!section || section.dataset.galleryReady === "true") {
-        return;
-    }
+    if (!section || section.dataset.galleryReady === "true") return;
 
     section.dataset.galleryReady = "true";
 
     const grid = section.querySelector(".gallery-grid");
     const filters = section.querySelectorAll(".gallery-filter");
-    const moreButton = section.querySelector(".gallery-more-btn");
-    const moreText = section.querySelector(".gallery-more-text");
-    const moreArrow = section.querySelector(".gallery-more-arrow");
+    const paginationContainer = section.querySelector(".gallery-more-container");
     const note = section.querySelector(".gallery-note");
 
     const lightbox = section.querySelector(".shinge-gallery-lightbox");
@@ -3759,13 +3832,37 @@ footer {
     const previousButton = section.querySelector(".shinge-lightbox-prev");
     const nextButton = section.querySelector(".shinge-lightbox-next");
 
-    const INITIAL_LIMIT = 6;
+    const PHOTOS_PER_PAGE = 24;
 
     let activeFilter = "all";
-    let expanded = false;
+    let currentPage = 1;
     let currentImages = [];
     let currentIndex = 0;
     let previousFocus = null;
+
+    const previousPageButton = document.createElement("button");
+    previousPageButton.type = "button";
+    previousPageButton.className = "gallery-page-btn";
+    previousPageButton.textContent = "Previous";
+
+    const pageNumber = document.createElement("span");
+    pageNumber.className = "gallery-page-number";
+
+    const nextPageButton = document.createElement("button");
+    nextPageButton.type = "button";
+    nextPageButton.className = "gallery-page-btn";
+    nextPageButton.textContent = "Next";
+
+    const pagination = document.createElement("div");
+    pagination.className = "gallery-pagination";
+
+    pagination.append(
+        previousPageButton,
+        pageNumber,
+        nextPageButton
+    );
+
+    paginationContainer.replaceChildren(pagination);
 
     function getItems() {
         return Array.from(grid.querySelectorAll(".gallery-item"));
@@ -3782,9 +3879,19 @@ footer {
         const allItems = getItems();
         const filteredItems = getFilteredItems();
 
-        const visibleItems = expanded
-            ? filteredItems
-            : filteredItems.slice(0, INITIAL_LIMIT);
+        const totalPages = Math.max(
+            1,
+            Math.ceil(filteredItems.length / PHOTOS_PER_PAGE)
+        );
+
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+
+        const start = (currentPage - 1) * PHOTOS_PER_PAGE;
+        const end = start + PHOTOS_PER_PAGE;
+
+        const visibleItems = filteredItems.slice(start, end);
 
         allItems.forEach(function (item) {
             item.classList.add("gallery-hidden");
@@ -3794,23 +3901,21 @@ footer {
             item.classList.remove("gallery-hidden");
         });
 
-        if (filteredItems.length > INITIAL_LIMIT) {
-            moreButton.hidden = false;
+        previousPageButton.disabled = currentPage === 1;
+        nextPageButton.disabled = currentPage === totalPages;
 
-            moreText.textContent = expanded
-                ? "Show Less / Nuna Ƙasa"
-                : "View Full Gallery / Duba Dukkan Hotuna";
+        pageNumber.textContent =
+            "Page " + currentPage + " of " + totalPages;
 
-            moreArrow.textContent = expanded ? "↑" : "↓";
-        } else {
-            moreButton.hidden = true;
-        }
+        pagination.hidden = filteredItems.length <= PHOTOS_PER_PAGE;
 
         note.textContent =
             "Ana nuna " + visibleItems.length +
             " daga hotuna " + filteredItems.length +
             " / Showing " + visibleItems.length +
             " of " + filteredItems.length + " photos";
+
+        currentImages = visibleItems;
     }
 
     filters.forEach(function (button) {
@@ -3822,30 +3927,39 @@ footer {
             button.classList.add("active");
 
             activeFilter = button.dataset.filter;
-            expanded = false;
+            currentPage = 1;
 
             renderGallery();
         });
     });
 
-    moreButton.addEventListener("click", function () {
-        expanded = !expanded;
-        renderGallery();
+    previousPageButton.addEventListener("click", function () {
+        if (currentPage > 1) {
+            currentPage--;
+            renderGallery();
+        }
     });
 
-    function getVisibleItems() {
-        return getFilteredItems().filter(function (item) {
-            return !item.classList.contains("gallery-hidden");
-        });
-    }
+    nextPageButton.addEventListener("click", function () {
+        const totalPages = Math.ceil(
+            getFilteredItems().length / PHOTOS_PER_PAGE
+        );
+
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderGallery();
+        }
+    });
 
     function openLightbox(item) {
-        currentImages = getVisibleItems();
+        currentImages = getFilteredItems().slice(
+            (currentPage - 1) * PHOTOS_PER_PAGE,
+            currentPage * PHOTOS_PER_PAGE
+        );
+
         currentIndex = currentImages.indexOf(item);
 
-        if (currentIndex < 0) {
-            return;
-        }
+        if (currentIndex < 0) return;
 
         previousFocus = document.activeElement;
 
@@ -3862,9 +3976,7 @@ footer {
     function updateLightbox() {
         const item = currentImages[currentIndex];
 
-        if (!item) {
-            return;
-        }
+        if (!item) return;
 
         const image = item.querySelector("img");
         const heading = item.querySelector(".gallery-caption h3");
@@ -3882,9 +3994,7 @@ footer {
     }
 
     function moveLightbox(direction) {
-        if (!currentImages.length) {
-            return;
-        }
+        if (!currentImages.length) return;
 
         currentIndex =
             (currentIndex + direction + currentImages.length) %
@@ -3906,13 +4016,10 @@ footer {
         }
     }
 
-    /* Event delegation: new photos work automatically */
     grid.addEventListener("click", function (event) {
         const button = event.target.closest(".gallery-image-button");
 
-        if (!button || !grid.contains(button)) {
-            return;
-        }
+        if (!button || !grid.contains(button)) return;
 
         const item = button.closest(".gallery-item");
 
@@ -3938,29 +4045,17 @@ footer {
     });
 
     document.addEventListener("keydown", function (event) {
-        if (!lightbox.classList.contains("is-open")) {
-            return;
-        }
+        if (!lightbox.classList.contains("is-open")) return;
 
-        if (event.key === "Escape") {
-            closeLightbox();
-        }
-
-        if (event.key === "ArrowRight") {
-            moveLightbox(1);
-        }
-
-        if (event.key === "ArrowLeft") {
-            moveLightbox(-1);
-        }
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowRight") moveLightbox(1);
+        if (event.key === "ArrowLeft") moveLightbox(-1);
     });
 
     renderGallery();
 
 })();
 </script>
-
-
 <!-- ==========================================
      SHINGE CAMPAIGN — NEWS & EVENTS
 ========================================== -->
