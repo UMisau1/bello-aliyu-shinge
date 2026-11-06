@@ -4064,6 +4064,7 @@ footer {
 
 })();
 </script>
+
 <!-- ==========================================
      SHINGE CAMPAIGN — NEWS & EVENTS
 ========================================== -->
@@ -4072,7 +4073,8 @@ footer {
     <div class="shinge-container">
 
         <header class="shinge-section-heading">
-            <span data-en="NEWS & UPDATES" data-ha="LABARAI DA SABUNTAWA">
+            <span data-en="NEWS & UPDATES"
+                  data-ha="LABARAI DA SABUNTAWA">
                 NEWS & UPDATES
             </span>
 
@@ -4087,102 +4089,19 @@ footer {
             </p>
         </header>
 
-        <div class="shinge-news-grid">
-
-            <article class="shinge-news-card">
-                <div class="shinge-news-photo">
-                    <img src="images/news/news1.jpg"
-                         alt="Campaign News"
-                         loading="lazy">
-                    <span class="shinge-news-label"
-                          data-en="CAMPAIGN NEWS"
-                          data-ha="LABARIN KAMFEN">CAMPAIGN NEWS</span>
-                </div>
-
-                <div class="shinge-news-body">
-                    <span class="shinge-news-date">15 Jan 2027</span>
-
-                    <h3 data-en="Campaign Flag-Off"
-                        data-ha="Kaddamar da Kamfen">
-                        Campaign Flag-Off
-                    </h3>
-
-                    <p data-en="Updates on the campaign launch and engagement with communities across Bauchi Central."
-                       data-ha="Sabbin bayanai kan kaddamar da kamfen da ganawa da al'ummomi a Bauchi Central.">
-                        Updates on the campaign launch and engagement with communities across Bauchi Central.
-                    </p>
-
-                    <a class="shinge-read-more" href="news.html">
-                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </article>
-
-            <article class="shinge-news-card">
-                <div class="shinge-news-photo">
-                    <img src="images/news/news2.jpg"
-                         alt="Youth Engagement"
-                         loading="lazy">
-                    <span class="shinge-news-label"
-                          data-en="YOUTH"
-                          data-ha="MATASA">YOUTH</span>
-                </div>
-
-                <div class="shinge-news-body">
-                    <span class="shinge-news-date">20 Jan 2027</span>
-
-                    <h3 data-en="Youth Engagement"
-                        data-ha="Shigar da Matasa Cikin Ayyuka">
-                        Youth Engagement
-                    </h3>
-
-                    <p data-en="Campaign engagement focused on youth participation, leadership and empowerment."
-                       data-ha="Ayyukan kamfen da suka mayar da hankali kan shigar matasa, jagoranci da karfafawa.">
-                        Campaign engagement focused on youth participation, leadership and empowerment.
-                    </p>
-
-                    <a class="shinge-read-more" href="news.html">
-                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </article>
-
-            <article class="shinge-news-card">
-                <div class="shinge-news-photo">
-                    <img src="images/news/news3.jpg"
-                         alt="Community Meeting"
-                         loading="lazy">
-                    <span class="shinge-news-label"
-                          data-en="COMMUNITY"
-                          data-ha="AL'UMMA">COMMUNITY</span>
-                </div>
-
-                <div class="shinge-news-body">
-                    <span class="shinge-news-date">28 Jan 2027</span>
-
-                    <h3 data-en="Community Stakeholders Meeting"
-                        data-ha="Taron Masu Ruwa da Tsaki">
-                        Community Stakeholders Meeting
-                    </h3>
-
-                    <p data-en="Community discussions on local priorities and development needs in the six LGAs."
-                       data-ha="Tattaunawar al'umma kan muhimman bukatu da ci gaba a kananan hukumomi shida.">
-                        Community discussions on local priorities and development needs in the six LGAs.
-                    </p>
-
-                    <a class="shinge-read-more" href="news.html">
-                        <span data-en="Read More" data-ha="Kara Karantawa">Read More</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </article>
-
+        <!-- NEWS AND EVENTS ARE LOADED FROM js/news-events.js -->
+        <div class="shinge-news-grid" id="shingeNewsGrid">
+            <p data-en="Loading news and events..."
+               data-ha="Ana loda labarai da shirye-shirye...">
+                Loading news and events...
+            </p>
         </div>
 
         <div class="shinge-event-banner">
-            <div class="shinge-event-icon" aria-hidden="true">📅</div>
+
+            <div class="shinge-event-icon" aria-hidden="true">
+                📅
+            </div>
 
             <div class="shinge-event-text">
                 <h3 data-en="Upcoming Campaign Events"
@@ -4190,21 +4109,24 @@ footer {
                     Upcoming Campaign Events
                 </h3>
 
-                <p data-en="Watch this section for verified announcements about meetings, consultations and rallies across the six LGAs."
-                   data-ha="Duba wannan sashe domin samun sahihan sanarwa kan taruka, tattaunawa da gangami a kananan hukumomi shida.">
-                    Watch this section for verified announcements about meetings, consultations and rallies across the six LGAs.
+                <p data-en="Check this section regularly for announcements about meetings, consultations and other events."
+                   data-ha="Duba wannan sashe akai-akai domin samun sanarwa kan taruka, shawarwari da sauran shirye-shirye.">
+                    Check this section regularly for announcements about meetings, consultations and other events.
                 </p>
             </div>
 
             <a href="#join" class="shinge-primary-btn">
-                <span data-en="Get Involved" data-ha="Shiga Ciki">Get Involved</span>
+                <span data-en="Get Involved"
+                      data-ha="Shiga Ciki">
+                    Get Involved
+                </span>
                 <span aria-hidden="true">→</span>
             </a>
+
         </div>
 
     </div>
 </section>
-
 
 <!-- ==========================================
      SHINGE CAMPAIGN — JOIN CAMPAIGN
@@ -7896,5 +7818,6 @@ function translateShingeSection(language) {
 }
 </script>
 
+<script src="js/news-events.js"></script>
 </body>
 </html>
