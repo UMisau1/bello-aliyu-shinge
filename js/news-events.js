@@ -17,11 +17,11 @@ const SHINGE_NEWS_EVENTS = [
         categoryHa: "SHIRIN DA KE TAFE",
         date: "8 November 2026",
 
-        title: "PDP to Receive 1,500 Decampees from APM, ADC, CAN and Other Parties",
-        titleHa: "PDP Za Ta Karɓi Mutane 1,500 da Suka Sauya Sheƙa Daga APM, ADC, CAN da Sauransu",
+        title: "PDP to Receive 1,500 Decampees from APC, APM, ADC, NDC and Other Parties",
+        titleHa: "PDP Za Ta Karɓi Mutane 1,500 da Suka Sauya Sheƙa Daga APC, APM, ADC, NDC da Sauransu",
 
-        description: "On Sunday, 8 November 2026, the PDP is scheduled to receive approximately 1,500 decampees from APM, ADC, CAN and other political groups.",
-        descriptionHa: "A ranar Lahadi, 8 ga Nuwamba, 2026, ana shirin PDP ta karɓi kusan mutane 1,500 da suka sauya sheƙa daga APM, ADC, CAN da sauran ƙungiyoyin siyasa.",
+        description: "On Sunday, 8 November 2026, the PDP is scheduled to receive approximately 1,500 decampees from APC, APM, ADC, NDC and other political groups.",
+        descriptionHa: "A ranar Lahadi, 8 ga Nuwamba, 2026, ana shirin PDP ta karɓi kusan mutane 1,500 da suka sauya sheƙa daga APC, APM, ADC, NDC da sauran ƙungiyoyin siyasa.",
 
         image: "images/pdp-event.jpg",
         alt: "PDP Event",
