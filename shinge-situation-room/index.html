@@ -10,13 +10,250 @@
 <section id="appPanel" class="hidden">
 <div class="row" style="justify-content:space-between;margin-bottom:12px"><div><h2 style="margin:0">Command Dashboard</h2><span class="muted">Operational records submitted by authorised users</span></div><span id="roleBadge" class="pill"></span></div>
 <div class="grid"><div class="card stat"><span class="muted">Field reports</span><b id="statReports">0</b></div><div class="card stat"><span class="muted">Open incidents</span><b id="statIncidents">0</b></div><div class="card stat"><span class="muted">LGAs represented</span><b id="statLgas">0/6</b></div><div class="card stat"><span class="muted">Visits recorded</span><b id="statVisits">0</b></div></div>
-<nav class="tabs"><button class="active" data-tab="overview">Overview</button><button data-tab="field">Field Reports</button><button data-tab="incident">Incidents</button><button data-tab="daily">Daily Report</button><button data-tab="map">GPS Map</button><button data-tab="users" id="usersTab">User Roles</button><button data-tab="audit">Audit Trail</button></nav>
+<nav class="tabs"><button class="active" data-tab="overview">Overview</button><button data-tab="field">Field Reports</button><button data-tab="incident">Incidents</button><button data-tab="daily">Daily Report</button><button data-tab="map">GPS Map</button>
+<button data-tab="campaign">Campaign Tracker</button>
+<button data-tab="live-data">Live Data Unit</button>
+<button data-tab="communication">Communication Security</button>
+<button data-tab="users" id="usersTab">User Roles</button><button data-tab="audit">Audit Trail</button></nav>
 <section id="tab-overview" class="card"><div class="row" style="justify-content:space-between"><h3>Six LGA Monitoring</h3><button class="btn secondary" id="refreshBtn">Refresh data</button></div><div class="tablewrap"><table><thead><tr><th>LGA</th><th>Field reports</th><th>Incidents</th><th>Campaign visits</th></tr></thead><tbody id="lgaRows"></tbody></table></div><p class="muted">Figures are based only on records available in this Supabase project.</p></section>
+
+<div class="formgrid" style="margin-top:20px">
+  <div class="card">
+    <h3>Campaign Activities</h3>
+    <h2 id="ctStatActivities">0</h2>
+  </div>
+  <div class="card">
+    <h3>GPS Check-ins</h3>
+    <h2 id="ctStatCheckins">0</h2>
+  </div>
+</div>
+
 <section id="tab-field" class="card hidden"><h3>Submit Field Report</h3><form id="fieldForm"><div class="formgrid"><div><label>LGA</label><select id="fieldLga" required></select></div><div><label>Report type</label><select id="fieldType"><option>Activity</option><option>Meeting</option><option>Community feedback</option><option>Logistics</option><option>Technical issue</option><option>Other</option></select></div></div><label>Title</label><input id="fieldTitle" required maxlength="140"><label>Description</label><textarea id="fieldDesc" required></textarea><div class="formgrid"><div><label>Location name (optional)</label><input id="fieldLocation"></div><div><label>GPS coordinates (optional)</label><div class="row"><input id="fieldLat" placeholder="Latitude"><input id="fieldLng" placeholder="Longitude"></div><button type="button" class="btn secondary" id="gpsBtn">Use my location</button></div></div><p><button class="btn" type="submit">Submit report</button></p></form><div id="fieldMsg" class="notice hidden"></div><h3>Recent Field Reports</h3><div class="tablewrap"><table><thead><tr><th>Date</th><th>LGA</th><th>Type</th><th>Title</th><th>Reporter</th></tr></thead><tbody id="fieldRows"></tbody></table></div></section>
 <section id="tab-incident" class="card hidden"><h3>Incident Reporting</h3><form id="incidentForm"><div class="formgrid"><div><label>LGA</label><select id="incLga" required></select></div><div><label>Severity</label><select id="incSeverity"><option>Low</option><option>Medium</option><option>High</option><option>Critical</option></select></div></div><label>Incident title</label><input id="incTitle" required maxlength="140"><label>Description</label><textarea id="incDesc" required></textarea><label>Location (optional)</label><input id="incLocation"><p><button class="btn" type="submit">Submit incident</button></p></form><div id="incidentMsg" class="notice hidden"></div><h3>Incident Register</h3><div class="tablewrap"><table><thead><tr><th>Date</th><th>LGA</th><th>Severity</th><th>Incident</th><th>Status</th></tr></thead><tbody id="incidentRows"></tbody></table></div></section>
 <section id="tab-daily" class="card hidden"><h3>Daily Situation Report</h3><form id="dailyForm"><label>Report date</label><input type="date" id="dailyDate" required><label>Summary</label><textarea id="dailySummary" required></textarea><label>Outstanding issues / follow-up</label><textarea id="dailyFollow"></textarea><p><button class="btn" type="submit">Save daily report</button> <button class="btn secondary" type="button" id="printBtn">Print / Save PDF</button></p></form><div id="dailyMsg" class="notice hidden"></div><div class="tablewrap"><table><thead><tr><th>Date</th><th>Summary</th><th>Follow-up</th></tr></thead><tbody id="dailyRows"></tbody></table></div></section>
 <section id="tab-map" class="card hidden"><h3>GPS Live Map / Campaign Visits</h3><div id="liveMap" style="height:360px;border-radius:10px;overflow:hidden;background:#edf3ee"></div><p class="muted">GPS is collected only when a user actively presses “Use my location”. Map tiles require an internet connection.</p><div class="tablewrap"><table><thead><tr><th>Date</th><th>LGA</th><th>Location</th><th>Coordinates</th><th>Status</th></tr></thead><tbody id="visitRows"></tbody></table></div></section>
 <section id="tab-users" class="card hidden"><h3>User Roles</h3><p class="muted">Create the account first in Supabase Authentication → Users, then assign its Auth User UUID and role here. This page lists current role assignments.</p><div class="formgrid"><div><label>Auth User UUID</label><input id="newUserId" placeholder="UUID from Supabase Auth"></div><div><label>Role</label><select id="newRole"><option>coordinator</option><option>data_officer</option><option>lga_officer</option><option>viewer</option></select></div></div><div id="userLgaWrap"><label>LGA (for LGA officer)</label><select id="newUserLga"></select></div><p><button class="btn" id="addUserBtn" type="button">Assign role</button></p><div id="userMsg" class="notice hidden"></div><div class="tablewrap"><table><thead><tr><th>User UUID</th><th>Role</th><th>LGA</th></tr></thead><tbody id="userRows"></tbody></table></div></section>
 <section id="tab-audit" class="card hidden"><div class="row" style="justify-content:space-between"><h3>Audit Trail</h3><button class="btn secondary" id="exportBtn">Export Audit CSV</button> <button class="btn secondary" id="exportReportsBtn">Export Reports CSV</button> <button class="btn secondary" id="exportIncidentsBtn">Export Incidents CSV</button></div><div class="tablewrap"><table><thead><tr><th>Date</th><th>Action</th><th>Record</th><th>User</th></tr></thead><tbody id="auditRows"></tbody></table></div></section>
+
+<!-- CAMPAIGN TRACKER -->
+<section id="tab-campaign" class="card hidden">
+  <h3>Campaign Tracker</h3>
+  <p class="muted">Plan activities, monitor field visits and record GPS check-ins.</p>
+
+  <div class="formgrid">
+    <div>
+      <label>Activity Title</label>
+      <input id="ctTitle" placeholder="Enter activity title">
+    </div>
+    <div>
+      <label>Activity Type</label>
+      <select id="ctType">
+        <option>Campaign Visit</option>
+        <option>Community Meeting</option>
+        <option>Stakeholder Meeting</option>
+        <option>Volunteer Activity</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label>LGA</label>
+      <select id="ctLga"></select>
+    </div>
+    <div>
+      <label>Location</label>
+      <input id="ctLocation" placeholder="Ward / community / venue">
+    </div>
+    <div>
+      <label>Planned Date</label>
+      <input id="ctDate" type="date">
+    </div>
+    <div>
+      <label>Status</label>
+      <select id="ctStatus">
+        <option>Planned</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+        <option>Cancelled</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Description</label>
+  <textarea id="ctDescription" rows="3"></textarea>
+
+  <p>
+    <button class="btn" id="ctSaveBtn" type="button">Save Activity</button>
+  </p>
+  <div id="ctMsg" class="notice hidden"></div>
+
+  <hr>
+  <h3>Activities Register</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Activity</th><th>LGA</th>
+          <th>Location</th><th>Status</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="ctRows"></tbody>
+    </table>
+  </div>
+
+  <hr>
+  <h3>GPS Check-in / Check-out</h3>
+  <label>Select Activity</label>
+  <select id="ctCheckActivity"></select>
+  <label>Activity Notes</label>
+  <textarea id="ctCheckNotes" rows="2"></textarea>
+  <p>
+    <button class="btn" id="ctCheckInBtn" type="button">GPS Check-in</button>
+    <button class="btn secondary" id="ctCheckOutBtn" type="button">GPS Check-out</button>
+  </p>
+  <div id="ctCheckMsg" class="notice hidden"></div>
+
+  <h3>Check-in History</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th><th>User</th><th>Check-in</th>
+          <th>Check-out</th><th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="ctCheckRows"></tbody>
+    </table>
+  </div>
+</section>
+<!-- END CAMPAIGN TRACKER -->
+
+
+<!-- LIVE DATA UNIT -->
+<section id="tab-live-data" class="card hidden">
+  <div class="row" style="justify-content:space-between">
+    <h3>Live Data Unit</h3>
+    <button class="btn secondary" id="ldRefreshBtn" type="button">
+      Refresh Live Data
+    </button>
+  </div>
+
+  <p class="muted">Operational data monitoring from Supabase.</p>
+
+  <div class="formgrid">
+    <div class="card">
+      <h3>Total Field Reports</h3>
+      <h2 id="ldReports">0</h2>
+    </div>
+    <div class="card">
+      <h3>Open Incidents</h3>
+      <h2 id="ldIncidents">0</h2>
+    </div>
+    <div class="card">
+      <h3>LGAs Reporting</h3>
+      <h2 id="ldLgas">0/6</h2>
+    </div>
+    <div class="card">
+      <h3>Campaign Activities</h3>
+      <h2 id="ldActivities">0</h2>
+    </div>
+  </div>
+
+  <hr>
+  <h3>LGA Data Summary</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>LGA</th>
+          <th>Field Reports</th>
+          <th>Incidents</th>
+          <th>Campaign Activities</th>
+        </tr>
+      </thead>
+      <tbody id="ldLgaRows"></tbody>
+    </table>
+  </div>
+
+  <hr>
+  <h3>Recent Field Reports</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>LGA</th>
+          <th>Report Type</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody id="ldRecentRows"></tbody>
+    </table>
+  </div>
+
+  <p class="muted" id="ldUpdated">Data not refreshed yet.</p>
+</section>
+<!-- END LIVE DATA UNIT -->
+
+
+<!-- COMMUNICATION SECURITY -->
+<section id="tab-communication" class="card hidden">
+  <h3>Communication Security</h3>
+  <p class="muted">Official notices and communication records.</p>
+
+  <div id="csCompose" class="card">
+    <h3>Create Official Notice</h3>
+
+    <label>Notice Title</label>
+    <input id="csTitle" placeholder="Enter notice title">
+
+    <label>Message</label>
+    <textarea id="csMessage" rows="4"
+      placeholder="Write official notice"></textarea>
+
+    <label>Target LGA</label>
+    <select id="csLga">
+      <option value="">All Six LGAs</option>
+      <option>Misau</option>
+      <option>Dambam</option>
+      <option>Ningi</option>
+      <option>Warji</option>
+      <option>Darazo</option>
+      <option>Ganjuwa</option>
+    </select>
+
+    <label>Priority</label>
+    <select id="csPriority">
+      <option>Normal</option>
+      <option>Important</option>
+      <option>Urgent</option>
+    </select>
+
+    <p>
+      <button class="btn" id="csSendBtn" type="button">
+        Publish Notice
+      </button>
+    </p>
+    <div id="csMsg" class="notice hidden"></div>
+  </div>
+
+  <hr>
+  <h3>Official Notices</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Target</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="csRows"></tbody>
+    </table>
+  </div>
+</section>
+<!-- END COMMUNICATION SECURITY -->
+
 </section><div class="footer">Shinge Campaign | Mini Situation Room | Internal authorised use</div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/app.js"></script></body></html>

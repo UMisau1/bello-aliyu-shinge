@@ -364,6 +364,10 @@
 
       render();
 
+      renderLiveData();
+
+      await ctLoad();
+
     } catch (error) {
 
       alert('Data refresh failed: ' + error.message);
@@ -1140,5 +1144,490 @@
     setTimeout(() => start(), 0);
 
   });
+
+
+  // ==========================================
+  // CAMPAIGN TRACKER MODULE
+  // ==========================================
+
+  let ctActivities = [];
+  let ctCheckins = [];
+
+  function ctCanManage() {
+    return canManage() || profile?.role === 'lga_officer';
+  }
+
+  function ctDate(value) {
+    if (!value) return '';
+    return String(value).replace('T', ' ').slice(0, 16);
+  }
+
+  function ctSetup() {
+    const select = $('ctLga');
+    if (!select) return;
+
+    select.innerHTML = LGAS.map(lga =>
+      `<option value="${esc(lga)}">${esc(lga)}</option>`
+    ).join('');
+
+    if (profile?.role === 'lga_officer') {
+      select.value = profile.lga;
+      select.disabled = true;
+    } else {
+      select.disabled = false;
+    }
+
+    const manager = ctCanManage();
+
+    ['ctSaveBtn', 'ctCheckInBtn', 'ctCheckOutBtn'].forEach(id => {
+      if ($(id)) $(id).classList.toggle('hidden', !manager);
+    });
+
+    ['ctTitle', 'ctType', 'ctLocation', 'ctDate',
+      'ctStatus', 'ctDescription', 'ctCheckActivity',
+      'ctCheckNotes'].forEach(id => {
+        if ($(id)) $(id).disabled =
+          !manager && id !== 'ctCheckActivity';
+      });
+  }
+
+  async function ctLoad() {
+    ctSetup();
+
+    const { data: activities, error: activityError } =
+      await db.from('campaign_activities')
+        .select('*')
+        .order('planned_date', { ascending: false })
+        .limit(200);
+
+    if (activityError) {
+      msg('ctMsg', activityError.message, true);
+      return;
+    }
+
+    const { data: checkins, error: checkinError } =
+      await db.from('campaign_checkins')
+        .select('*')
+        .order('check_in_at', { ascending: false })
+        .limit(200);
+
+    if (checkinError) {
+      msg('ctCheckMsg', checkinError.message, true);
+      return;
+    }
+
+    ctActivities = activities || [];
+    ctCheckins = checkins || [];
+
+    ctRender();
+  }
+
+  function ctRender() {
+    
+    if ($('ctStatActivities')) {
+      $('ctStatActivities').textContent = ctActivities.length;
+    }
+
+    if ($('ctStatCheckins')) {
+      $('ctStatCheckins').textContent = ctCheckins.length;
+    }
+
+    const rows = $('ctRows');
+    const selector = $('ctCheckActivity');
+
+    rows.innerHTML = ctActivities.map(activity => {
+      const actions = ctCanManage()
+        ? `<button class="btn secondary" data-ct-start="${activity.id}" type="button">Start</button>
+           <button class="btn secondary" data-ct-complete="${activity.id}" type="button">Complete</button>`
+        : 'View only';
+
+      return `<tr>
+        <td>${esc(activity.planned_date || '')}</td>
+        <td>${esc(activity.title)}</td>
+        <td>${esc(activity.lga)}</td>
+        <td>${esc(activity.location_name)}</td>
+        <td>${esc(activity.status)}</td>
+        <td>${actions}</td>
+      </tr>`;
+    }).join('');
+
+    const previous = selector.value;
+
+    selector.innerHTML =
+      '<option value="">Select activity</option>' +
+      ctActivities
+        .filter(x => !['Completed', 'Cancelled'].includes(x.status))
+        .map(x =>
+          `<option value="${x.id}">${esc(x.title)} — ${esc(x.lga)}</option>`
+        ).join('');
+
+    if (ctActivities.some(x => String(x.id) === previous)) {
+      selector.value = previous;
+    }
+
+    const activityMap = new Map(
+      ctActivities.map(x => [String(x.id), x])
+    );
+
+    $('ctCheckRows').innerHTML = ctCheckins.map(checkin => {
+      const activity = activityMap.get(String(checkin.activity_id));
+
+      return `<tr>
+        <td>${esc(activity?.title || 'Activity unavailable')}</td>
+        <td>${esc(String(checkin.user_id || '').slice(0, 8))}</td>
+        <td>${esc(ctDate(checkin.check_in_at))}</td>
+        <td>${esc(ctDate(checkin.check_out_at))}</td>
+        <td>${esc(checkin.activity_notes || '')}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  $('ctSaveBtn').onclick = async () => {
+    if (!ctCanManage()) {
+      msg('ctMsg', 'You do not have permission to create activities.', true);
+      return;
+    }
+
+    const payload = {
+      title: $('ctTitle').value.trim(),
+      activity_type: $('ctType').value,
+      description: $('ctDescription').value.trim() || null,
+      lga: profile.role === 'lga_officer'
+        ? profile.lga
+        : $('ctLga').value,
+      location_name: $('ctLocation').value.trim(),
+      planned_date: $('ctDate').value || null,
+      status: $('ctStatus').value
+    };
+
+    if (!payload.title || !payload.location_name) {
+      msg('ctMsg', 'Enter the activity title and location.', true);
+      return;
+    }
+
+    const { error } = await db
+      .from('campaign_activities')
+      .insert(payload);
+
+    if (error) {
+      msg('ctMsg', error.message, true);
+      return;
+    }
+
+    $('ctTitle').value = '';
+    $('ctDescription').value = '';
+    $('ctLocation').value = '';
+    $('ctDate').value = '';
+
+    msg('ctMsg', 'Campaign activity saved successfully.');
+    await ctLoad();
+  };
+
+  $('ctRows').addEventListener('click', async event => {
+    const startId = event.target.dataset.ctStart;
+    const completeId = event.target.dataset.ctComplete;
+
+    const id = startId || completeId;
+    if (!id || !ctCanManage()) return;
+
+    const newStatus = startId ? 'In Progress' : 'Completed';
+
+    const { error } = await db
+      .from('campaign_activities')
+      .update({ status: newStatus, updated_at: new Date().toISOString() })
+      .eq('id', id);
+
+    if (error) {
+      msg('ctMsg', error.message, true);
+      return;
+    }
+
+    msg('ctMsg', 'Activity status updated successfully.');
+    await ctLoad();
+  });
+
+  function ctGetGPS() {
+    return new Promise((resolve, reject) => {
+      if (!navigator.geolocation) {
+        reject(new Error('GPS is not supported by this browser.'));
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        position => resolve({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        }),
+        error => reject(error),
+        {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 0
+        }
+      );
+    });
+  }
+
+  $('ctCheckInBtn').onclick = async () => {
+    if (!ctCanManage()) return;
+
+    const activityId = $('ctCheckActivity').value;
+
+    if (!activityId) {
+      msg('ctCheckMsg', 'Select an activity first.', true);
+      return;
+    }
+
+    try {
+      msg('ctCheckMsg', 'Getting your GPS location...');
+
+      const gps = await ctGetGPS();
+
+      const { error } = await db.from('campaign_checkins').insert({
+        activity_id: Number(activityId),
+        user_id: currentUser.id,
+        check_in_latitude: gps.latitude,
+        check_in_longitude: gps.longitude,
+        activity_notes: $('ctCheckNotes').value.trim() || null
+      });
+
+      if (error) throw error;
+
+      msg('ctCheckMsg', 'GPS check-in recorded successfully.');
+      await ctLoad();
+
+    } catch (error) {
+      msg('ctCheckMsg', error.message, true);
+    }
+  };
+
+  $('ctCheckOutBtn').onclick = async () => {
+    if (!ctCanManage()) return;
+
+    const activityId = $('ctCheckActivity').value;
+
+    if (!activityId) {
+      msg('ctCheckMsg', 'Select an activity first.', true);
+      return;
+    }
+
+    try {
+      msg('ctCheckMsg', 'Getting your GPS location...');
+
+      const gps = await ctGetGPS();
+
+      const { data: openCheckin, error: findError } = await db
+        .from('campaign_checkins')
+        .select('id')
+        .eq('activity_id', Number(activityId))
+        .eq('user_id', currentUser.id)
+        .is('check_out_at', null)
+        .order('check_in_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (findError) throw findError;
+
+      if (!openCheckin) {
+        msg('ctCheckMsg', 'No open check-in found for this activity.', true);
+        return;
+      }
+
+      const { error } = await db
+        .from('campaign_checkins')
+        .update({
+          check_out_at: new Date().toISOString(),
+          check_out_latitude: gps.latitude,
+          check_out_longitude: gps.longitude
+        })
+        .eq('id', openCheckin.id);
+
+      if (error) throw error;
+
+      msg('ctCheckMsg', 'GPS check-out recorded successfully.');
+      await ctLoad();
+
+    } catch (error) {
+      msg('ctCheckMsg', error.message, true);
+    }
+  };
+
+  document.querySelectorAll('[data-tab="campaign"]').forEach(button => {
+    button.addEventListener('click', () => {
+      ctLoad();
+    });
+  });
+
+  // END CAMPAIGN TRACKER
+
+
+  // ==========================================
+  // LIVE DATA UNIT
+  // ==========================================
+
+  function renderLiveData() {
+    if (!$('ldReports')) return;
+
+    const reports = cache.reports || [];
+    const incidents = cache.incidents || [];
+
+    $('ldReports').textContent = reports.length;
+
+    $('ldIncidents').textContent = incidents.filter(
+      x => !['Resolved', 'Closed'].includes(x.status)
+    ).length;
+
+    $('ldLgas').textContent =
+      new Set(reports.map(x => x.lga)).size + '/6';
+
+    $('ldActivities').textContent =
+      typeof ctActivities !== 'undefined' ? ctActivities.length : 0;
+
+    const visibleLgas =
+      profile.role === 'lga_officer' ? [profile.lga] : LGAS;
+
+    $('ldLgaRows').innerHTML = visibleLgas.map(lga => {
+      const reportCount = reports.filter(x => x.lga === lga).length;
+      const incidentCount = incidents.filter(x => x.lga === lga).length;
+      const activityCount =
+        typeof ctActivities !== 'undefined'
+          ? ctActivities.filter(x => x.lga === lga).length
+          : 0;
+
+      return `<tr>
+        <td>${esc(lga)}</td>
+        <td>${reportCount}</td>
+        <td>${incidentCount}</td>
+        <td>${activityCount}</td>
+      </tr>`;
+    }).join('');
+
+    $('ldRecentRows').innerHTML = reports.slice(0, 20).map(x =>
+      `<tr>
+        <td>${esc(ctDate(x.created_at))}</td>
+        <td>${esc(x.lga)}</td>
+        <td>${esc(x.report_type)}</td>
+        <td>${esc(x.title)}</td>
+      </tr>`
+    ).join('');
+
+    $('ldUpdated').textContent =
+      'Last refreshed: ' + new Date().toLocaleString();
+  }
+
+  $('ldRefreshBtn').onclick = async () => {
+    await refreshAll();
+    renderLiveData();
+  };
+
+  document.querySelectorAll('[data-tab="live-data"]').forEach(button => {
+    button.addEventListener('click', renderLiveData);
+  });
+
+  // END LIVE DATA UNIT
+
+
+  // ==========================================
+  // COMMUNICATION SECURITY
+  // ==========================================
+
+  let csNotices = [];
+
+  function csCanPublish() {
+    return canManage() || profile?.role === 'coordinator';
+  }
+
+  async function csLoad() {
+    $('csCompose').classList.toggle('hidden', !csCanPublish());
+
+    const { data, error } = await db
+      .from('sr_secure_notices')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(100);
+
+    if (error) {
+      msg('csMsg', error.message, true);
+      return;
+    }
+
+    csNotices = data || [];
+
+    $('csRows').innerHTML = csNotices.map(n => `
+      <tr>
+        <td>${esc(ctDate(n.created_at))}</td>
+        <td>${esc(n.title)}</td>
+<td style="white-space:normal;min-width:250px">
+  ${esc(n.message)}
+</td>
+<td>${esc(n.target_lga || 'All LGAs')}</td>
+        <td>${esc(n.priority)}</td>
+        <td>
+          <button class="btn secondary"
+            data-cs-ack="${n.id}" type="button">
+            Acknowledge
+          </button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  $('csSendBtn').onclick = async () => {
+    if (!csCanPublish()) return;
+
+    const title = $('csTitle').value.trim();
+    const message = $('csMessage').value.trim();
+
+    if (!title || !message) {
+      msg('csMsg', 'Enter the title and message.', true);
+      return;
+    }
+
+    const { error } = await db.from('sr_secure_notices').insert({
+      title,
+      message,
+      target_lga: $('csLga').value || null,
+      priority: $('csPriority').value,
+      created_by: currentUser.id
+    });
+
+    if (error) {
+      msg('csMsg', error.message, true);
+      return;
+    }
+
+    $('csTitle').value = '';
+    $('csMessage').value = '';
+
+    msg('csMsg', 'Official notice published successfully.');
+    await csLoad();
+  };
+
+  $('csRows').addEventListener('click', async event => {
+    const id = event.target.dataset.csAck;
+    if (!id) return;
+
+    const { error } = await db
+      .from('sr_notice_acknowledgements')
+      .insert({
+        notice_id: Number(id),
+        user_id: currentUser.id
+      });
+
+    if (error) {
+      msg('csMsg', error.code === '23505'
+        ? 'You have already acknowledged this notice.'
+        : error.message, true);
+      return;
+    }
+
+    msg('csMsg', 'Notice acknowledged successfully.');
+  });
+
+  document.querySelectorAll('[data-tab="communication"]').forEach(button => {
+    button.addEventListener('click', csLoad);
+  });
+
+  // END COMMUNICATION SECURITY
 
 })();
