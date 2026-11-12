@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Campaign Statistics | Shinge Campaign</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #172033;
+    }
+
+    header {
+      background: #087443;
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    header h1 { margin: 0 0 10px; }
+    header p { margin: 0; }
+
+    main {
+      width: min(1100px, 94%);
+      margin: 30px auto;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .card, .lga-panel {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: #526071;
+      font-size: 15px;
+    }
+
+    .number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #087443;
+    }
+
+    .lga-panel h2 { margin-top: 0; }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #e5eaf0;
+      text-align: left;
+    }
+
+    th {
+      background: #eef6f1;
+      color: #087443;
+    }
+
+    .status {
+      color: #087443;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .error { color: #b42318; }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+    }
+    .language-btn {
+  padding: 10px 22px;
+  border: 2px solid white;
+  border-radius: 7px;
+  background: white;
+  color: #087443;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 18px;
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 data-ha="KIDIDDIGAR YAKIN NEMAN GOYON BAYA"
+      data-en="LIVE CAMPAIGN STATISTICS">
+    KIDIDDIGAR YAKIN NEMAN GOYON BAYA
+  </h1>
+
+  <p data-ha="Gundumar Sanatan Bauchi ta Tsakiya — Kananan Hukumomi 6"
+     data-en="Bauchi Central Senatorial District — 6 LGAs">
+    Gundumar Sanatan Bauchi ta Tsakiya — Kananan Hukumomi 6
+  </p>
+
+  <p data-ha="Dashboard na Ci gaban Kamfen"
+     data-en="Campaign Progress Dashboard">
+    Dashboard na Ci gaban Kamfen
+  </p>
+
+  <button id="languageToggle" class="language-btn">
+    English
+  </button>
+</header>
+
+<main>
+
+  <section class="summary">
+    <div class="card">
+      <h3 data-ha="Jimillar Membobi"
+    data-en="Total Registered Members">
+  Jimillar Membobi
+</h3>
+      <div class="number" id="totalMembers">0</div>
+    </div>
+
+    <div class="card">
+      <h3>Total Volunteers</h3>
+      <div class="number" id="totalVolunteers">0</div>
+    </div>
+
+    <div class="card">
+  <h3>Participating LGAs</h3>
+  <div class="number" id="totalLgas">0 / 6</div>
+</div>
+
+<div class="card">
+  <h3>Total Campaign Visits</h3>
+  <div class="number" id="totalVisits">0</div>
+</div>
+
+<div class="card">
+  <h3>Total Reports Submitted</h3>
+  <div class="number" id="totalReports">0</div>
+</div>
+  </section>
+
+  <section class="lga-panel">
+    <h2>Campaign Statistics by LGA</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>LGA</th>
+            <th>Registered Members</th>
+            <th>Volunteers</th>
+          </tr>
+        </thead>
+
+        <tbody id="statisticsTable">
+          <tr>
+            <td colspan="3">Loading statistics...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p id="liveStatus" class="status">
+      Connecting to live database...
+    </p>
+  </section>
+
+  <section class="lga-panel" style="margin-top:25px;">
+  <h2>Campaign Growth by LGA</h2>
+  <canvas id="lgaChart"></canvas>
+</section>
+
+</main>
+
+<footer>
+  Shinge Campaign Portal | Live Statistics
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/live-statistics.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinge Campaign Admin Dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 25px;
+      background: #f1f5f9;
+      font-family: Arial, sans-serif;
+      color: #172033;
+    }
+    header {
+      background: #102b4e;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    button {
+      padding: 11px 16px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #087b48;
+      color: white;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+    .card, .panel {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0000000d;
+    }
+    .number { font-size: 30px; font-weight: bold; color: #087b48; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 14px;
+      border: 1px solid #ccd3dc;
+      border-radius: 6px;
+    }
+    .panel { margin-bottom: 20px; }
+    .visit {
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    #message { margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h2>SHINGE CAMPAIGN ADMIN</h2>
+    <p>Campaign Operations Dashboard</p>
+  </div>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<section class="cards">
+  <div class="card">
+    <p>Campaign Reports</p>
+    <div class="number" id="reportCount">0</div>
+  </div>
+  <div class="card">
+    <p>Campaign Visits</p>
+    <div class="number" id="visitCount">0</div>
+  </div>
+  <div class="card">
+    <p>Registered Members</p>
+    <div class="number" id="memberCount">0</div>
+  </div>
+  <div class="card">
+    <p>Volunteers</p>
+    <div class="number" id="volunteerCount">0</div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Campaign Live Map</h3>
+  <div id="campaignMap" style="height:450px;width:100%;border-radius:10px;"></div>
+</section>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<section class="panel">
+  <h3>Record Campaign Visit</h3>
+
+  <form id="visitForm">
+    <label>LGA</label>
+    <select id="lga" required>
+      <option value="">Select LGA</option>
+      <option>Misau</option>
+      <option>Dambam</option>
+      <option>Ningi</option>
+      <option>Warji</option>
+      <option>Darazo</option>
+      <option>Ganjuwa</option>
+    </select>
+
+    <label>Location / Community</label>
+    <input id="location" required placeholder="Enter location name">
+
+    <label>Latitude</label>
+    <input id="latitude" type="number" step="any" placeholder="GPS latitude">
+
+    <label>Longitude</label>
+    <input id="longitude" type="number" step="any" placeholder="GPS longitude">
+
+    <button type="button" id="gpsBtn">Get My GPS Location</button>
+
+    <label>Visit Status</label>
+    <select id="status">
+      <option value="planned">Planned</option>
+      <option value="ongoing">Ongoing</option>
+      <option value="completed">Completed</option>
+    </select>
+
+    <label>Visit Notes</label>
+    <textarea id="notes" placeholder="Enter visit report"></textarea>
+
+    <button type="submit">Save Campaign Visit</button>
+    <p id="message"></p>
+  </form>
+</section>
+
+
+<section class="panel">
+  <h3>Submit Campaign Report</h3>
+
+  <form id="reportForm">
+    <label>LGA</label>
+    <select id="reportLga" required>
+      <option value="">Select LGA</option>
+      <option>Misau</option>
+      <option>Dambam</option>
+      <option>Ningi</option>
+      <option>Warji</option>
+      <option>Darazo</option>
+      <option>Ganjuwa</option>
+    </select>
+
+    <label>Report Type</label>
+    <select id="reportType" required>
+      <option value="Campaign Activity">Campaign Activity</option>
+      <option value="Meeting">Meeting</option>
+      <option value="Mobilization">Mobilization</option>
+      <option value="Field Report">Field Report</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Report Title</label>
+    <input id="reportTitle" required maxlength="150">
+
+    <label>Description</label>
+    <textarea id="reportDescription" required maxlength="5000"></textarea>
+
+    <button type="submit">Submit Report</button>
+    <p id="reportMessage"></p>
+  </form>
+</section>
+
+<section class="panel">
+  <h3>Campaign Reports</h3>
+  <div id="reportsList">Loading reports...</div>
+</section>
+
+
+<section class="panel">
+  <h3>Live Campaign Statistics Management</h3>
+
+  <form id="statisticsForm">
+    <label>Select LGA</label>
+    <select id="statisticsLga" required>
+      <option value="">Select LGA</option>
+      <option>Misau</option>
+      <option>Dambam</option>
+      <option>Ningi</option>
+      <option>Warji</option>
+      <option>Darazo</option>
+      <option>Ganjuwa</option>
+    </select>
+
+    <label>Registered Members</label>
+    <input id="membersCount" type="number" min="0" required>
+
+    <label>Volunteers</label>
+    <input id="volunteersCount" type="number" min="0" required>
+
+    <button type="submit">Update Statistics</button>
+    <p id="statisticsMessage"></p>
+  </form>
+</section>
+
+<section class="panel">
+  <h3>Recent Campaign Visits</h3>
+  <div id="visitsList">Loading...</div>
+</section>
+
+<script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>
