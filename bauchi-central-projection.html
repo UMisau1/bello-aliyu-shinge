@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bauchi Central Election Projection</title>
+<style>
+:root {
+  --bg:#f1f5f9;--card:#fff;--ink:#172554;
+  --blue:#164e9b;--green:#087443;--muted:#64748b;
+  --border:#dbe3ed;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:#1e293b;
+  font-family:Arial,sans-serif;
+}
+header{
+  background:linear-gradient(120deg,#102d58,#1764a5);
+  color:white;padding:28px 18px;text-align:center;
+}
+header h1{margin:0 0 8px;font-size:25px}
+header p{margin:5px;font-size:13px}
+.container{max-width:1250px;margin:auto;padding:18px}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;margin:18px 0;
+}
+.card{
+  background:var(--card);padding:18px;border-radius:12px;
+  border:1px solid var(--border);box-shadow:0 2px 8px #00000008;
+}
+.card h3{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.big{font-size:25px;font-weight:bold;color:var(--blue)}
+small,.muted{color:var(--muted)}
+section{margin:22px 0}
+h2{font-size:19px;color:var(--ink)}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:#eaf1f9;color:var(--ink);font-size:13px}
+td{font-size:14px}
+.table-wrap{overflow-x:auto;background:white;border-radius:12px}
+input,select{
+  width:100%;padding:10px;border:1px solid #cbd5e1;
+  border-radius:7px;font-size:14px;
+}
+button{
+  background:var(--blue);color:white;border:0;padding:11px 17px;
+  border-radius:7px;cursor:pointer;font-weight:bold;
+}
+button:hover{opacity:.88}
+.secondary{background:#475569}
+.scenario{
+  border-left:5px solid var(--blue);
+}
+.scenario:nth-child(2){border-left-color:#d18a16}
+.scenario:nth-child(3){border-left-color:var(--green)}
+.bar{height:12px;background:#e2e8f0;border-radius:10px;overflow:hidden}
+.bar span{display:block;height:100%;background:#2674c5}
+.form-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
+label{font-size:12px;font-weight:bold;display:block;margin-bottom:6px}
+.note{
+  background:#fff8e6;border:1px solid #f0d58c;
+  padding:13px;border-radius:9px;font-size:13px;line-height:1.6;
+}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
+@media(max-width:600px){
+ header h1{font-size:20px}
+ .container{padding:10px}
+ .big{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BAUCHI CENTRAL SENATORIAL DISTRICT</h1>
+  <h3>Election Projection & Scenario Dashboard</h3>
+  <p>2023 Historical Data | 2026 Registration Estimate | 2027 Scenarios</p>
+  <p>Hausa / English</p>
+</header>
+
+<main class="container">
+
+<div class="note">
+<strong>MUHIMMIN BAYANI:</strong>
+Wannan kayan aikin nazari ne. Adadin masu rajista na 2023
+da LGA da aka shigar a nan bayanan da ake buƙatar tabbatarwa ne.
+Ƙididdigar 2026 hasashe ce bisa ƙarin 9.58% na jihar Bauchi,
+ba cikakken adadin INEC na Bauchi Central ba.
+</div>
+
+<section>
+<h2>1. Registration Overview</h2>
+<div class="grid">
+ <div class="card">
+  <h3>Registered Voters 2023</h3>
+  <div class="big" id="total23">709,231</div>
+ </div>
+ <div class="card">
+  <h3>Estimated Registered 2026</h3>
+  <div class="big" id="total26">777,150</div>
+ </div>
+ <div class="card">
+  <h3>Estimated Increase</h3>
+  <div class="big" id="increase">67,919</div>
+ </div>
+ <div class="card">
+  <h3>LGAs</h3>
+  <div class="big">6</div>
+ </div>
+</div>
+</section>
+
+<section>
+<h2>2. Projection Settings / Saitunan Hasashe</h2>
+<div class="card">
+<div class="form-grid">
+ <div>
+  <label>Registration Growth (%)</label>
+  <input id="growth" type="number" value="9.58" step=".01">
+ </div>
+ <div>
+  <label>Low Turnout (%)</label>
+  <input id="low" type="number" value="30">
+ </div>
+ <div>
+  <label>Medium Turnout (%)</label>
+  <input id="medium" type="number" value="40">
+ </div>
+ <div>
+  <label>High Turnout (%)</label>
+  <input id="high" type="number" value="50">
+ </div>
+ <div>
+  <label>Valid Votes (%)</label>
+  <input id="validRate" type="number" value="96.7" step=".1">
+ </div>
+</div>
+<br>
+<button onclick="calculate()">Update Projection</button>
+<button class="secondary" onclick="resetSettings()">Reset</button>
+</div>
+</section>
+
+<section>
+<h2>3. Three Election Scenarios</h2>
+<div class="grid">
+ <div class="card scenario">
+  <h3>LOW TURNOUT</h3>
+  <div class="big" id="lowVoters">233,145</div>
+  <small>Expected voters</small>
+  <hr>
+  <strong id="lowValid">225,478</strong>
+  <small>Estimated valid votes</small>
+ </div>
+ <div class="card scenario">
+  <h3>MEDIUM TURNOUT</h3>
+  <div class="big" id="medVoters">310,860</div>
+  <small>Expected voters</small>
+  <hr>
+  <strong id="medValid">300,637</strong>
+  <small>Estimated valid votes</small>
+ </div>
+ <div class="card scenario">
+  <h3>HIGH TURNOUT</h3>
+  <div class="big" id="highVoters">388,575</div>
+  <small>Expected voters</small>
+  <hr>
+  <strong id="highValid">375,795</strong>
+  <small>Estimated valid votes</small>
+ </div>
+</div>
+</section>
+
+<section>
+<h2>4. LGA-by-LGA Projection</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>LGA</th>
+<th>Registered 2023</th>
+<th>Estimated 2026</th>
+<th>Low 30%</th>
+<th>Medium 40%</th>
+<th>High 50%</th>
+</tr>
+</thead>
+<tbody id="lgaTable"></tbody>
+<tfoot id="lgaTotal"></tfoot>
+</table>
+</div>
+</section>
+
+<section>
+<h2>5. Ten-Candidate Analysis</h2>
+<div class="note">
+Shigar da sunayen 'yan takara da kaso ko ƙuri'un da aka samu
+a cikin kowane scenario. Za a nuna rabon ƙuri'u kawai;
+ba a ɗaukar wannan a matsayin hasashen wanda zai ci zaɓe.
+</div>
+<div class="card">
+<div class="form-grid" id="candidateInputs"></div>
+<br>
+<button onclick="calculateCandidates()">Calculate Candidate Distribution</button>
+<button class="secondary" onclick="resetCandidates()">Reset Candidates</button>
+</div>
+<div class="table-wrap" style="margin-top:15px">
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Low Votes</th>
+<th>Medium Votes</th>
+<th>High Votes</th>
+</tr>
+</thead>
+<tbody id="candidateTable"></tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>6. Scenario Comparison</h2>
+<div class="card" id="comparison"></div>
+</section>
+
+<section>
+<h2>7. Data Export</h2>
+<button onclick="exportCSV()">Download LGA CSV</button>
+<button onclick="window.print()" class="secondary">Print Report</button>
+</section>
+
+<section>
+<h2>8. Data Sources & Limitations</h2>
+<div class="note">
+<ul>
+<li>INEC: 2023 General Election Report.</li>
+<li>INEC: 2026 Preliminary Register of Voters.</li>
+<li>2026 Bauchi Central total: Estimated, not officially verified.</li>
+<li>Actual turnout and valid votes may differ from these scenarios.</li>
+<li>Historical LGA registration figures must be checked against INEC records.</li>
+</ul>
+</div>
+<a href="https://www.inecnigeria.org/" target="_blank">INEC Official Website</a>
+</section>
+
+</main>
+
+<footer>
+Bauchi Central Election Projection Dashboard<br>
+Independent statistical analysis – Not an official INEC publication.
+</footer>
+
+<script>
+"use strict";
+
+const LGAS = [
+ ["Misau",130880],
+ ["Dambam",84972],
+ ["Ningi",177152],
+ ["Warji",69911],
+ ["Darazo",120546],
+ ["Ganjuwa",125770]
+];
+
+const fmt = n => Math.round(n).toLocaleString("en-US");
+const val = id => Number(document.getElementById(id).value);
+
+let results = {};
+
+function calculate(){
+ const growth=val("growth")/100;
+ const low=val("low")/100;
+ const med=val("medium")/100;
+ const high=val("high")/100;
+ const valid=val("validRate")/100;
+
+ if([growth,low,med,high,valid].some(x=>!Number.isFinite(x)||x<0) ||
+    valid>1 || low>1 || med>1 || high>1){
+   alert("Duba lambobin da ka shigar.");
+   return;
+ }
+
+ const total23=LGAS.reduce((s,x)=>s+x[1],0);
+ const total26=total23*(1+growth);
+
+ document.getElementById("total23").textContent=fmt(total23);
+ document.getElementById("total26").textContent=fmt(total26);
+ document.getElementById("increase").textContent=fmt(total26-total23);
+
+ const scenarios=[
+  {name:"Low",rate:low,voters:total26*low},
+  {name:"Medium",rate:med,voters:total26*med},
+  {name:"High",rate:high,voters:total26*high}
+ ];
+
+ results={total23,total26,valid,scenarios};
+
+ const ids=["low","med","high"];
+ scenarios.forEach((s,i)=>{
+  document.getElementById(ids[i]+"Voters").textContent=fmt(s.voters);
+  document.getElementById(ids[i]+"Valid").textContent=fmt(s.voters*valid);
+  s.validVotes=s.voters*valid;
+ });
+
+ let html="";
+ let totals=[0,0,0];
+
+ LGAS.forEach(([name,registered])=>{
+  const estimated=registered*(1+growth);
+  const values=scenarios.map(s=>estimated*s.rate);
+  values.forEach((v,i)=>totals[i]+=v);
+  html+=`<tr>
+  <td>${name}</td>
+  <td>${fmt(registered)}</td>
+  <td>${fmt(estimated)}</td>
+  <td>${fmt(values[0])}</td>
+  <td>${fmt(values[1])}</td>
+  <td>${fmt(values[2])}</td>
+  </tr>`;
+ });
+
+ document.getElementById("lgaTable").innerHTML=html;
+ document.getElementById("lgaTotal").innerHTML=
+ `<tr><th>TOTAL</th><th>${fmt(total23)}</th>
+ <th>${fmt(total26)}</th>${totals.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`;
+
+ document.getElementById("comparison").innerHTML=scenarios.map(s=>`
+ <p><strong>${s.name}:</strong> ${fmt(s.voters)} voters
+ (${(s.rate*100).toFixed(1)}% turnout)</p>
+ <div class="bar"><span style="width:${s.rate*100}%"></span></div>
+ <p>Estimated valid votes: <strong>${fmt(s.validVotes)}</strong></p>
+ `).join("<hr>");
+}
+
+function createCandidateInputs(){
+ let html="";
+ for(let i=1;i<=10;i++){
+  html+=`
+  <div>
+   <label>Candidate ${i} Name</label>
+   <input id="name${i}" value="Candidate ${i}">
+   <label style="margin-top:8px">Low scenario votes</label>
+   <input id="c${i}low" type="number" min="0" value="0">
+   <label style="margin-top:8px">Medium scenario votes</label>
+   <input id="c${i}med" type="number" min="0" value="0">
+   <label style="margin-top:8px">High scenario votes</label>
+   <input id="c${i}high" type="number" min="0" value="0">
+  </div>`;
+ }
+ document.getElementById("candidateInputs").innerHTML=html;
+}
+
+function calculateCandidates(){
+ if(!results.total26){calculate();}
+ const keys=["low","med","high"];
+ const totals=keys.map(k=>results.scenarios[
+  keys.indexOf(k)].validVotes);
+
+ let votes=Array.from({length:10},(_,i)=>({
+  name:document.getElementById("name"+(i+1)).value,
+  values:keys.map(k=>Math.max(0,Number(
+   document.getElementById("c"+(i+1)+k).value)||0))
+ }));
+
+ let html="";
+ votes.forEach(c=>{
+  html+=`<tr><td>${escapeHTML(c.name)}</td>
+  ${c.values.map((v,i)=>`<td>${fmt(v)}
+  <small>(${totals[i]?((v/totals[i])*100).toFixed(2):"0.00"}%)</small></td>`).join("")}
+  </tr>`;
+ });
+
+ document.getElementById("candidateTable").innerHTML=html;
+}
+
+function escapeHTML(s){
+ return String(s).replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+function resetCandidates(){
+ for(let i=1;i<=10;i++){
+  document.getElementById("name"+i).value="Candidate "+i;
+  ["low","med","high"].forEach(k=>{
+   document.getElementById("c"+i+k).value=0;
+  });
+ }
+ document.getElementById("candidateTable").innerHTML="";
+}
+
+function resetSettings(){
+ document.getElementById("growth").value=9.58;
+ document.getElementById("low").value=30;
+ document.getElementById("medium").value=40;
+ document.getElementById("high").value=50;
+ document.getElementById("validRate").value=96.7;
+ calculate();
+}
+
+function exportCSV(){
+ const header=["LGA","Registered 2023","Estimated 2026",
+ "Low Turnout","Medium Turnout","High Turnout"];
+ const growth=val("growth")/100;
+ const rates=["low","medium","high"].map(k=>val(k)/100);
+ const rows=LGAS.map(([name,n])=>{
+  const e=n*(1+growth);
+  return [name,n,Math.round(e),...rates.map(r=>Math.round(e*r))];
+ });
+ const csv=[header,...rows].map(r=>r.join(",")).join("\n");
+ const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);
+ a.download="Bauchi-Central-Projection.csv";
+ a.click();
+ URL.revokeObjectURL(a.href);
+}
+
+createCandidateInputs();
+calculate();
+</script>
+</body>
+</html>
