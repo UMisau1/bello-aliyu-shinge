@@ -8,6 +8,28 @@
 
 const SHINGE_NEWS_EVENTS = [
 
+   // ======================================
+// MEGA RALLY — 16 NOVEMBER 2026
+// ======================================
+
+{
+    category: "MEGA RALLY",
+    categoryHa: "BABBAN GANGAMI",
+    date: "Monday, 16 November 2026",
+
+    title: "Mega Rally in Dambam and Dagauda",
+    titleHa: "Babban Gangami a Dambam da Dagauda",
+
+    description: "The campaign will hold a Mega Rally on Monday, 16 November 2026, at Dambam by 10:00 AM and Dagauda by 1:30 PM. All supporters and well-wishers are invited to attend.",
+
+    descriptionHa: "Za a gudanar da babban gangamin kamfen ranar Litinin, 16 ga Nuwamba, 2026, a Dambam da ƙarfe 10:00 na safe, sannan a Dagauda da ƙarfe 1:30 na rana. Ana gayyatar dukkan magoya baya da masu fatan alheri su halarta.",
+
+    image: "images/news/mega-rally.jpg",
+    alt: "Mega Rally",
+
+    link: "news.html"
+},
+   
     // ======================================
     // UPCOMING EVENT 1
     // ======================================
