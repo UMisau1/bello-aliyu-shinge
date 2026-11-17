@@ -31,6 +31,8 @@
 <button data-tab="communication">Communication Security</button>
 <button data-tab="projection" id="projectionTab" class="hidden">Election Projection & Analysis</button>
 
+<button data-tab="votewise">Votewise Directory</button>
+
 <button data-tab="users" id="usersTab">User Roles</button><button data-tab="audit">Audit Trail</button></nav>
 
 <section id="tab-overview" class="card"><div class="row" style="justify-content:space-between"><h3>Six LGA Monitoring</h3><button class="btn secondary" id="refreshBtn">Refresh data</button></div><div class="tablewrap"><table><thead><tr><th>LGA</th><th>Field reports</th><th>Incidents</th><th>Campaign visits</th></tr></thead><tbody id="lgaRows"></tbody></table></div><p class="muted">Figures are based only on records available in this Supabase project.</p></section>
@@ -522,6 +524,60 @@
   <p class="muted">Privacy: candidate inputs and calculations remain in this browser session only. They are not saved to Supabase or shared with other users.</p>
 </section>
 <!-- END SUPER ADMIN ONLY: ELECTION PROJECTION -->
+
+<!-- VOTEWISE ELECTORAL DIRECTORY -->
+<section id="tab-votewise" class="card hidden">
+
+  <div class="row" style="justify-content:space-between;align-items:flex-start">
+    <div>
+      <h3>Votewise Electoral Directory</h3>
+      <p class="muted">
+        External electoral geography and candidate information reference · Bauchi Central
+      </p>
+    </div>
+
+    <a class="btn"
+       href="https://votewiseng.com/states/bauchi/senatorial/bauchi-central"
+       target="_blank"
+       rel="noopener noreferrer">
+       Open Votewise in new tab ↗
+    </a>
+  </div>
+
+  <div class="notice">
+    <strong>Reference source:</strong>
+    Votewise is an independent, non-partisan information platform, not INEC.
+    Verify official election results against INEC result sheets and collation records.
+  </div>
+
+  <div class="row" style="margin:12px 0">
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/senatorial/bauchi-central" target="_blank">Bauchi Central</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/misau" target="_blank">Misau</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/damban" target="_blank">Dambam</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/ningi" target="_blank">Ningi</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/warji" target="_blank">Warji</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/darazo" target="_blank">Darazo</a>
+    <a class="btn secondary" href="https://votewiseng.com/states/bauchi/ganjuwa" target="_blank">Ganjuwa</a>
+  </div>
+
+  <div style="border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff">
+    <iframe
+      src="https://votewiseng.com/states/bauchi/senatorial/bauchi-central"
+      title="Votewise Bauchi Central electoral directory"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      style="display:block;width:100%;height:760px;border:0"
+      allow="fullscreen">
+    </iframe>
+  </div>
+
+  <p class="muted" style="margin-top:10px">
+    If the external site does not display inside this frame because of browser security settings, use the Open Votewise button above.
+  </p>
+
+</section>
+<!-- END VOTEWISE ELECTORAL DIRECTORY -->
 </section><div class="footer">Shinge Campaign | Mini Situation Room | Internal authorised use</div></main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/app.js"></script></body></html>
+
