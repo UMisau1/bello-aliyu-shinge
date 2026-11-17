@@ -215,6 +215,109 @@
   <div id="visitsList">Loading...</div>
 </section>
 
+
+<section class="panel" id="newsManagement">
+  <h2>Campaign News Management</h2>
+  <p>Add, edit, publish, hide or delete campaign news and events.</p>
+
+  <form id="adminNewsForm">
+    <input type="hidden" id="newsId">
+    <input type="hidden" id="newsImagePath">
+
+    <label>Category (English)</label>
+    <input id="newsCategoryEn" required placeholder="e.g. Campaign Event">
+
+    <label>Category (Hausa)</label>
+    <input id="newsCategoryHa" placeholder="Misali: Shirin Kamfen">
+
+    <label>Date</label>
+    <input id="newsDate" required placeholder="e.g. 16 November 2026">
+
+    <label>Title (English)</label>
+    <input id="newsTitleEn" required maxlength="250">
+
+    <label>Title (Hausa)</label>
+    <input id="newsTitleHa" maxlength="250">
+
+    <label>Description (English)</label>
+    <textarea id="newsDescriptionEn" required maxlength="5000"></textarea>
+
+    <label>Description (Hausa)</label>
+    <textarea id="newsDescriptionHa" maxlength="5000"></textarea>
+
+    <label>News Image</label>
+    <input type="file" id="newsImage" accept="image/*">
+
+    <label>Image Description</label>
+    <input id="newsImageAlt" placeholder="Describe the image">
+
+    <label>News Link</label>
+    <input id="newsLink" value="news.html" placeholder="news.html">
+
+    <label style="display:flex;align-items:center;gap:8px;">
+      <input type="checkbox" id="newsPublished" checked
+        style="width:auto;margin:0;">
+      Publish this news on the website
+    </label>
+
+    <button type="submit" id="saveNewsBtn">Save News</button>
+    <button type="button" id="cancelNewsEditBtn"
+      style="background:#64748b;">Cancel Edit</button>
+
+    <p id="adminNewsMessage"></p>
+  </form>
+
+  <hr style="margin:25px 0;">
+
+  <h3>Existing Campaign News</h3>
+  <button type="button" id="refreshNewsBtn">Refresh News</button>
+  <div id="adminNewsList" style="margin-top:15px;">
+    Loading news...
+  </div>
+</section>
+
+<section class="dashboard-section" id="imageManagement">
+  <h2>Campaign Image & Document Management</h2>
+  <p>Upload and manage campaign images and documents.</p>
+
+  <div style="margin:15px 0;">
+    <label for="storageBucket"><strong>Select Storage Folder</strong></label>
+    <select id="storageBucket" style="display:block;width:100%;padding:12px;margin-top:8px;">
+      <option value="campaign-news">Campaign News</option>
+      <option value="campaign-gallery">Campaign Gallery</option>
+      <option value="candidate-media">Candidate Media</option>
+      <option value="executive-photos">Executive Photos</option>
+      <option value="campaign-documents">Campaign Documents (Private)</option>
+    </select>
+  </div>
+
+  <div style="margin:15px 0;">
+    <label for="storageFiles"><strong>Choose Files</strong></label>
+    <input type="file" id="storageFiles" multiple
+      style="display:block;width:100%;padding:12px;margin-top:8px;">
+  </div>
+
+  <button type="button" id="uploadStorageBtn"
+    style="padding:12px 20px;cursor:pointer;">
+    Upload Files
+  </button>
+
+  <p id="storageMessage" style="margin:15px 0;"></p>
+
+  <hr style="margin:20px 0;">
+
+  <h3>Uploaded Files</h3>
+  <button type="button" id="refreshStorageBtn"
+    style="padding:10px 15px;margin:10px 0;cursor:pointer;">
+    Refresh Files
+  </button>
+
+  <div id="storageFileList"
+    style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;">
+  </div>
+</section>
+
 <script type="module" src="js/admin-dashboard.js"></script>
+<script type="module" src="js/admin-news.js"></script>
 </body>
 </html>

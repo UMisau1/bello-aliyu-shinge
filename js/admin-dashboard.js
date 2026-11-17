@@ -347,3 +347,274 @@ const statisticsLiveChannel = supabase
     }
   )
   .subscribe();
+
+/* =========================================
+   SUPABASE STORAGE - IMAGE MANAGEMENT
+========================================= */
+
+const STORAGE_ADMIN_UID = "c3ffb5cd-3dbf-4ebe-9262-ed4eb4c649f3";
+
+const storageBucket = document.getElementById("storageBucket");
+const storageFiles = document.getElementById("storageFiles");
+const uploadStorageBtn = document.getElementById("uploadStorageBtn");
+const refreshStorageBtn = document.getElementById("refreshStorageBtn");
+const storageMessage = document.getElementById("storageMessage");
+const storageFileList = document.getElementById("storageFileList");
+
+const publicBuckets = [
+  "campaign-news",
+  "campaign-gallery",
+  "candidate-media",
+  "executive-photos"
+];
+
+let storageAdminVerified = false;
+
+async function verifyStorageAdmin() {
+  const { data, error } = await supabase.auth.getUser();
+
+  if (
+    error ||
+    !data.user ||
+    data.user.id !== STORAGE_ADMIN_UID
+  ) {
+    storageMessage.textContent =
+      "Access denied. Only the authorized administrator can manage files.";
+
+    uploadStorageBtn.disabled = true;
+    storageBucket.disabled = true;
+    storageFiles.disabled = true;
+    refreshStorageBtn.disabled = true;
+
+    return false;
+  }
+
+  storageAdminVerified = true;
+  return true;
+}
+
+function updateStorageFileType() {
+  if (storageBucket.value === "campaign-documents") {
+    storageFiles.accept =
+      ".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt";
+  } else {
+    storageFiles.accept = "image/*";
+  }
+}
+
+async function loadStorageFiles() {
+  if (!storageAdminVerified) return;
+
+  storageMessage.textContent = "Loading files...";
+  storageFileList.replaceChildren();
+
+  const bucket = storageBucket.value;
+
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .list("", {
+      limit: 100,
+      sortBy: {
+        column: "created_at",
+        order: "desc"
+      }
+    });
+
+  if (error) {
+    storageMessage.textContent =
+      "Unable to load files: " + error.message;
+    return;
+  }
+
+  const files = (data || []).filter(file => file.id);
+
+  if (!files.length) {
+    storageMessage.textContent = "No files uploaded yet.";
+    return;
+  }
+
+  storageMessage.textContent =
+    files.length + " file(s) found.";
+
+  for (const file of files) {
+    const path = file.name;
+    const card = document.createElement("div");
+
+    card.style.cssText =
+      "border:1px solid #ddd;padding:12px;border-radius:8px;overflow-wrap:anywhere;";
+
+    const name = document.createElement("p");
+    name.textContent = file.name;
+    name.style.fontWeight = "bold";
+
+    card.appendChild(name);
+
+    let fileUrl = "";
+
+    if (publicBuckets.includes(bucket)) {
+      const result = supabase.storage
+        .from(bucket)
+        .getPublicUrl(path);
+
+      fileUrl = result.data.publicUrl;
+    } else {
+      const result = await supabase.storage
+        .from(bucket)
+        .createSignedUrl(path, 600);
+
+      if (!result.error) {
+        fileUrl = result.data.signedUrl;
+      }
+    }
+
+    if (fileUrl) {
+      const link = document.createElement("a");
+      link.href = fileUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "View / Open File";
+      link.style.display = "block";
+      link.style.margin = "10px 0";
+
+      if (
+        publicBuckets.includes(bucket) &&
+        file.metadata?.mimetype?.startsWith("image/")
+      ) {
+        const preview = document.createElement("img");
+        preview.src = fileUrl;
+        preview.alt = file.name;
+        preview.style.cssText =
+          "width:100%;height:150px;object-fit:cover;border-radius:6px;margin-top:10px;";
+
+        card.appendChild(preview);
+      }
+
+      card.appendChild(link);
+    }
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.textContent = "Delete File";
+    deleteBtn.style.cssText =
+      "padding:9px 12px;background:#b91c1c;color:white;border:0;border-radius:5px;cursor:pointer;";
+
+    deleteBtn.addEventListener("click", async () => {
+      if (!confirm("Are you sure you want to delete " + file.name + "?")) {
+        return;
+      }
+
+      const { error: deleteError } = await supabase.storage
+        .from(bucket)
+        .remove([path]);
+
+      if (deleteError) {
+        storageMessage.textContent =
+          "Delete failed: " + deleteError.message;
+        return;
+      }
+
+      storageMessage.textContent = "File deleted successfully.";
+      await loadStorageFiles();
+    });
+
+    card.appendChild(deleteBtn);
+    storageFileList.appendChild(card);
+  }
+}
+
+async function uploadStorageFiles() {
+  if (!storageAdminVerified) return;
+
+  const files = Array.from(storageFiles.files || []);
+  const bucket = storageBucket.value;
+
+  if (!files.length) {
+    storageMessage.textContent = "Please select at least one file.";
+    return;
+  }
+
+  uploadStorageBtn.disabled = true;
+
+  for (const file of files) {
+    if (file.size > 10 * 1024 * 1024) {
+      storageMessage.textContent =
+        file.name + " exceeds the 10MB file limit.";
+      uploadStorageBtn.disabled = false;
+      return;
+    }
+
+    if (publicBuckets.includes(bucket)) {
+      if (!file.type.startsWith("image/")) {
+        storageMessage.textContent =
+          "Only image files are allowed in this folder: " + file.name;
+        uploadStorageBtn.disabled = false;
+        return;
+      }
+    } else {
+      const allowedExtensions =
+        /\.(pdf|doc|docx|xls|xlsx|ppt|pptx|txt)$/i;
+
+      if (!allowedExtensions.test(file.name)) {
+        storageMessage.textContent =
+          "Unsupported document format: " + file.name;
+        uploadStorageBtn.disabled = false;
+        return;
+      }
+    }
+  }
+
+  for (const file of files) {
+    storageMessage.textContent = "Uploading " + file.name + "...";
+
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    const uniqueName =
+      Date.now() + "-" + crypto.randomUUID() + "-" + safeName;
+
+    const { error } = await supabase.storage
+      .from(bucket)
+      .upload(uniqueName, file, {
+        upsert: false,
+        contentType: file.type || "application/octet-stream"
+      });
+
+    if (error) {
+      storageMessage.textContent =
+        "Upload failed for " + file.name + ": " + error.message;
+
+      uploadStorageBtn.disabled = false;
+      return;
+    }
+  }
+
+  storageFiles.value = "";
+  storageMessage.textContent = "All files uploaded successfully.";
+
+  uploadStorageBtn.disabled = false;
+
+  await loadStorageFiles();
+}
+
+if (
+  storageBucket &&
+  storageFiles &&
+  uploadStorageBtn &&
+  refreshStorageBtn &&
+  storageMessage &&
+  storageFileList
+) {
+  storageBucket.addEventListener("change", () => {
+    updateStorageFileType();
+    loadStorageFiles();
+  });
+
+  uploadStorageBtn.addEventListener("click", uploadStorageFiles);
+  refreshStorageBtn.addEventListener("click", loadStorageFiles);
+
+  updateStorageFileType();
+
+  verifyStorageAdmin().then(allowed => {
+    if (allowed) {
+      loadStorageFiles();
+    }
+  });
+}
