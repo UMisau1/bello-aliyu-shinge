@@ -88,9 +88,10 @@
 
   let map = null;
 
+let mapLayer = null;
 
-
-  let mapLayer = null;
+let boundaryLayer = null;
+let boundaryLoading = false;
 
 
 
@@ -905,6 +906,92 @@
 
 
 
+async function loadBauchiBoundaries() {
+
+    if (!map || boundaryLayer || boundaryLoading) return;
+
+    boundaryLoading = true;
+
+    const boundaryUrl =
+        "https://services3.arcgis.com/BU6Aadhn6tbBEdyk/ArcGIS/rest/services/GRID3_Nigeria_Local_Government_Area_Boundaries_with_Names/FeatureServer/11/query?where=state_name%3D%27Bauchi%27&outFields=lga_name,state_name&returnGeometry=true&outSR=4326&f=geojson";
+
+    try {
+        const response = await fetch(boundaryUrl);
+
+        if (!response.ok) {
+            throw new Error("Unable to download LGA boundaries.");
+        }
+
+        const geojson = await response.json();
+
+        if (!geojson.features || !geojson.features.length) {
+            throw new Error("No Bauchi LGA boundaries were returned.");
+        }
+
+        const centralLGAs = [
+            "Misau",
+            "Dambam",
+            "Damban",
+            "Ningi",
+            "Warji",
+            "Darazo",
+            "Ganjuwa"
+        ];
+
+        boundaryLayer = L.geoJSON(geojson, {
+
+            style: function(feature) {
+                const name = feature.properties.lga_name || "";
+
+                const highlighted = centralLGAs.some(
+                    lga => lga.toLowerCase() === name.toLowerCase()
+                );
+
+                return {
+                    color: highlighted ? "#b45309" : "#475569",
+                    weight: highlighted ? 3 : 1.5,
+                    opacity: 1,
+                    fillColor: highlighted ? "#f59e0b" : "#94a3b8",
+                    fillOpacity: highlighted ? 0.35 : 0.12
+                };
+            },
+
+            onEachFeature: function(feature, layer) {
+                const name = feature.properties.lga_name || "Unknown LGA";
+
+                layer.bindTooltip(name, {
+                    permanent: false,
+                    direction: "center",
+                    className: "lga-map-label"
+                });
+
+                layer.bindPopup(
+                    "<b>" + esc(name) + "</b><br>Bauchi State"
+                );
+            }
+
+        }).addTo(map);
+
+        map.fitBounds(boundaryLayer.getBounds(), {
+    padding: [25, 25],
+    maxZoom: 9
+});
+
+        console.log(
+            "Bauchi LGA boundaries loaded:",
+            geojson.features.length
+        );
+
+        if (mapLayer) mapLayer.eachLayer(layer => {
+            if (layer.bringToFront) layer.bringToFront();
+        });
+
+    } catch (error) {
+        console.error("LGA boundary loading error:", error);
+        boundaryLoading = false;
+    }
+}
+
 
 
 
@@ -1019,7 +1106,7 @@
 
     if (points.length) map.fitBounds(points, { padding: [25, 25], maxZoom: 12 });
 
-
+    loadBauchiBoundaries();
 
   }
 

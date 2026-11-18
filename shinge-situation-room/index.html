@@ -33,6 +33,12 @@
 
 <button data-tab="votewise">Votewise Directory</button>
 
+
+<!-- INEC NAVIGATION BUTTON -->
+<button class="tab-btn" data-tab="inec">
+  INEC Information
+</button>
+
 <button data-tab="users" id="usersTab">User Roles</button><button data-tab="audit">Audit Trail</button></nav>
 
 <section id="tab-overview" class="card"><div class="row" style="justify-content:space-between"><h3>Six LGA Monitoring</h3><button class="btn secondary" id="refreshBtn">Refresh data</button></div><div class="tablewrap"><table><thead><tr><th>LGA</th><th>Field reports</th><th>Incidents</th><th>Campaign visits</th></tr></thead><tbody id="lgaRows"></tbody></table></div><p class="muted">Figures are based only on records available in this Supabase project.</p></section>
@@ -577,7 +583,135 @@
 
 </section>
 <!-- END VOTEWISE ELECTORAL DIRECTORY -->
+
+<!-- INEC MODULE -->
+<section id="tab-inec" class="card hidden">
+  <h3>INEC Information & Election Data</h3>
+
+  <p>Official election information and verification resources.</p>
+
+  <div class="formgrid">
+
+    <div>
+      <h4>Polling Unit Locator</h4>
+      <a href="https://www.inecnigeria.org/polling-units/"
+         target="_blank" rel="noopener">
+        Open INEC Polling Unit Locator
+      </a>
+    </div>
+
+    <div>
+      <h4>Election Results – IReV</h4>
+      <a href="https://inecelectionresults.ng/"
+         target="_blank" rel="noopener">
+        Open INEC IReV Portal
+      </a>
+    </div>
+
+    <div>
+      <h4>Election Guidelines</h4>
+      <a href="https://inecnigeria.org/elections/guidelines"
+         target="_blank" rel="noopener">
+        View INEC Guidelines
+      </a>
+    </div>
+
+    <div>
+      <h4>INEC Official Website</h4>
+      <a href="https://inecnigeria.org/"
+         target="_blank" rel="noopener">
+        Visit INEC
+      </a>
+    </div>
+    
+
+<div>
+  <h4>Official Polling Unit Locator</h4>
+  <a href="https://cvr.inecnigeria.org/pu" target="_blank" rel="noopener">
+    Locate Polling Units
+  </a>
+</div>
+
+<div>
+  <h4>INEC IReV Results Portal</h4>
+  <a href="https://inecelectionresults.ng/" target="_blank" rel="noopener">
+    View Election Results
+  </a>
+</div>
+
+<div>
+  <h4>Election Guidelines</h4>
+  <a href="https://inecnigeria.org/elections/guidelines" target="_blank" rel="noopener">
+    Official Election Guidelines
+  </a>
+</div>
+
+<div>
+  <h4>Election Calendar</h4>
+  <a href="https://inecnigeria.org/elections/calendar" target="_blank" rel="noopener">
+    View Election Timetable
+  </a>
+</div>
+
+<div>
+  <h4>INEC Press Releases</h4>
+  <a href="https://inecnigeria.org/press" target="_blank" rel="noopener">
+    Latest Official Announcements
+  </a>
+</div>
+
+<div>
+  <h4>INEC Voter Education</h4>
+  <a href="https://inecnigeria.org/voters/education" target="_blank" rel="noopener">
+    Voter Education Resources
+  </a>
+</div>
+
+
+<!-- BAUCHI CENTRAL POLLING UNIT DIRECTORY -->
+<div class="card" id="bauchiCentralDirectory">
+    <h3>Bauchi Central Polling Unit Directory</h3>
+    <p>
+        Browse the six Local Government Areas, electoral wards
+        and polling unit information for Bauchi Central.
+    </p>
+
+    <div class="form-group">
+        <label for="inecLgaSelect">Select Local Government Area</label>
+        <select id="inecLgaSelect">
+            <option value="">-- Select LGA --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="inecWardSelect">Select Ward</label>
+        <select id="inecWardSelect" disabled>
+            <option value="">-- Select Ward --</option>
+        </select>
+    </div>
+
+    <div id="inecDirectorySummary" class="card">
+        Select an LGA and Ward to view directory information.
+    </div>
+
+    <div id="inecPollingUnitResults"></div>
+
+    <a href="https://cvr.inecnigeria.org/pu"
+       target="_blank" rel="noopener">
+        Verify Polling Unit on Official INEC Portal
+    </a>
+</div>
+
+  </div>
+
+  <p class="muted">
+    This is an independent campaign monitoring and
+    information module. It is not an INEC-operated system.
+  </p>
+</section>
+
+
 </section><div class="footer">Shinge Campaign | Mini Situation Room | Internal authorised use</div></main>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/app.js"></script></body></html>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/app.js"></script></body></html><script src="js/inec-directory.js"></script><script src="js/inec-polling-units.js"></script>
 

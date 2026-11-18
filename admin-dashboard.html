@@ -267,6 +267,24 @@
     <p id="adminNewsMessage"></p>
   </form>
 
+
+  <section id="bulkNewsManager" style="margin:25px 0;padding:20px;background:#f8fafc;border:1px solid #dbe3ec;border-radius:10px;">
+    <h3>Bulk News Upload</h3>
+    <p>Add several news items and upload their individual images together.</p>
+
+    <div id="bulkNewsRows"></div>
+
+    <button type="button" id="addBulkNewsRowBtn" style="background:#2563eb;margin:10px 5px 10px 0;">
+      + Add Another News
+    </button>
+
+    <button type="button" id="uploadAllBulkNewsBtn" style="background:#087b48;margin:10px 0;">
+      Upload All News
+    </button>
+
+    <p id="bulkNewsMessage" role="status" aria-live="polite"></p>
+  </section>
+
   <hr style="margin:25px 0;">
 
   <h3>Existing Campaign News</h3>
@@ -319,5 +337,6 @@
 
 <script type="module" src="js/admin-dashboard.js"></script>
 <script type="module" src="js/admin-news.js"></script>
+<script type="module" src="js/admin-news-bulk.js"></script>
 </body>
 </html>
