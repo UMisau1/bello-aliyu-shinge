@@ -1,155 +1,39 @@
 
-/* ==========================================
-   SHINGE CAMPAIGN
-   NEWS & EVENTS MANAGER
-
-   Add, edit or remove news from this file.
-========================================== */
-
-const SHINGE_NEWS_EVENTS = [
-
-    // ======================================
-// MEGA RALLY — 16 NOVEMBER 2026
-// ======================================
-
-{
-    category: "MEGA RALLY",
-    categoryHa: "BABBAN GANGAMI",
-    date: "Monday, 16 November 2026",
-
-    title: "Mega Rally in Dambam and Dagauda",
-    titleHa: "Babban Gangami a Dambam da Dagauda",
-
-    description: "The campaign will hold a Mega Rally on Monday, 16 November 2026, at Dambam by 10:00 AM and Dagauda by 1:30 PM. All supporters and well-wishers are invited to attend.",
-
-    descriptionHa: "Za a gudanar da babban gangamin kamfen ranar Litinin, 16 ga Nuwamba, 2026, a Dambam da ƙarfe 10:00 na safe, sannan a Dagauda da ƙarfe 1:30 na rana. Ana gayyatar dukkan magoya baya da masu fatan alheri su halarta.",
-
-    image: "images/news/mega-rally.jpg",
-    alt: "Mega Rally",
-
-    link: "news.html"
-},
-
-    // ======================================
-    // UPCOMING EVENT 1
-    // ======================================
-
-    {
-        category: "UPCOMING EVENT",
-        categoryHa: "SHIRIN DA KE TAFE",
-        date: "8 November 2026",
-
-        title: "PDP to Receive 1,500 Decampees from APC, APM, ADC, NDC and Other Parties",
-        titleHa: "PDP Za Ta Karɓi Mutane 1,500 da Suka Sauya Sheƙa Daga APC, APM, ADC, NDC da Sauransu",
-
-        description: "On Sunday, 8 November 2026, the PDP is scheduled to receive approximately 1,500 decampees from APC, APM, ADC, NDC and other political groups.",
-        descriptionHa: "A ranar Lahadi, 8 ga Nuwamba, 2026, ana shirin PDP ta karɓi kusan mutane 1,500 da suka sauya sheƙa daga APC, APM, ADC, NDC da sauran ƙungiyoyin siyasa.",
-
-        image: "images/pdp-event.jpg",
-        alt: "PDP Event",
-
-        link: "news.html"
-    },
-
-    // ======================================
-    // UPCOMING EVENT 2
-    // ======================================
-
-    {
-        category: "PARTY MEETING",
-        categoryHa: "TARON JAM'IYYA",
-        date: "8 November 2026",
-
-        title: "Meeting with PDP Officials and All Candidates",
-        titleHa: "Taron Jami'an PDP da Dukkan 'Yan Takarar Jam'iyyar",
-
-        description: "A meeting with PDP officials and all party candidates will also take place on Sunday, 8 November 2026, at the PDP State Secretariat in Bauchi.",
-        descriptionHa: "Haka kuma, za a gudanar da taro da jami'an PDP da dukkan 'yan takarar jam'iyyar a ranar Lahadi, 8 ga Nuwamba, 2026, a sakatariyar PDP ta jiha da ke Bauchi.",
-
-        image: "images/pdp-meeting.jpg",
-        alt: "PDP Meeting",
-
-        link: "news.html"
-    },
-
-    // ======================================
-    // EXISTING NEWS 1
-    // ======================================
-
-    {
-        category: "CAMPAIGN NEWS",
-        categoryHa: "LABARIN KAMFEN",
-        date: "15 Jan 2027",
-
-        title: "Campaign Flag-Off",
-        titleHa: "Kaddamar da Kamfen",
-
-        description: "Updates on the campaign launch and engagement with communities across Bauchi Central.",
-        descriptionHa: "Sabbin bayanai kan kaddamar da kamfen da ganawa da al'ummomi a Bauchi Central.",
-
-        image: "images/news/news1.jpg",
-        alt: "Campaign News",
-
-        link: "news.html"
-    },
-
-    // ======================================
-    // EXISTING NEWS 2
-    // ======================================
-
-    {
-        category: "YOUTH",
-        categoryHa: "MATASA",
-        date: "20 Jan 2027",
-
-        title: "Youth Engagement",
-        titleHa: "Shigar da Matasa Cikin Ayyuka",
-
-        description: "Campaign engagement focused on youth participation, leadership and empowerment.",
-        descriptionHa: "Ayyukan kamfen da suka mayar da hankali kan shigar matasa, jagoranci da karfafawa.",
-
-        image: "images/news/news2.jpg",
-        alt: "Youth Engagement",
-
-        link: "news.html"
-    },
-
-    // ======================================
-    // EXISTING NEWS 3
-    // ======================================
-
-    {
-        category: "COMMUNITY",
-        categoryHa: "AL'UMMA",
-        date: "28 Jan 2027",
-
-        title: "Community Stakeholders Meeting",
-        titleHa: "Taron Masu Ruwa da Tsaki",
-
-        description: "Community discussions on local priorities and development needs in the six LGAs.",
-        descriptionHa: "Tattaunawar al'umma kan muhimman bukatu da ci gaba a kananan hukumomi shida.",
-
-        image: "images/news/news3.jpg",
-        alt: "Community Meeting",
-
-        link: "news.html"
-    }
-
-];
-
-
-/* ==========================================
-   DISPLAY NEWS AND EVENTS
-========================================== */
+import { supabase } from "./supabase-config.js";
 
 (function () {
-
     "use strict";
 
     const newsGrid = document.getElementById("shingeNewsGrid");
 
-    if (!newsGrid) return;
+    if (!newsGrid) {
+        console.warn("Shinge News: shingeNewsGrid was not found.");
+        return;
+    }
 
+    let newsItems = [];
+
+    // Detect the current portal language
+    function getCurrentLanguage() {
+        const htmlLanguage = (
+            document.documentElement.lang || ""
+        ).toLowerCase();
+
+        const bodyLanguage = (
+            document.body.getAttribute("data-language") || ""
+        ).toLowerCase();
+
+        const savedLanguage = (
+            localStorage.getItem("shingeLanguage") || ""
+        ).toLowerCase();
+
+        const language =
+            htmlLanguage || bodyLanguage || savedLanguage || "en";
+
+        return language.startsWith("ha") ? "ha" : "en";
+    }
+
+    // Create HTML elements safely
     function createElement(tag, className, text) {
         const element = document.createElement(tag);
 
@@ -157,76 +41,94 @@ const SHINGE_NEWS_EVENTS = [
             element.className = className;
         }
 
-        if (text !== undefined) {
+        if (text !== undefined && text !== null) {
             element.textContent = text;
         }
 
         return element;
     }
 
-    function createNewsCard(item) {
+    // Get public image URL from Supabase Storage
+    function getNewsImageUrl(imagePath) {
+        if (!imagePath) return "";
+
+        const { data } = supabase.storage
+            .from("campaign-news")
+            .getPublicUrl(imagePath);
+
+        return data?.publicUrl || "";
+    }
+
+    // Create one news card
+    function createNewsCard(item, language) {
+        const isHausa = language === "ha";
+
+        const category = isHausa
+            ? (item.category_ha || item.category_en)
+            : item.category_en;
+
+        const title = isHausa
+            ? (item.title_ha || item.title_en)
+            : item.title_en;
+
+        const description = isHausa
+            ? (item.description_ha || item.description_en)
+            : item.description_en;
 
         const article = createElement("article", "shinge-news-card");
 
-        // IMAGE AREA
+        // Image area
         const photo = createElement("div", "shinge-news-photo");
 
-        const image = createElement("img");
+        if (item.image_path) {
+            const image = createElement("img");
 
-        image.src = item.image || "";
-        image.alt = item.alt || item.title;
-        image.loading = "lazy";
+            image.src = getNewsImageUrl(item.image_path);
+            image.alt = item.image_alt || title || "Campaign news";
+            image.loading = "lazy";
 
-        image.onerror = function () {
-            this.style.display = "none";
-        };
+            image.onerror = function () {
+                this.style.display = "none";
+            };
 
-        const category = createElement(
+            photo.appendChild(image);
+        }
+
+        const categoryLabel = createElement(
             "span",
             "shinge-news-label",
-            item.category
+            category || (isHausa ? "LABARI" : "NEWS")
         );
 
-        category.setAttribute("data-en", item.category);
-        category.setAttribute("data-ha", item.categoryHa || item.category);
+        photo.appendChild(categoryLabel);
 
-        photo.appendChild(image);
-        photo.appendChild(category);
-
-        // NEWS BODY
+        // News body
         const body = createElement("div", "shinge-news-body");
 
         const date = createElement(
             "span",
             "shinge-news-date",
-            item.date
+            item.date_label || ""
         );
 
-        const title = createElement("h3", "", item.title);
+        const heading = createElement("h3", "", title || "");
 
-        title.setAttribute("data-en", item.title);
-        title.setAttribute("data-ha", item.titleHa || item.title);
-
-        const description = createElement(
+        const details = createElement(
             "p",
             "",
-            item.description
+            description || ""
         );
 
-        description.setAttribute("data-en", item.description);
-        description.setAttribute(
-            "data-ha",
-            item.descriptionHa || item.description
-        );
-
+        // Read more link
         const link = createElement("a", "shinge-read-more");
 
-        link.href = item.link || "news.html";
+        link.href = item.link_url || "news.html";
 
-        const linkText = createElement("span", "", "Read More");
-
-        linkText.setAttribute("data-en", "Read More");
-        linkText.setAttribute("data-ha", "Kara Karantawa");
+        const linkText = createElement(
+            "span",
+            "",
+            isHausa ? "Kara Karantawa" : "Read More"
+        );
 
         const arrow = createElement("span", "", "→");
         arrow.setAttribute("aria-hidden", "true");
@@ -235,8 +137,8 @@ const SHINGE_NEWS_EVENTS = [
         link.appendChild(arrow);
 
         body.appendChild(date);
-        body.appendChild(title);
-        body.appendChild(description);
+        body.appendChild(heading);
+        body.appendChild(details);
         body.appendChild(link);
 
         article.appendChild(photo);
@@ -245,29 +147,105 @@ const SHINGE_NEWS_EVENTS = [
         return article;
     }
 
+    // Display news in the selected language
     function renderNews() {
-
+        const language = getCurrentLanguage();
         const fragment = document.createDocumentFragment();
 
-        SHINGE_NEWS_EVENTS.forEach(function (item) {
-            fragment.appendChild(createNewsCard(item));
+        if (!newsItems.length) {
+            const message = createElement(
+                "p",
+                "",
+                language === "ha"
+                    ? "Babu labarai a halin yanzu."
+                    : "There are no news or events at the moment."
+            );
+
+            newsGrid.replaceChildren(message);
+            return;
+        }
+
+        newsItems.forEach(function (item) {
+            fragment.appendChild(
+                createNewsCard(item, language)
+            );
         });
 
         newsGrid.replaceChildren(fragment);
-
-        // Apply the current language if the portal exposes it.
-        const currentLanguage =
-            document.documentElement.lang ||
-            document.body.getAttribute("data-language");
-
-        if (currentLanguage === "ha") {
-            newsGrid.querySelectorAll("[data-ha]").forEach(function (element) {
-                element.textContent = element.getAttribute("data-ha");
-            });
-        }
-
     }
 
-    renderNews();
+    // Load published news from Supabase
+    async function loadNews() {
+        newsGrid.textContent =
+            getCurrentLanguage() === "ha"
+                ? "Ana loda labarai..."
+                : "Loading news and events...";
+
+        try {
+            const { data, error } = await supabase
+                .from("campaign_news")
+                .select("*")
+                .eq("is_published", true)
+                .order("sort_order", { ascending: true })
+                .order("created_at", { ascending: false });
+
+            if (error) {
+                throw error;
+            }
+
+            newsItems = data || [];
+
+            renderNews();
+
+        } catch (error) {
+            console.error("Shinge News loading error:", error);
+
+            newsGrid.textContent =
+                getCurrentLanguage() === "ha"
+                    ? "An samu matsala wajen loda labarai. Da fatan za a sake gwadawa."
+                    : "Unable to load news and events. Please try again.";
+        }
+    }
+
+    // Re-render news when the portal language changes
+    const languageObserver = new MutationObserver(function () {
+        renderNews();
+    });
+
+    languageObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"]
+    });
+
+    languageObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["data-language"]
+    });
+
+    // Also respond to language selector interactions
+    document.addEventListener("click", function (event) {
+        if (
+            event.target.closest("[data-language]") ||
+            event.target.closest("#languageSelect")
+        ) {
+            setTimeout(renderNews, 100);
+        }
+    });
+
+    document.addEventListener("change", function (event) {
+        if (event.target.matches("#languageSelect")) {
+            setTimeout(renderNews, 100);
+        }
+    });
+
+    // Listen for language changes from other browser tabs
+    window.addEventListener("storage", function (event) {
+        if (event.key === "shingeLanguage") {
+            renderNews();
+        }
+    });
+
+    // Start
+    loadNews();
 
 })();
